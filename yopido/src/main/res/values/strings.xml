@@ -4,4 +4,7 @@
     <string name="Registro">Registrarse</string>
     <string name="PideYa">¡Pide Ya!</string>
     <string name="msg_Aun_NO_TOLAIIIIIIIII">¿A donde vas bobito?</string>
+    <string name="Reservar">Reservar</string>
+    <string name="AnularResrva">Anular reserva</string>
+    <string name="VerRservas">Mis reservas</string>
 </resources>
