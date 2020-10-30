@@ -11,6 +11,9 @@ public class Usuario implements Parcelable {
     private String contrseña;
     private boolean politicaDeProteccionDeDatos = false;
 
+    public Usuario() {
+    }
+
     public Usuario(int id, String nombre, String apellidos, String email, String contrseña, boolean politicaDeProteccionDeDatos) {
         this.id = id;
         Nombre = nombre;
