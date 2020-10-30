@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">YoPido</string>
+    <string name="Entrar">¡Entrar!</string>
+    <string name="Registro">Registrarse</string>
+    <string name="PideYa">¡Pide Ya!</string>
 </resources>
