@@ -7,11 +7,8 @@ public class Reserva implements Parcelable {
     private int id;
     private int NumeroDePersonas;
     private int Inicio;
-    private int Fin;
-
-    public Reserva() {
-    }
-
+    private  int Fin;
+public Reserva (){}
     public Reserva(int id, int numeroDePersonas, int inicio, int fin) {
         this.id = id;
         NumeroDePersonas = numeroDePersonas;
