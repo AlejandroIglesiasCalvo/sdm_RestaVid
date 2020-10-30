@@ -22,7 +22,7 @@ public class ReservaDataSource {
      * Columnas de la tabla
      */
     private final String[] allColumns = {MyDBHelper.COLUMNA_ID_RESERVA, MyDBHelper.COLUMNA_NUMERO_RESERVA,
-            MyDBHelper.COLUMNA_INICIO_RESERVA, MyDBHelper.COLUMNA_FIN_RESERVA};
+            MyDBHelper.COLUMNA_INICIO_RESERVA, MyDBHelper.COLUMNA_FIN_RESERVA, MyDBHelper.COLUMNA_ID_USUARIO_RESERVA};
 
     /**
      * Constructor.
@@ -66,7 +66,7 @@ public class ReservaDataSource {
         values.put(MyDBHelper.COLUMNA_NUMERO_RESERVA, reservaInsert.getNumeroDePersonas());
         values.put(MyDBHelper.COLUMNA_INICIO_RESERVA, reservaInsert.getInicio());
         values.put(MyDBHelper.COLUMNA_FIN_RESERVA, reservaInsert.getFin());
-
+        values.put(MyDBHelper.COLUMNA_ID_USUARIO_RESERVA, reservaInsert.getId_usuario());
         // Insertamos la valoracion
         long insertId =
                 database.insert(MyDBHelper.TABLA_RESERVAS, null, values);
@@ -93,6 +93,8 @@ public class ReservaDataSource {
             reserva.setNumeroDePersonas(cursor.getInt(1));
             reserva.setInicio(cursor.getInt(2));
             reserva.setFin(cursor.getInt(3));
+            reserva.setId_usuario(cursor.getInt(4));
+
             reservasList.add(reserva);
             cursor.moveToNext();
         }
@@ -109,14 +111,14 @@ public class ReservaDataSource {
      *
      * @return SE SUPONE QUE UN SOLO USUARIO, ES LISTA POR SI LAS MOSCAS
      */
-    public List<Reserva> getReservaByID(String filtro) {
+    public List<Reserva> getReservaByIDUsuario(Integer filtro) {
         // Lista que almacenara el resultado
         List<Reserva> reservaList = new ArrayList<Reserva>();
         //hacemos una query porque queremos devolver un cursor
 
         Cursor cursor = database.rawQuery("Select * " +
                 " FROM " + MyDBHelper.TABLA_RESERVAS +
-                " WHERE " + MyDBHelper.TABLA_RESERVAS + "." + MyDBHelper.COLUMNA_ID_RESERVA + " = \"" + filtro + "\"", null);
+                " WHERE " + MyDBHelper.TABLA_RESERVAS + "." + MyDBHelper.COLUMNA_ID_USUARIO_RESERVA + " = \"" + filtro + "\"", null);
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
@@ -125,6 +127,7 @@ public class ReservaDataSource {
             reserva.setNumeroDePersonas(cursor.getInt(1));
             reserva.setInicio(cursor.getInt(2));
             reserva.setFin(cursor.getInt(3));
+            reserva.setId_usuario(cursor.getInt(4));
             reservaList.add(reserva);
             cursor.moveToNext();
         }

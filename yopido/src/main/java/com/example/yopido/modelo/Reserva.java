@@ -5,15 +5,25 @@ import android.os.Parcelable;
 
 public class Reserva implements Parcelable {
     private int id;
+    private int id_usuario;
     private int NumeroDePersonas;
     private int Inicio;
     private  int Fin;
 public Reserva (){}
-    public Reserva(int id, int numeroDePersonas, int inicio, int fin) {
+    public Reserva(int id, int id_usuario, int numeroDePersonas, int inicio, int fin) {
         this.id = id;
+        this.id_usuario=id_usuario;
         NumeroDePersonas = numeroDePersonas;
         Inicio = inicio;
         Fin = fin;
+    }
+
+    public int getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
     protected Reserva(Parcel in) {
@@ -21,6 +31,7 @@ public Reserva (){}
         NumeroDePersonas = in.readInt();
         Inicio = in.readInt();
         Fin = in.readInt();
+        id_usuario=in.readInt();
     }
 
     public static final Creator<Reserva> CREATOR = new Creator<Reserva>() {
@@ -78,5 +89,6 @@ public Reserva (){}
         dest.writeInt(NumeroDePersonas);
         dest.writeInt(Inicio);
         dest.writeInt(Fin);
+        dest.writeInt(id_usuario);
     }
 }

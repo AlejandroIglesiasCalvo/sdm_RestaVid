@@ -3,6 +3,9 @@ package com.example.yopido.modelo;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Usuario implements Parcelable {
     private int id;
     private String Nombre;
@@ -10,6 +13,7 @@ public class Usuario implements Parcelable {
     private String Email;
     private String contrseña;
     private boolean politicaDeProteccionDeDatos = false;
+    private List<Integer> reservas = new ArrayList<>();
 
     public Usuario() {
     }
@@ -90,6 +94,14 @@ public class Usuario implements Parcelable {
 
     public void setPoliticaDeProteccionDeDatos(boolean politicaDeProteccionDeDatos) {
         this.politicaDeProteccionDeDatos = politicaDeProteccionDeDatos;
+    }
+
+    public List<Integer> getReservas() {
+        return reservas;
+    }
+
+    public void setReservas(List<Integer> reservas) {
+        this.reservas = reservas;
     }
 
     @Override

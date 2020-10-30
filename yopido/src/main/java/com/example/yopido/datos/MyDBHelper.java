@@ -38,6 +38,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
     public static final String COLUMNA_NUMERO_RESERVA = "numero_reserva";
     public static final String COLUMNA_INICIO_RESERVA = "inicio_reserva";
     public static final String COLUMNA_FIN_RESERVA = "fin_reserva";
+    public static final String  COLUMNA_ID_USUARIO_RESERVA="id_usuario_reserva";
 
 
     /**
@@ -56,6 +57,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
     private static final String CREATE_TABLA_RESERVAS = "create table if not exists " + TABLA_RESERVAS
             + "( " +
             COLUMNA_ID_RESERVA + " " + "integer primary key, " +
+            COLUMNA_ID_USUARIO_RESERVA + " " + "integer not null, " +
             COLUMNA_NUMERO_RESERVA + " integer, " +
             COLUMNA_INICIO_RESERVA + " text not null, " +
             COLUMNA_FIN_RESERVA + " text not null, "
