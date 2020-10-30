@@ -96,10 +96,10 @@ public class UsuariosDataSource {
             user.setEmail(cursor.getString(3));
             user.setContrseña(cursor.getString(4));
             Boolean politica;
-            if(cursor.getString(5).equals("SI")){
-                politica=true;
-            }else{
-                politica=false;
+            if (cursor.getString(5).equals("SI")) {
+                politica = true;
+            } else {
+                politica = false;
             }
             user.setPoliticaDeProteccionDeDatos(politica);
             usuarioList.add(user);
@@ -136,10 +136,10 @@ public class UsuariosDataSource {
             user.setEmail(cursor.getString(3));
             user.setContrseña(cursor.getString(4));
             Boolean politica;
-            if(cursor.getString(5).equals("SI")){
-                politica=true;
-            }else{
-                politica=false;
+            if (cursor.getString(5).equals("SI")) {
+                politica = true;
+            } else {
+                politica = false;
             }
             user.setPoliticaDeProteccionDeDatos(politica);
             usuarioList.add(user);
@@ -148,7 +148,7 @@ public class UsuariosDataSource {
         cursor.close();
         // Una vez obtenidos todos los datos y cerrado el cursor, devolvemos la
         // lista.
-       return usuarioList;
+        return usuarioList;
     }
 
 }

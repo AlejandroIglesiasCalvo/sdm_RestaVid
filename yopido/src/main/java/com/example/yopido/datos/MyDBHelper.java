@@ -52,7 +52,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
             COLUMNA_EMAIL_USUARIO + " text not null, " +
             COLUMNA_CONTRASEÑA_USUARIO + " text not null, " +
             COLUMNA_POLITICA_DATOS + " text not null, " +
-            ");";
+            ")" ;
 
     private static final String CREATE_TABLA_RESERVAS = "create table if not exists " + TABLA_RESERVAS
             + "( " +
@@ -61,7 +61,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
             COLUMNA_NUMERO_RESERVA + " integer, " +
             COLUMNA_INICIO_RESERVA + " text not null, " +
             COLUMNA_FIN_RESERVA + " text not null, "
-            + ");";
+            + ")";
 
 
     /**
@@ -88,8 +88,6 @@ public class MyDBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(DATABASE_DROP_TABLA_USUARIO);
         db.execSQL(DATABASE_DROP_TABLA_RESERVAS);
-
         this.onCreate(db);
-
     }
 }
