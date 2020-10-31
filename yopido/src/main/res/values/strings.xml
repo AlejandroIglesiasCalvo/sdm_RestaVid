@@ -7,4 +7,17 @@
     <string name="Reservar">Reservar</string>
     <string name="AnularResrva">Anular reserva</string>
     <string name="VerRservas">Mis reservas</string>
+    <string name="titulo">RestaVid</string>
+    <string name="iniciarS">Iniciar Sesión</string>
+    <string name="nombreUsuario">Nombre de usuario (correo electrónico)</string>
+    <string name="editTextEmail">correo electrónico</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="editTextContraseña">contraseña</string>
+    <string name="btnCancelar">Cancelar</string>
+    <string name="btnAceptar">Aceptar</string>
+    <string name="icono">Icono de la aplicación</string>
+    <string name="registro">Registro</string>
+    <string name="correo">Correo electrónico(Será su nombre de usuario)</string>
+    <string name="nombre">Nombre y apellidos</string>
+    <string name="telefono">Teléfono de contacto</string>
 </resources>
