@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:text="@string/btnAceptar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonCancelarReserva_Admin"
+        app:layout_constraintEnd_toStartOf="@+id/buttonCancelar_Reserva_Admin"
         app:layout_constraintHorizontal_bias="0.878"
         app:layout_constraintStart_toStartOf="parent" />
 
