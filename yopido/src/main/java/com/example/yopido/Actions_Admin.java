@@ -23,7 +23,7 @@ public class Actions_Admin extends AppCompatActivity {
         Button btnAceptarEliminarReserva;
         Button btnCancelarEliminarReserva;
         btnAceptarEliminarReserva = (Button) findViewById(R.id.buttonAceptar_EliminarReserva_Admin);
-        btnCancelarEliminarReserva = (Button) findViewById(R.id.buttonCancelar_ EliminarReserva_Admin);
+        btnCancelarEliminarReserva = (Button) findViewById(R.id.buttonCancelar_EliminarReserva_Admin);
 
         // --- activity_admin_add_user
         Button btnAñadirUser;
@@ -35,7 +35,7 @@ public class Actions_Admin extends AppCompatActivity {
         Button btnAceptarEliminarUser;
         Button btnCancelarEliminarUser;
         btnAceptarEliminarUser = (Button) findViewById(R.id.buttonAceptar_EliminarUser_Admin);
-        btnCancelarEliminarUser = (Button) findViewById(R.id.buttonCancelar_ EliminarUser_Admin);
+        btnCancelarEliminarUser = (Button) findViewById(R.id.buttonCancelar_EliminarUser_Admin);
 
 
         btnAñadirReserva.setOnClickListener((new View.OnClickListener() {
