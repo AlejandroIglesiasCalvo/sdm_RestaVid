@@ -21,27 +21,21 @@ public class MainActivity extends AppCompatActivity {
         btnEntar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(findViewById(R.id.MainActivityLayaut), R.string.msg_Aun_NO_TOLAIIIIIIIII,
-                        Snackbar.LENGTH_SHORT)
-                        .show();
+                // Click para ir a pantalla de entrar en la app cuando el usuario está registrado
             }
         }));
         btnRegistro = (Button) findViewById(R.id.btnRegistro);
         btnRegistro.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(findViewById(R.id.MainActivityLayaut), R.string.msg_Aun_NO_TOLAIIIIIIIII,
-                        Snackbar.LENGTH_SHORT)
-                        .show();
+               // Click para ir a registrarse
             }
         }));
         btnPedirYa = (Button) findViewById(R.id.btnPideYa);
         btnPedirYa.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(findViewById(R.id.MainActivityLayaut), R.string.msg_Aun_NO_TOLAIIIIIIIII,
-                        Snackbar.LENGTH_SHORT)
-                        .show();
+                // Click para ir a la pantalla de reservar ya
             }
         }));
     }

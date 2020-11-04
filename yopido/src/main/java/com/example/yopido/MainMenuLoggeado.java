@@ -21,27 +21,21 @@ public class MainMenuLoggeado extends AppCompatActivity {
         btnReservar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(findViewById(R.id.MainActivityLayaut), R.string.msg_Aun_NO_TOLAIIIIIIIII,
-                        Snackbar.LENGTH_SHORT)
-                        .show();
+                // Click para ir a pantalla de reservar
             }
         }));
         btnAnularReserva = (Button) findViewById(R.id.btnRegistro);
         btnAnularReserva.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(findViewById(R.id.MainActivityLayaut), R.string.msg_Aun_NO_TOLAIIIIIIIII,
-                        Snackbar.LENGTH_SHORT)
-                        .show();
+                // Click para ir a pantalla de anular reservas
             }
         }));
         btnVerMisReservas = (Button) findViewById(R.id.btnPideYa);
         btnVerMisReservas.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(findViewById(R.id.MainActivityLayaut), R.string.msg_Aun_NO_TOLAIIIIIIIII,
-                        Snackbar.LENGTH_SHORT)
-                        .show();
+                // Click para ir a pantalla de ver reservas
             }
         }));
     }
