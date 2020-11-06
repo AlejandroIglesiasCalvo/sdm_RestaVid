@@ -3,9 +3,6 @@
     <string name="Entrar">¡Entrar!</string>
     <string name="Registro">Registrarse</string>
     <string name="PideYa">¡Pide Ya!</string>
-
-    // --------------------------------------------------------------
-
     <string name="Reservar">Reservar</string>
     <string name="AnularResrva">Anular reserva</string>
     <string name="VerRservas">Mis reservas</string>
@@ -22,8 +19,6 @@
     <string name="correo">Correo electrónico(Será su nombre de usuario)</string>
     <string name="nombre">Nombre y apellidos</string>
     <string name="telefono">Teléfono de contacto</string>
-
-    // ------------ Reserva_directa
     <string name="reserva">Reserva: </string>
     <string name="numero_personas">Número de personas: </string>
 </resources>
