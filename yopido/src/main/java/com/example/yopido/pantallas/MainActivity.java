@@ -2,6 +2,7 @@ package com.example.yopido.pantallas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
         btnEntar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Click para ir a pantalla de entrar en la app cuando el usuario está registrado
+                Intent intent = new Intent(v.getContext(), MainIniciarSesion.class);
+                startActivityForResult(intent, 0);
             }
         }));
         btnRegistro = (Button) findViewById(R.id.btnRegistro);
