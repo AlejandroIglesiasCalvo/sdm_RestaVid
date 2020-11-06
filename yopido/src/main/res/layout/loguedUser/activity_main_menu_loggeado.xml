@@ -4,31 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <Button
-        android:id="@+id/buttonCancelar_EliminarUser_Admin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btnCancelar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.949"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
-        app:layout_constraintVertical_bias="0.932" />
-
-    <Button
-        android:id="@+id/buttonAceptar_EliminarUser_Admin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btnAceptar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonCancelar_EliminarUser_Admin"
-        app:layout_constraintHorizontal_bias="0.878"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
-        app:layout_constraintVertical_bias="0.932" />
+    tools:context=".pantallas.loguedUser.MainMenuLoggeado">
 
     <view
         android:id="@+id/view"
@@ -72,19 +48,36 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.39" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
+    <Button
+        android:id="@+id/btnVerReservas"
+        android:layout_width="145dp"
+        android:layout_height="72dp"
+        android:text="@string/VerRservas"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
-        app:layout_constraintVertical_bias="0.323"
-        tools:visibility="invisible" />
+        app:layout_constraintTop_toBottomOf="@+id/btnAnularReserva"
+        app:layout_constraintVertical_bias="0.321" />
 
+    <Button
+        android:id="@+id/btnAnularReserva"
+        android:layout_width="145dp"
+        android:layout_height="72dp"
+        android:text="@string/AnularResrva"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnReservar"
+        app:layout_constraintVertical_bias="0.224" />
 
+    <Button
+        android:id="@+id/btnReservar"
+        android:layout_width="145dp"
+        android:layout_height="72dp"
+        android:text="@string/Reservar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.309" />
 </androidx.constraintlayout.widget.ConstraintLayout>

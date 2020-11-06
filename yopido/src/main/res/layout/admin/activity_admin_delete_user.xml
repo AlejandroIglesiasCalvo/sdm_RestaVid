@@ -4,40 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/reserva"
-        android:layout_width="104dp"
-        android:layout_height="35dp"
-        android:text="@string/reserva"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.163" />
+    tools:context=".pantallas.MainActivity">
 
     <Button
-        android:id="@+id/buttonCancelar"
+        android:id="@+id/buttonCancelar_EliminarUser_Admin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btnCancelar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.949"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        app:layout_constraintVertical_bias="0.932" />
 
     <Button
-        android:id="@+id/buttonAceptar"
+        android:id="@+id/buttonAceptar_EliminarUser_Admin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btnAceptar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonCancelar"
+        app:layout_constraintEnd_toStartOf="@+id/buttonCancelar_EliminarUser_Admin"
         app:layout_constraintHorizontal_bias="0.878"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        app:layout_constraintVertical_bias="0.932" />
 
     <view
         android:id="@+id/view"
@@ -91,53 +82,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        app:layout_constraintVertical_bias="0.323"
         tools:visibility="invisible" />
-
-    <TextView
-        android:id="@+id/nombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="@string/nombre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reserva" />
-
-    <EditText
-        android:id="@+id/editTextTextNombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Nombre y apellidos"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombre" />
-
-    <TextView
-        android:id="@+id/numero_personas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/numero_personas"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.058"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextNombre"
-        app:layout_constraintVertical_bias="0.058" />
-
-    <CalendarView
-        android:id="@+id/calendarReserva"
-        android:layout_width="192dp"
-        android:layout_height="221dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.817"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numero_personas" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

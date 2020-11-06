@@ -12,8 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.YoPido">
-        <activity android:name=".MainMenuLoggeado"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".pantallas.loguedUser.MainMenuLoggeado"></activity>
+        <activity android:name=".pantallas.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

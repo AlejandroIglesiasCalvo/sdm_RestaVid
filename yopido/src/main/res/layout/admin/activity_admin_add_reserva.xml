@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.163" />
 
     <Button
-        android:id="@+id/buttonCancelar"
+        android:id="@+id/buttonCancelar_Reserva_Admin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btnCancelar"
@@ -30,12 +30,12 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/buttonAceptar"
+        android:id="@+id/button_Aceptar_Reserva_Admin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btnAceptar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonCancelar"
+        app:layout_constraintEnd_toStartOf="@+id/buttonCancelar_Reserva_Admin"
         app:layout_constraintHorizontal_bias="0.878"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -159,11 +159,21 @@
         android:id="@+id/calendarReserva"
         android:layout_width="192dp"
         android:layout_height="221dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="52dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.817"
+        app:layout_constraintHorizontal_bias="0.073"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/numero_personas" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="154dp"
+        android:layout_height="33dp"
+        app:layout_constraintBottom_toTopOf="@+id/calendarReserva"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintVertical_bias="0.97" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
