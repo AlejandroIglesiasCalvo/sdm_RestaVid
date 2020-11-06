@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pantallas.MainActivity">
+    tools:context=".pantallas.MainIniciarSesion">
 
     <TextView
         android:id="@+id/loging"
@@ -77,7 +77,7 @@
         app:layout_constraintVertical_bias="0.05" />
 
     <Button
-        android:id="@+id/buttonCancelar"
+        android:id="@+id/buttonIniciarSesionCancelar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btnCancelar"
@@ -89,7 +89,7 @@
         app:layout_constraintVertical_bias="0.932" />
 
     <Button
-        android:id="@+id/buttonAceptar"
+        android:id="@+id/buttonIniciarSesionAceptar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btnAceptar"
