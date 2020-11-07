@@ -5,7 +5,7 @@
     android:id="@+id/MainActivityLayaut"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pantallas.MainActivity">
+    tools:context="com.HUMMMM.yopido.pantallas.MainActivity">
 
     <view
         android:id="@+id/view"
