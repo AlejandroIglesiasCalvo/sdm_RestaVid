@@ -8,10 +8,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
+import com.HUMMMM.yopido.pantallas.BaseActivity;
 import com.HUMMMM.yopido.pantallas.FinalizarPedido;
 import com.HUMMMM.yopido.pantallas.MainReservaDirecta;
 
-public class ReservaSinLoggear extends AppCompatActivity {
+public class ReservaSinLoggear extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +20,7 @@ public class ReservaSinLoggear extends AppCompatActivity {
         setContentView(R.layout.activity_reserva_directa);
 
         Button btnReservar;
+        Button btnCancelar;
 
         btnReservar = (Button) findViewById(R.id.buttonAceptar);
         btnReservar.setOnClickListener((new View.OnClickListener() {

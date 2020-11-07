@@ -1,9 +1,6 @@
 package com.HUMMMM.yopido.pantallas;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,17 +8,17 @@ import android.widget.Button;
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
+    Button btnEntar;
+    Button btnRegistro;
+    Button btnPedirYa;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected final void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
-        Button btnEntar;
-        Button btnRegistro;
-        Button btnPedirYa;
+
+
         btnEntar = (Button) findViewById(R.id.btnEntrar);
         btnEntar.setOnClickListener((new View.OnClickListener() {
             @Override

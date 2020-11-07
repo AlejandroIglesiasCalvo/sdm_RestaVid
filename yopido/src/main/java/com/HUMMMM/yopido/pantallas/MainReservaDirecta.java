@@ -13,7 +13,7 @@ import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLoggeado;
 
-public class MainReservaDirecta extends AppCompatActivity {
+public class MainReservaDirecta extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

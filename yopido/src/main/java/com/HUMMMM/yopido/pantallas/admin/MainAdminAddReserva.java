@@ -7,8 +7,9 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.HUMMMM.yopido.R;
+import com.HUMMMM.yopido.pantallas.BaseActivity;
 
-public class MainAdminAddReserva extends AppCompatActivity {
+public class MainAdminAddReserva extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

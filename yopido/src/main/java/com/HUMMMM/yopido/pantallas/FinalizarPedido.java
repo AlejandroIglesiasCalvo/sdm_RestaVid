@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.HUMMMM.yopido.R;
 
-public class FinalizarPedido extends AppCompatActivity {
+public class FinalizarPedido extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

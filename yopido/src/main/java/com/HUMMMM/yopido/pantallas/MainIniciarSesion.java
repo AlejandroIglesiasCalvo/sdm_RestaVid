@@ -13,7 +13,7 @@ import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLoggeado;
 
-public class MainIniciarSesion extends AppCompatActivity {
+public class MainIniciarSesion extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

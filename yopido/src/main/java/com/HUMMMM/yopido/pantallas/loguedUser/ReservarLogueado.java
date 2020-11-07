@@ -8,9 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
+import com.HUMMMM.yopido.pantallas.BaseActivity;
 import com.HUMMMM.yopido.pantallas.FinalizarPedido;
 
-public class ReservarLogueado extends AppCompatActivity {
+public class ReservarLogueado extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +19,7 @@ public class ReservarLogueado extends AppCompatActivity {
         setContentView(R.layout.activity_reservar_logueado);
 
         Button btnAceptar;
+        Button btnCancelar;
 
         btnAceptar = (Button) findViewById(R.id.buttonAceptar);
         btnAceptar.setOnClickListener((new View.OnClickListener() {
@@ -26,7 +28,6 @@ public class ReservarLogueado extends AppCompatActivity {
                 cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class);
             }
         }));
-
     }
 
 }

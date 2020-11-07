@@ -10,7 +10,7 @@ import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLoggeado;
 
-public class MainRegistro extends AppCompatActivity {
+public class MainRegistro extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
