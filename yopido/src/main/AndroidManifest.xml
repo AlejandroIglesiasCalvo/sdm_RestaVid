@@ -22,6 +22,7 @@
         <!--        Aqui las demas actividades-->
         <activity android:name="com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLoggeado" />
         <activity android:name="com.HUMMMM.yopido.pantallas.MainIniciarSesion" />
+        <activity android:name="com.HUMMMM.yopido.pantallas.MainRegistro" />
         <activity android:name="com.HUMMMM.yopido.pantallas.MainReservaDirecta" />
     </application>
 

@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         btnRegistro.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 cambiarDeClase.MoverA(v.getContext(), MainRegistro.class);
             }
         }));
@@ -41,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         btnPedirYa.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 cambiarDeClase.MoverA(v.getContext(), MainReservaDirecta.class);
             }
         }));

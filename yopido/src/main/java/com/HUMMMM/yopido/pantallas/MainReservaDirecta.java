@@ -2,7 +2,10 @@ package com.HUMMMM.yopido.pantallas;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +19,7 @@ public class MainReservaDirecta extends AppCompatActivity {
         setContentView(R.layout.activity_reserva_directa);
         Button buttonReservaDirectaAceptar;
         Button buttonReservaDirectaCancelar;
+
 
         buttonReservaDirectaAceptar = (Button) findViewById(R.id.buttonReservaDirectaAceptar);
         buttonReservaDirectaAceptar.setOnClickListener((new View.OnClickListener() {
