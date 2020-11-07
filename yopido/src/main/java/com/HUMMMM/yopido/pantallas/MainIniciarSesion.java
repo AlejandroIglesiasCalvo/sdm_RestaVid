@@ -36,13 +36,6 @@ public class MainIniciarSesion extends AppCompatActivity {
             }
         });
 
-        btnIniciarSesionCancelar = (Button) findViewById(R.id.buttonIniciarSesionCancelar);
-        btnIniciarSesionCancelar.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cambiarDeClase.MoverA(v.getContext(), MainRegistro.class);
-            }
-        }));
 
     }
 }

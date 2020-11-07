@@ -25,13 +25,6 @@ public class MainRegistro extends AppCompatActivity {
             }
         }));
 
-        btnRegistroCancelar = (Button) findViewById(R.id.buttonRegistroCancelar);
-        btnRegistroCancelar.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Click para ir a registrarse
-            }
-        }));
 
     }
 }

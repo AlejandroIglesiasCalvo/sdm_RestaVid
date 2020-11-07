@@ -30,12 +30,7 @@ public class MainAdminAddReserva extends AppCompatActivity {
             }
         }));
 
-        btnCancelarReserva.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Se vuelve a la pantalla principal del admin.
-            }
-        }));
+
 
     }
 }
