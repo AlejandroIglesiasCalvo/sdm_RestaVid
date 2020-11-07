@@ -17,9 +17,8 @@ public class MainAdminAddUser extends AppCompatActivity {
 
         // --- activity_admin_add_user
         Button btnAñadirUser;
-        Button btnCancelarAñadirUser;
         btnAñadirUser = (Button) findViewById(R.id.buttonAceptar_AñadirUser_Admin);
-        btnCancelarAñadirUser = (Button) findViewById(R.id.buttonCancelar_AñadirUser_Admin);
+
 
 
         btnAñadirUser.setOnClickListener((new View.OnClickListener() {
@@ -32,11 +31,5 @@ public class MainAdminAddUser extends AppCompatActivity {
             }
         }));
 
-        btnCancelarAñadirUser.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Se vuelve a la pantalla principal del admin.
-            }
-        }));
     }
 }

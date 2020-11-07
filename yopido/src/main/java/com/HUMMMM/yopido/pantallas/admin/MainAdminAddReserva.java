@@ -17,9 +17,9 @@ public class MainAdminAddReserva extends AppCompatActivity {
 
         // --- activity_admin_add_reserva
         Button btnAñadirReserva;
-        Button btnCancelarReserva;
+
         btnAñadirReserva = (Button) findViewById(R.id.button_Aceptar_Reserva_Admin);
-        btnCancelarReserva = (Button) findViewById(R.id.buttonCancelar_Reserva_Admin);
+
 
         btnAñadirReserva.setOnClickListener((new View.OnClickListener() {
             @Override

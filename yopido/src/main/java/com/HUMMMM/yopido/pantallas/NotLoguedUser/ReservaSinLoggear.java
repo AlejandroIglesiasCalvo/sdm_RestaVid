@@ -7,6 +7,9 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.HUMMMM.yopido.R;
+import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
+import com.HUMMMM.yopido.pantallas.FinalizarPedido;
+import com.HUMMMM.yopido.pantallas.MainReservaDirecta;
 
 public class ReservaSinLoggear extends AppCompatActivity {
 
@@ -16,21 +19,12 @@ public class ReservaSinLoggear extends AppCompatActivity {
         setContentView(R.layout.activity_reserva_directa);
 
         Button btnReservar;
-        Button btnCancelar;
 
         btnReservar = (Button) findViewById(R.id.buttonAceptar);
         btnReservar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Click para reservar
-                // Meter datos del nuevo usuari y la reserva.
-            }
-        }));
-        btnCancelar = (Button) findViewById(R.id.buttonCancelar);
-        btnCancelar.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Click para ir a pantalla anterior (Menu principal)
+                cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class);
             }
         }));
     }

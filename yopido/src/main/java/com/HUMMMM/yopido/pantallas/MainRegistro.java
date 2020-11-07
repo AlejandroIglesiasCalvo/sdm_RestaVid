@@ -7,6 +7,8 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.HUMMMM.yopido.R;
+import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
+import com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLoggeado;
 
 public class MainRegistro extends AppCompatActivity {
 
@@ -21,7 +23,7 @@ public class MainRegistro extends AppCompatActivity {
         btnRegistroAceptar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Click para ir a pantalla de entrar en la app cuando el usuario está registrado
+                cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class);
             }
         }));
 

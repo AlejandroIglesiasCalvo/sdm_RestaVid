@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.HUMMMM.yopido.R;
+import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 
 public class MainMenuLoggeado extends AppCompatActivity {
 
@@ -17,21 +18,21 @@ public class MainMenuLoggeado extends AppCompatActivity {
         Button btnReservar;
         Button btnAnularReserva;
         Button btnVerMisReservas;
-        btnReservar = (Button) findViewById(R.id.btnEntrar);
+        btnReservar = (Button) findViewById(R.id.btnReservar);
         btnReservar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Click para ir a pantalla de reservar
+                cambiarDeClase.MoverA(v.getContext(), ReservarLogueado.class);
             }
         }));
-        btnAnularReserva = (Button) findViewById(R.id.btnRegistro);
+        btnAnularReserva = (Button) findViewById(R.id.btnAnularReserva);
         btnAnularReserva.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Click para ir a pantalla de anular reservas
             }
         }));
-        btnVerMisReservas = (Button) findViewById(R.id.btnPideYa);
+        btnVerMisReservas = (Button) findViewById(R.id.btnVerReservas);
         btnVerMisReservas.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {

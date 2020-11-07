@@ -28,11 +28,11 @@ public class MainIniciarSesion extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Click para ir a pantalla de entrar en la app cuando el usuario está registrado
-                String m = correo.getText().toString();
-                String c = contraseña.getText().toString();
-                if (checks.comprobarIniciarSesion(m, c)) {
+                //String m = correo.getText().toString();
+                //String c = contraseña.getText().toString();
+                //if (checks.comprobarIniciarSesion(m, c)) {
                     cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class);
-                }
+                //}
             }
         });
 

@@ -10,6 +10,8 @@ import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.HUMMMM.yopido.R;
+import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
+import com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLoggeado;
 
 public class MainReservaDirecta extends AppCompatActivity {
 
@@ -25,7 +27,7 @@ public class MainReservaDirecta extends AppCompatActivity {
         buttonReservaDirectaAceptar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Click para ir a pantalla de entrar en la app cuando el usuario está registrado
+                cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class);
             }
         }));
 

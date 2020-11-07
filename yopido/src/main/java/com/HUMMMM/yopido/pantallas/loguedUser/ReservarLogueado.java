@@ -7,6 +7,8 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.HUMMMM.yopido.R;
+import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
+import com.HUMMMM.yopido.pantallas.FinalizarPedido;
 
 public class ReservarLogueado extends AppCompatActivity {
 
@@ -16,23 +18,15 @@ public class ReservarLogueado extends AppCompatActivity {
         setContentView(R.layout.activity_reservar_logueado);
 
         Button btnAceptar;
-        Button btnCancelar;
 
         btnAceptar = (Button) findViewById(R.id.buttonAceptar);
         btnAceptar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Click para reservar
-                // Asignar datos de la reserva al usuario ya existente
+                cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class);
             }
         }));
-        btnCancelar = (Button) findViewById(R.id.buttonCancelar);
-        btnCancelar.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Click para ir a pantalla anterior: activity_main
-            }
-        }));
+
     }
 
 }

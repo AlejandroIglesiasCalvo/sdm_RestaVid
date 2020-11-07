@@ -18,7 +18,7 @@ public class MainAdminDeleteReserva extends AppCompatActivity {
         // --- activity_admin_delete_reserva
         Button btnAceptarEliminarReserva;
         Button btnCancelarEliminarReserva;
-        btnAceptarEliminarReserva = (Button) findViewById(R.id.buttonAceptar_EliminarReserva_Admin);
+        btnAceptarEliminarReserva = (Button) findViewById(R.id.btnFin);
         btnCancelarEliminarReserva = (Button) findViewById(R.id.buttonCancelar_EliminarReserva_Admin);
 
         btnAceptarEliminarReserva.setOnClickListener((new View.OnClickListener() {
