@@ -155,7 +155,7 @@
             <CalendarView
                 android:id="@+id/calendarReserva"
                 android:layout_width="match_parent"
-                android:layout_height="257dp"
+                android:layout_height="match_parent"
                 android:layout_marginTop="36dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.429"
