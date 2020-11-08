@@ -27,7 +27,7 @@
             android:textSize="60sp" />
 
         <Button
-            android:id="@+id/btnFin"
+            android:id="@+id/btnBuscar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"

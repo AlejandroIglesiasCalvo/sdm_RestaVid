@@ -18,7 +18,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textoAdminFechaCalendario"
@@ -45,7 +45,7 @@
 
             <Spinner
                 android:id="@+id/spHora"
-                android:layout_width="77dp"
+                android:layout_width="122dp"
                 android:layout_height="40dp"
                 android:entries="@array/horasReserva"
                 app:layout_constraintBottom_toTopOf="@+id/calendarReserva"
@@ -56,10 +56,75 @@
                 app:layout_constraintVertical_bias="0.444" />
 
             <Button
-                android:id="@+id/btnFin"
+                android:id="@+id/btnBuscar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/btnAceptar" />
+                android:text="@string/btnBuscar" />
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TableLayout
+                    android:id="@+id/tablaAdmDelRev"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txNombre"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:padding="10dp"
+                            android:text="@string/tablaNombre" />
+
+                        <TextView
+                            android:id="@+id/txHora"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:padding="10dp"
+                            android:text="@string/tablaHora" />
+
+                        <TextView
+                            android:id="@+id/txDia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:padding="10dp"
+                            android:text="@string/tablaFecha" />
+
+                        <TextView
+                            android:id="@+id/txTelefono"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:padding="10dp"
+                            android:text="@string/tablaTelefono" />
+
+                        <TextView
+                            android:id="@+id/txEliminar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:padding="10dp"
+                            android:text="@string/tablaEliminar" />
+
+                    </TableRow>
+
+                </TableLayout>
+            </HorizontalScrollView>
+
+
         </LinearLayout>
     </ScrollView>
 

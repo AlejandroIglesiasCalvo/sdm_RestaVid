@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.HUMMMM.yopido.R;
 
 public class FinalizarPedido extends BaseActivity {
@@ -18,7 +16,7 @@ public class FinalizarPedido extends BaseActivity {
 
         Button btnAceptar;
 
-        btnAceptar = (Button) findViewById(R.id.btnFin);
+        btnAceptar = (Button) findViewById(R.id.btnBuscar);
         btnAceptar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {

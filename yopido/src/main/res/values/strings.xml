@@ -21,6 +21,15 @@
     <string name="VerRservas">Mis reservas</string>
 
 
+    //Admin delete reserva
+    <string name="btnBuscar">Buscar</string>
+    <string name="tablaNombre">Nombre</string>
+    <string name="tablaHora">Hora</string>
+    <string name="tablaFecha">Fecha</string>
+    <string name="tablaTelefono">Teléfono</string>
+    <string name="tablaEliminar">Eliminar</string>
+
+
     // --- Sub-Pantalla Usuario:
     <string name="registroUsuario">Registro: </string>
     <string name="reservaUsuario">Reserva: </string>
