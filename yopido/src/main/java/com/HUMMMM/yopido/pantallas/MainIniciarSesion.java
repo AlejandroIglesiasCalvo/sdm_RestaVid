@@ -13,6 +13,7 @@ import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.pantallas.admin.MainActivityAdmin;
 import com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLoggeado;
+import com.google.android.material.snackbar.Snackbar;
 
 public class MainIniciarSesion extends BaseActivity {
 
@@ -29,15 +30,14 @@ public class MainIniciarSesion extends BaseActivity {
         btnIniciarSesionAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!checks.isAdmin(String.valueOf(correo.getText())))
-                    cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class);
-                else {
-                    if (checks.comprobarIniciarSesion(String.valueOf(correo.getText()), String.valueOf(contraseña.getText())))
+                if (checks.comprobarIniciarSesion(String.valueOf(correo.getText()), String.valueOf(contraseña.getText()))) {
+                    if (!checks.isAdmin(String.valueOf(correo.getText())))
+                        cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class);
+                    else
                         cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
-                }
+                } else
+                    Snackbar.make(findViewById(R.id.buttonIniciarSesionAceptar), R.string.error_usuario_contra, Snackbar.LENGTH_SHORT).show();
             }
         });
-
-
     }
 }

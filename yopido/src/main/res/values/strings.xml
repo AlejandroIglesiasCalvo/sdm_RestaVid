@@ -46,4 +46,9 @@
     // --- Pantalla final
     <string name="Gracias">Su pedido ha sido realizado</string>
 
+
+
+    // ---- Mensajes por pantalla de errores
+    <string name="error_usuario_contra">Email o contraseña incorrectos</string>
+
 </resources>

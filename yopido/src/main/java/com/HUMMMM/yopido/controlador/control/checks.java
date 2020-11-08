@@ -35,9 +35,17 @@ public class checks {
      * @return boolean true for valid false for invalid
      */
     private static boolean isEmailValid(String email) {
-        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
-        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        boolean valido = false;
+
+        Pattern pattern = Pattern.compile("^.+@.+\\..+$");
         Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
+
+        //Pattern patronEmail = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)(\\.[A-Za-z]{2,})$");
+        //Matcher mEmail = patronEmail.matcher(email.toLowerCase());
+
+        if (matcher.matches()){
+            valido = true;
+        }
+        return valido;
     }
 }
