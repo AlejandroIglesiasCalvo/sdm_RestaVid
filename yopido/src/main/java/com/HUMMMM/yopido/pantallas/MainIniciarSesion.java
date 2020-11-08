@@ -29,9 +29,10 @@ public class MainIniciarSesion extends BaseActivity {
         btnIniciarSesionAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!checks.isAdmin( String.valueOf(correo.getText())))
+                if(!checks.isAdmin(String.valueOf(correo.getText())))
                     cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class);
                 else
+                    if(checks.comprobarIniciarSesion(String.valueOf(correo.getText()) , String.valueOf(contraseña.getText())))
                     cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
             }
         });
