@@ -1,29 +1,52 @@
 <resources>
     <string name="app_name">RestaVid</string>
+    <string name="titulo">RestaVid</string>
+    <string name="icono">Icono de la aplicación</string>
+
+    // --- Pantalla principal:
     <string name="Entrar">Iniciar sesión</string>
     <string name="Registro">Registrarse</string>
     <string name="PideYa">¡Pide Ya!</string>
+    <string name="iniciarS">Iniciar Sesión</string>
+
+    // ----- Pantalla principal Admin
+    <string name="AñadirReserva">Añadir Reserva</string>
+    <string name="EliminarReserva">Eliminar Reservas</string>
+    <string name="EliminarUsuarios">Eliminar Usuarios</string>
+    <string name="AñadirUsuarios">Añadir Usuarios</string>
+
+    // --- Pantalla principal Usuario:
     <string name="Reservar">Reservar</string>
     <string name="AnularReserva">Anular Reserva</string>
-    <string name="AnularResrva">Anular reserva</string>
     <string name="VerRservas">Mis reservas</string>
-    <string name="titulo">RestaVid</string>
-    <string name="iniciarS">Iniciar Sesión</string>
+
+
+    // --- Subpantallas
     <string name="nombreUsuario">Nombre de usuario (correo electrónico)</string>
     <string name="editTextEmail">correo electrónico</string>
     <string name="contraseña">Contraseña</string>
     <string name="editTextContraseña">contraseña</string>
     <string name="btnCancelar">Cancelar</string>
     <string name="btnAceptar">Aceptar</string>
-    <string name="icono">Icono de la aplicación</string>
+
     <string name="registro">Registro</string>
     <string name="correo">Correo electrónico(Será su nombre de usuario)</string>
+    <string name="nombreYApellidos">Nombre y apellidos</string>
+    <string name="hintPhone">+34</string>
+
+
     <string name="nombre">Nombre y apellidos</string>
     <string name="telefono">Teléfono de contacto</string>
     <string name="reserva">Reserva: </string>
     <string name="numero_personas">Número de personas: </string>
     <string name="hora_reserva">Hora de la reserva: </string>
+    <string name="FechaCalendario">Reserva: </string>
     <string name="minDateCalendar">01/11/2020</string>
     <string name="Titilo">RestaVid</string>
+
+    <string name="CorreoUsuario">Correo electrónico usuario:</string>
+    <string name="contrasenaAdmin">Contraseña Admin: </string>
+
     <string name="Gracias">Su pedido ha sido realizado</string>
+
 </resources>

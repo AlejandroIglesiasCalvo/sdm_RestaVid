@@ -92,6 +92,7 @@
 
             <EditText
                 android:id="@+id/editTextCorreo"
+                tools:ignore="LabelFor"
                 android:layout_width="356dp"
                 android:layout_height="49dp"
                 android:autofillHints=""
@@ -121,6 +122,7 @@
 
             <EditText
                 android:id="@+id/editTextTextPassword"
+                tools:ignore="LabelFor"
                 android:layout_width="356dp"
                 android:layout_height="49dp"
                 android:ems="10"
@@ -149,10 +151,11 @@
 
             <EditText
                 android:id="@+id/editTextTextNombre"
+                android:autofillHints="@+id/editTextTextNombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Nombre y apellidos"
+                android:hint="@string/nombreYApellidos"
                 android:inputType="textPersonName"
                 app:layout_constraintBottom_toTopOf="@+id/correo"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -175,11 +178,12 @@
 
             <EditText
                 android:id="@+id/editTextPhone"
+                android:autofillHints="@+id/editTextPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:ems="10"
-                android:hint="+34"
+                android:hint="@string/hintPhone"
                 android:inputType="phone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

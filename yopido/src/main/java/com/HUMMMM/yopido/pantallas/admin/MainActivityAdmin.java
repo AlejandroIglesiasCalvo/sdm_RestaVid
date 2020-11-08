@@ -18,17 +18,17 @@ public class MainActivityAdmin extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_main);
 
-        Button btnAñadirUsuario;
+        Button btnAddUsuario;
         Button btnEliminarUsuario;
-        Button btnAñadirReserva;
+        Button btnAddReserva;
         Button btnEliminarReserva;
 
-        btnAñadirUsuario = (Button) findViewById(R.id.btnAñadirUsuarios);
+        btnAddUsuario = (Button) findViewById(R.id.btnAñadirUsuarios);
         btnEliminarUsuario = (Button) findViewById(R.id.btnEliminarUsuarios);
-        btnAñadirReserva = (Button) findViewById(R.id.btnAñadirReservas);
+        btnAddReserva = (Button) findViewById(R.id.btnAñadirReservas);
         btnEliminarReserva = (Button) findViewById(R.id.btnEliminarReservas);
 
-        btnAñadirUsuario.setOnClickListener((new View.OnClickListener() {
+        btnAddUsuario.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Ir a pantalla para añadir usuarios
@@ -44,7 +44,7 @@ public class MainActivityAdmin extends BaseActivity {
             }
         }));
 
-        btnAñadirReserva.setOnClickListener((new View.OnClickListener() {
+        btnAddReserva.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Ir a pantalla para añadir reservas

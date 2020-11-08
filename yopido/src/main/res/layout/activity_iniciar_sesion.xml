@@ -51,6 +51,7 @@
 
             <EditText
                 android:id="@+id/editTextCorreo"
+                tools:ignore="LabelFor"
                 android:layout_width="356dp"
                 android:layout_height="49dp"
                 android:autofillHints=""
@@ -80,6 +81,7 @@
 
             <EditText
                 android:id="@+id/editTextTextPassword"
+                tools:ignore="LabelFor"
                 android:layout_width="356dp"
                 android:layout_height="49dp"
                 android:ems="10"
