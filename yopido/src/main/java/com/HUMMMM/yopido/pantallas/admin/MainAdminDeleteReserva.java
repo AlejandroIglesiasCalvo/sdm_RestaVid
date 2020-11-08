@@ -43,7 +43,7 @@ public class MainAdminDeleteReserva extends BaseActivity {
         }));
     }
 
-    //TODO este método debería tener como atributos la fecha y la hora seleccionadas por el admin en la pantalla
+    //TODO este método No debería estar aquí pero lo pongo mientras no tenemos BBDD
     private void rellenarTabla(LocalDate fecha, String hora){
         tabla = (TableLayout)findViewById(R.id.tablaAdmDelRev);
         List<Reserva> lista = new ArrayList();

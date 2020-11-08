@@ -32,29 +32,6 @@
                 android:layout_height="225dp"
                 android:layout_marginTop="28dp" />
 
-            <TextView
-                android:id="@+id/horaReserva"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hora_reserva"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.062"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintVertical_bias="0.037" />
-
-            <Spinner
-                android:id="@+id/spHora"
-                android:layout_width="122dp"
-                android:layout_height="40dp"
-                android:entries="@array/horasReserva"
-                app:layout_constraintBottom_toTopOf="@+id/calendarReserva"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.077"
-                app:layout_constraintStart_toEndOf="@+id/numero_personas"
-                app:layout_constraintTop_toBottomOf="@+id/editTextPhone"
-                app:layout_constraintVertical_bias="0.444" />
-
             <Button
                 android:id="@+id/btnBuscar"
                 android:layout_width="match_parent"
