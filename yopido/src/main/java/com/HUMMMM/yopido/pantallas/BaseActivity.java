@@ -27,6 +27,7 @@ public abstract class BaseActivity extends AppCompatActivity  {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setTitle("RestaVid");
+        getSupportActionBar().setIcon(R.drawable.hdpi);
     }
 
     public void initToolbar() {

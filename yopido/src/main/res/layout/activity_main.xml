@@ -7,27 +7,17 @@
     android:layout_height="match_parent"
     tools:context="com.HUMMMM.yopido.pantallas.MainActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        android:visibility="visible"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/hdpi"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
 
     <Button
         android:id="@+id/btnPideYa"
         android:layout_width="310dp"
         android:layout_height="107dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="144dp"
         android:text="@string/PideYa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_toolbar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnEntrar"
