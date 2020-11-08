@@ -19,6 +19,7 @@ public class MainMenuLoggeado extends BaseActivity {
         Button btnReservar;
         Button btnAnularReserva;
         Button btnVerMisReservas;
+
         btnReservar = (Button) findViewById(R.id.btnReservar);
         btnReservar.setOnClickListener((new View.OnClickListener() {
             @Override
@@ -31,6 +32,7 @@ public class MainMenuLoggeado extends BaseActivity {
             @Override
             public void onClick(View v) {
                 // Click para ir a pantalla de anular reservas
+                cambiarDeClase.MoverA(v.getContext(), UserDeleteReserva.class);
             }
         }));
         btnVerMisReservas = (Button) findViewById(R.id.btnVerReservas);
@@ -38,6 +40,7 @@ public class MainMenuLoggeado extends BaseActivity {
             @Override
             public void onClick(View v) {
                 // Click para ir a pantalla de ver reservas
+                cambiarDeClase.MoverA(v.getContext(), UserViewReserva.class);
             }
         }));
     }

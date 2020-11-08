@@ -6,67 +6,73 @@
     android:layout_height="match_parent"
     tools:context="com.HUMMMM.yopido.pantallas.MainActivity">
 
-    <TextView
-        android:id="@+id/nombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="@string/nombre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reserva" />
-
-    <EditText
-        android:id="@+id/editTextTextNombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="@string/nombre"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombre" />
-
-    <TextView
-        android:id="@+id/numero_personas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/numero_personas"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.058"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextNombre"
-        app:layout_constraintVertical_bias="0.058" />
-
-    <CalendarView
-        android:id="@+id/calendarReserva"
-        android:layout_width="332dp"
-        android:layout_height="291dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.329"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numero_personas"
-        app:layout_constraintVertical_bias="0.0" />
-
-
-    <Button
-        android:id="@+id/buttonAceptar"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btnAceptar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calendarReserva"
-        app:layout_constraintVertical_bias="0.916" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="40dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/nombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:text="@string/nombre" />
+
+            <EditText
+                android:id="@+id/editTextTextNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="@string/nombre"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/numero_personas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/numero_personas" />
+
+            <Spinner
+                android:id="@+id/spPersonas"
+                android:layout_width="77dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="12dp"
+                android:entries="@array/numPersonas" />
+
+            <CalendarView
+                android:id="@+id/calendarReserva"
+                android:layout_width="match_parent"
+                android:layout_height="291dp"
+                android:layout_marginTop="32dp" />
+
+            <TextView
+                android:id="@+id/horaReserva"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/hora_reserva" />
+
+            <Spinner
+                android:id="@+id/spHora"
+                android:layout_width="77dp"
+                android:layout_height="40dp"
+                android:entries="@array/horasReserva" />
+
+            <Button
+                android:id="@+id/buttonAceptar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btnAceptar" />
+
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,7 +19,6 @@ public class ReservarLogueado extends BaseActivity {
         setContentView(R.layout.activity_reservar_logueado);
 
         Button btnAceptar;
-        Button btnCancelar;
 
         btnAceptar = (Button) findViewById(R.id.buttonAceptar);
         btnAceptar.setOnClickListener((new View.OnClickListener() {

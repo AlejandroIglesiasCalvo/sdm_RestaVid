@@ -17,6 +17,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_margin="40dp"
             android:layout_height="wrap_content"
 
             android:orientation="vertical">
@@ -76,7 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="@string/telefono"
+                android:hint="+34"
                 android:importantForAutofill="no"
                 android:inputType="phone"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -112,6 +113,7 @@
 
             <CalendarView
                 android:id="@+id/calendarReserva"
+                android:minDate="@string/minDateCalendar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="36dp"
@@ -120,12 +122,33 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/numero_personas" />
 
+            <TextView
+                android:id="@+id/horaReserva"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hora_reserva"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.062"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_bias="0.037" />
+
+            <Spinner
+                android:id="@+id/spHora"
+                android:layout_width="77dp"
+                android:layout_height="40dp"
+                android:entries="@array/horasReserva"
+                app:layout_constraintBottom_toTopOf="@+id/calendarReserva"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.077"
+                app:layout_constraintStart_toEndOf="@+id/numero_personas"
+                app:layout_constraintTop_toBottomOf="@+id/editTextPhone"
+                app:layout_constraintVertical_bias="0.444" />
 
             <Button
                 android:id="@+id/buttonReservaDirectaAceptar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:text="@string/btnAceptar" />
 
 

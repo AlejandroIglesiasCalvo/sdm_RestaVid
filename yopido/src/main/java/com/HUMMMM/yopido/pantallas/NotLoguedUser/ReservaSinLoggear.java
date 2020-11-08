@@ -20,7 +20,6 @@ public class ReservaSinLoggear extends BaseActivity {
         setContentView(R.layout.activity_reserva_directa);
 
         Button btnReservar;
-        Button btnCancelar;
 
         btnReservar = (Button) findViewById(R.id.buttonAceptar);
         btnReservar.setOnClickListener((new View.OnClickListener() {
@@ -29,6 +28,7 @@ public class ReservaSinLoggear extends BaseActivity {
                 cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class);
             }
         }));
+
     }
 
 }
