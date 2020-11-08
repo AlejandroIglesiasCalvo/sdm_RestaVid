@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
+import com.HUMMMM.yopido.pantallas.admin.MainActivityAdmin;
 import com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLoggeado;
 
 public class MainIniciarSesion extends BaseActivity {
@@ -20,19 +21,18 @@ public class MainIniciarSesion extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_iniciar_sesion);
         Button btnIniciarSesionAceptar;
-        Button btnIniciarSesionCancelar;
+
         final EditText correo = (EditText) findViewById(R.id.editTextCorreo);
         final TextView contraseña = (TextView) findViewById(R.id.editTextTextPassword);
         btnIniciarSesionAceptar = (Button) findViewById(R.id.buttonIniciarSesionAceptar);
+
         btnIniciarSesionAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Click para ir a pantalla de entrar en la app cuando el usuario está registrado
-                //String m = correo.getText().toString();
-                //String c = contraseña.getText().toString();
-                //if (checks.comprobarIniciarSesion(m, c)) {
+                if(!checks.isAdmin( String.valueOf(correo.getText())))
                     cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class);
-                //}
+                else
+                    cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
             }
         });
 

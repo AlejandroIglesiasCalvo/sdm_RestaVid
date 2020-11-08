@@ -7,6 +7,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.HUMMMM.yopido.R;
+import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.pantallas.BaseActivity;
 
 public class MainAdminAddUser extends BaseActivity {
@@ -29,6 +30,7 @@ public class MainAdminAddUser extends BaseActivity {
                 // Si no eiste, se muestra mensaje de que nanai.
 
                 // Se regresa a la pantalla principal del admin
+                cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
             }
         }));
 

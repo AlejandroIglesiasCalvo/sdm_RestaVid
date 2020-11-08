@@ -7,6 +7,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.HUMMMM.yopido.R;
+import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.pantallas.BaseActivity;
 
 public class MainAdminDeleteReserva extends BaseActivity {
@@ -26,6 +27,7 @@ public class MainAdminDeleteReserva extends BaseActivity {
                 // Se elimina reserva y se regresa al panel principal del admin
 
                 // Se añade la reserva al usuario si existe el usuario en la BDD.
+                cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
             }
         }));
     }

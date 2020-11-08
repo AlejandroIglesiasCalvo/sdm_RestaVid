@@ -16,6 +16,11 @@ public class checks {
         return true;
     }
 
+    public static boolean isAdmin(String correo) {
+        if(correo.equals("admin@restavid.es") )return true;
+        else return false;
+    }
+
     /**
      * @param contraseña
      * @return true si esta correcto, false si no existe o esta mal escrita
@@ -37,4 +42,6 @@ public class checks {
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
+
+
 }

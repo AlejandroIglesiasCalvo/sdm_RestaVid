@@ -22,6 +22,7 @@
             </intent-filter>
         </activity>
         <!--        Aqui las demas actividades-->
+        <activity android:name="com.HUMMMM.yopido.pantallas.admin.MainActivityAdmin" />
         <activity android:name="com.HUMMMM.yopido.pantallas.admin.MainAdminAddReserva" />
         <activity android:name="com.HUMMMM.yopido.pantallas.admin.MainAdminDeleteReserva" />
         <activity android:name="com.HUMMMM.yopido.pantallas.admin.MainAdminDeleteUser" />

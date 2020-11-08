@@ -7,6 +7,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.HUMMMM.yopido.R;
+import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.pantallas.BaseActivity;
 
 public class MainAdminAddReserva extends BaseActivity {
@@ -28,6 +29,7 @@ public class MainAdminAddReserva extends BaseActivity {
                 // Se añade usuario nuevo y la reserva, en caso de no existir en la BDD.
 
                 // Se añade la reserva al usuario si existe el usuario en la BDD.
+                cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
             }
         }));
 
