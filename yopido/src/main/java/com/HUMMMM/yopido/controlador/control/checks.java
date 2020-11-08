@@ -6,12 +6,12 @@ import java.util.regex.Pattern;
 
 public class checks {
 
-    public static boolean comprobarIniciarSesion(String correo, String contraseña) {
-        if (!isEmailValid(correo) || !isValidPassword(contraseña)) {
+    public static boolean comprobarIniciarSesion(String correo, String contra) {
+        if (!isEmailValid(correo) || !isValidPassword(contra)) {
             return false;
         }
-
-        return true;
+        else
+            return true;
     }
 
     public static boolean isAdmin(String correo) {
@@ -20,10 +20,10 @@ public class checks {
     }
 
     /**
-     * @param contraseña
+     * @param contra
      * @return true si esta correcto, false si no existe o esta mal escrita
      */
-    private static boolean isValidPassword(String contraseña) {
+    private static boolean isValidPassword(String contra) {
         //TODO: Aqui deberiamos comprobar que existe en el modelo
         return true;
     }
