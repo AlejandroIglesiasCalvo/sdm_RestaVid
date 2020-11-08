@@ -7,12 +7,10 @@ import java.util.regex.Pattern;
 public class checks {
 
     public static boolean comprobarIniciarSesion(String correo, String contraseña) {
-        if (!isEmailValid(correo)) {
+        if (!isEmailValid(correo) || !isValidPassword(contraseña)) {
             return false;
         }
-        if (!isValidPassword(contraseña)) {
-            return false;
-        }
+
         return true;
     }
 
