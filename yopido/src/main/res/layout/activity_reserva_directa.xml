@@ -135,7 +135,7 @@
 
             <Spinner
                 android:id="@+id/spHora"
-                android:layout_width="77dp"
+                android:layout_width="122dp"
                 android:layout_height="40dp"
                 android:entries="@array/horasReserva"
                 app:layout_constraintBottom_toTopOf="@+id/calendarReserva"
