@@ -29,6 +29,9 @@
     <string name="tablaTelefono">Teléfono</string>
     <string name="tablaEliminar">Eliminar</string>
 
+    //Admin add User
+    <string name="admin_addUser">Usuario creado</string>
+
 
     // --- Sub-Pantalla Usuario:
     <string name="registroUsuario">Registro: </string>
@@ -58,6 +61,10 @@
 
 
     // ---- Mensajes por pantalla de errores
+        //Iniciar Sesión
     <string name="error_usuario_contra">Email o contraseña incorrectos</string>
+        //Admin add user
+    <string name="error_admin_addUser">Error al intentar crear el usuario, rellene todos los campos</string>
+    <string name="error_admin_addReserva">Error al intentar crear la reserva, rellene todos los campos</string>
 
 </resources>

@@ -1,5 +1,7 @@
 package com.HUMMMM.yopido.controlador.control;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,7 +27,11 @@ public class checks {
      */
     private static boolean isValidPassword(String contra) {
         //TODO: Aqui deberiamos comprobar que existe en el modelo
-        return true;
+        if(contra.isEmpty() || contra.length() < 6 || contra.length() > 16){
+            return false;
+        }
+        else
+            return true;
     }
 
     /**
@@ -34,7 +40,7 @@ public class checks {
      * @param email
      * @return boolean true for valid false for invalid
      */
-    private static boolean isEmailValid(String email) {
+    public static boolean isEmailValid(String email) {
         boolean valido = false;
 
         Pattern pattern = Pattern.compile("^.+@.+\\..+$");
@@ -48,4 +54,6 @@ public class checks {
         }
         return valido;
     }
+
+
 }

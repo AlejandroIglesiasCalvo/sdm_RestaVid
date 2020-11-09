@@ -3,19 +3,29 @@ package com.HUMMMM.yopido.pantallas.admin;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.HUMMMM.yopido.R;
+import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.pantallas.BaseActivity;
+import com.google.android.material.snackbar.Snackbar;
 
 public class MainAdminAddUser extends BaseActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_add_user);
+        final EditText correo = (EditText) findViewById(R.id.editTextCorreo);
+        final EditText pass = (EditText) findViewById(R.id.editTextTextPassword);
+        final EditText nombre = (EditText) findViewById(R.id.editTextTextNombre);
+        final EditText telf = (EditText) findViewById(R.id.editTextPhone);
+
 
         // --- activity_admin_add_user
         Button btnAñadirUser;
@@ -23,16 +33,21 @@ public class MainAdminAddUser extends BaseActivity {
 
 
 
-        btnAñadirUser.setOnClickListener((new View.OnClickListener() {
+        btnAñadirUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Se comprueba que todos los campos estén bien y se elimina a la BDD en caso de existir.
-                // Si no eiste, se muestra mensaje de que nanai.
+                if(String.valueOf(correo.getText()).length() == 0
+                        || (String.valueOf(pass.getText()).length() == 0)
+                        || (String.valueOf(nombre.getText()).length() == 0)
+                        || (String.valueOf(telf.getText()).length() == 0)) {
+                    Snackbar.make(findViewById(R.id.buttonAceptar_AñadirUser_Admin), R.string.error_admin_addUser, Snackbar.LENGTH_SHORT).show();
+                }
+                else {
+                    cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
+                }
 
-                // Se regresa a la pantalla principal del admin
-                cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
             }
-        }));
+        });
 
     }
 }

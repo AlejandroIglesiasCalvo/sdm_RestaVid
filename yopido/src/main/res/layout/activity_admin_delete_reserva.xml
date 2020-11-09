@@ -49,12 +49,13 @@
 
                 <TableLayout
                     android:id="@+id/tablaAdmDelRev"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent">
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        tools:ignore="UselessParent">
 
                         <TextView
                             android:id="@+id/txNombre"
