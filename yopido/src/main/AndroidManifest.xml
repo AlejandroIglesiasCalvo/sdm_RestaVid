@@ -7,12 +7,12 @@
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@drawable/images"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-        android:fullBackupContent="true">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
         <!-- Aqui ponemos la actividad principal -->
         <activity android:name=".pantallas.MainActivity">
