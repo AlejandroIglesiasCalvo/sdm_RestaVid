@@ -15,6 +15,7 @@ public class checks {
     private static UsuariosDataSource uds;
 
     private final static String CORREO_ADMIN = "admin@restavid.es";
+    private final static String CONTRA_ADMIN = "admin@restavid.es";
     private final static String PATRON_CONTRA = "^.+@.+\\..+$";
     private final static int MIN_LENGTH_CONTRA = 6;
     private final static int MAX_LENGTH_CONTRA = 16;
@@ -85,6 +86,21 @@ public class checks {
         String email = String.valueOf(texto.getText());
 
         if(uds.existeEnBDD(email))
+            return true;
+        else
+            return false;
+    }
+
+    /**
+     *
+     * @param texto
+     * @return
+     */
+    public static boolean isPasswordAdminValid(EditText texto)
+    {
+        String contra = String.valueOf(texto);
+
+        if(contra == CONTRA_ADMIN)
             return true;
         else
             return false;

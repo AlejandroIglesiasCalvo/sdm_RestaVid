@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.EditText;
 
 import com.HUMMMM.yopido.modelo.Usuario;
 
@@ -150,5 +151,42 @@ public class UsuariosDataSource {
         // lista.
         return usuarioList;
     }
+
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public boolean existeEnBDD(String id)
+    {
+        if(getUserByID(id) == null)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean deleteUser(EditText texto)
+    {
+        String correo = String.valueOf(texto);
+        boolean encontrado = false;
+
+        Cursor cursor = database.rawQuery("DELETE * " +
+                " FROM " + MyDBHelper.TABLA_USUARIO +
+                " WHERE " + MyDBHelper.TABLA_USUARIO + "." + MyDBHelper.COLUMNA_ID_USUARIO + " = \"" + correo + "\"", null);
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            if(cursor.getString(1) == correo){
+                return true;
+            }
+            else
+                encontrado = false;
+            cursor.moveToNext();
+        }
+
+        return encontrado;
+
+    }
+
 
 }
