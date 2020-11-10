@@ -21,7 +21,11 @@ public class checks {
     private final static int MIN_LENGTH_CONTRA = 6;
     private final static int MAX_LENGTH_CONTRA = 16;
 
-    public static boolean comprobarIniciarSesion(String correo, String contra) {
+    public static boolean comprobarIniciarSesion(EditText c, EditText con) {
+
+        String correo = String.valueOf(c.getText());
+        String contra = String.valueOf(con.getText());
+
         if (!isEmailValid(correo) || !isValidPassword(contra)) {
             return false;
         }
@@ -31,7 +35,7 @@ public class checks {
 
 
     public static boolean isAdmin(EditText texto, EditText contra) {
-        String correo = String.valueOf(texto);
+        String correo = String.valueOf(texto.getText());
 
         if(correo.equals(CORREO_ADMIN) && isPasswordAdminValid(contra))
             return true;
@@ -104,7 +108,7 @@ public class checks {
      */
     public static boolean isPasswordAdminValid(EditText texto)
     {
-        String contra = String.valueOf(texto);
+        String contra = String.valueOf(texto.getText());
 
         if(contra == CONTRA_ADMIN)
             return true;

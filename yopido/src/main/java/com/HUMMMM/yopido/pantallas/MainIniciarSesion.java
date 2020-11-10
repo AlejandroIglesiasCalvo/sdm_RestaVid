@@ -30,7 +30,7 @@ public class MainIniciarSesion extends BaseActivity {
         btnIniciarSesionAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (checks.comprobarIniciarSesion(String.valueOf(correo.getText()), String.valueOf(contraseña.getText()))) {
+                if (checks.comprobarIniciarSesion(correo, contraseña)) {
                     if (!checks.isAdmin(correo,contraseña))
                         cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class);
                     else
