@@ -35,6 +35,7 @@ public class MainAdminDeleteUser extends BaseActivity {
             public void onClick(View v) {
                 // Se comprueba que todos los campos estén bien y se elimina a la BDD en caso de existir.
                 // Si no eiste, se muestra mensaje de que nanai.
+
                 if (checks.isPasswordAdminValid(contraAdmin)) {
                     if (checks.existeEmailEnBDD(correoUsuario)) {
                         if (uds.deleteUser(correoUsuario))

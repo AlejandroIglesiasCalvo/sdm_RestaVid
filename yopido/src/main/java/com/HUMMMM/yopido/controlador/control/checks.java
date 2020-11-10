@@ -1,6 +1,7 @@
 package com.HUMMMM.yopido.controlador.control;
 
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.HUMMMM.yopido.datos.UsuariosDataSource;
 
@@ -15,7 +16,7 @@ public class checks {
     private static UsuariosDataSource uds;
 
     private final static String CORREO_ADMIN = "admin@restavid.es";
-    private final static String CONTRA_ADMIN = "admin@restavid.es";
+    private final static String CONTRA_ADMIN = "admin";
     private final static String PATRON_CONTRA = "^.+@.+\\..+$";
     private final static int MIN_LENGTH_CONTRA = 6;
     private final static int MAX_LENGTH_CONTRA = 16;
@@ -28,8 +29,13 @@ public class checks {
             return true;
     }
 
-    public static boolean isAdmin(String correo) {
-        if(correo.equals(CORREO_ADMIN))return true; else return false;
+
+    public static boolean isAdmin(EditText texto, EditText contra) {
+        String correo = String.valueOf(texto);
+
+        if(correo.equals(CORREO_ADMIN) && isPasswordAdminValid(contra))
+            return true;
+        else return false;
     }
 
     /**

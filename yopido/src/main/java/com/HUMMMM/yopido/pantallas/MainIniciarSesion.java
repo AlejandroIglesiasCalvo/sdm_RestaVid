@@ -24,14 +24,14 @@ public class MainIniciarSesion extends BaseActivity {
         Button btnIniciarSesionAceptar;
 
         final EditText correo = (EditText) findViewById(R.id.editTextCorreo);
-        final TextView contraseña = (TextView) findViewById(R.id.editTextTextPassword);
+        final EditText contraseña = findViewById(R.id.editTextTextPassword);
         btnIniciarSesionAceptar = (Button) findViewById(R.id.buttonIniciarSesionAceptar);
 
         btnIniciarSesionAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (checks.comprobarIniciarSesion(String.valueOf(correo.getText()), String.valueOf(contraseña.getText()))) {
-                    if (!checks.isAdmin(String.valueOf(correo.getText())))
+                    if (!checks.isAdmin(correo,contraseña))
                         cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class);
                     else
                         cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
