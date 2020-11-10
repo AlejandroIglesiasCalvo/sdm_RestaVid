@@ -39,17 +39,17 @@ public class MainAdminDeleteUser extends BaseActivity {
                 if (checks.isPasswordAdminValid(contraAdmin)) {
                     if (checks.existeEmailEnBDD(correoUsuario)) {
                         if (uds.deleteUser(correoUsuario))
-                            Snackbar.make(findViewById(R.id.buttonAceptar_AñadirUser_Admin), R.string.ok_delete_user, Snackbar.LENGTH_SHORT).show();
+                            Snackbar.make(findViewById(R.id.buttonAceptar_EliminarUser_Admin), R.string.ok_delete_user, Snackbar.LENGTH_SHORT).show();
                         else
-                            Snackbar.make(findViewById(R.id.buttonAceptar_AñadirUser_Admin), R.string.error_delete_user, Snackbar.LENGTH_SHORT).show();
+                            Snackbar.make(findViewById(R.id.buttonAceptar_EliminarUser_Admin), R.string.error_delete_user, Snackbar.LENGTH_SHORT).show();
                     } else
-                        Snackbar.make(findViewById(R.id.buttonAceptar_AñadirUser_Admin), R.string.error_delete_user, Snackbar.LENGTH_SHORT).show();
+                        Snackbar.make(findViewById(R.id.buttonAceptar_EliminarUser_Admin), R.string.error_delete_user, Snackbar.LENGTH_SHORT).show();
 
                     // Se regresa a la pantalla principal del admin
                     cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
                 }
                 else
-                    Snackbar.make(findViewById(R.id.buttonAceptar_AñadirUser_Admin), R.string.error_contra_delete_user, Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(R.id.buttonAceptar_EliminarUser_Admin), R.string.error_contra_delete_user, Snackbar.LENGTH_SHORT).show();
             }
         }));
     }

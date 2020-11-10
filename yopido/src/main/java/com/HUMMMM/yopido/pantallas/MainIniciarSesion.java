@@ -30,13 +30,13 @@ public class MainIniciarSesion extends BaseActivity {
         btnIniciarSesionAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (checks.comprobarIniciarSesion(correo, contraseña)) {
-                    if (!checks.isAdmin(correo,contraseña))
+
+                    if (checks.isAdmin(correo,contraseña))
+                        cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
+                    else if (checks.comprobarIniciarSesion(correo, contraseña))
                         cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class);
                     else
-                        cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
-                } else
-                    Snackbar.make(findViewById(R.id.buttonIniciarSesionAceptar), R.string.error_usuario_contra, Snackbar.LENGTH_SHORT).show();
+                        Snackbar.make(findViewById(R.id.buttonIniciarSesionAceptar), R.string.error_usuario_contra, Snackbar.LENGTH_SHORT).show();
             }
         });
     }

@@ -16,7 +16,7 @@ public class checks {
     private static UsuariosDataSource uds;
 
     private final static String CORREO_ADMIN = "admin@restavid.es";
-    private final static String CONTRA_ADMIN = "admin";
+    private final static String CONTRA_ADMIN = "adminrestavid";
     private final static String PATRON_CONTRA = "^.+@.+\\..+$";
     private final static int MIN_LENGTH_CONTRA = 6;
     private final static int MAX_LENGTH_CONTRA = 16;
@@ -33,11 +33,12 @@ public class checks {
             return true;
     }
 
-
-    public static boolean isAdmin(EditText texto, EditText contra) {
+    public static boolean isAdmin(EditText texto, EditText contra1) {
         String correo = String.valueOf(texto.getText());
 
-        if(correo.equals(CORREO_ADMIN) && isPasswordAdminValid(contra))
+        System.out.println("correo: " + correo + ", contra: " + String.valueOf(contra1.getText()));
+
+        if(correo.equals(CORREO_ADMIN) && isPasswordAdminValid(contra1))
             return true;
         else return false;
     }
@@ -110,7 +111,7 @@ public class checks {
     {
         String contra = String.valueOf(texto.getText());
 
-        if(contra == CONTRA_ADMIN)
+        if(contra.equals(CONTRA_ADMIN))
             return true;
         else
             return false;
