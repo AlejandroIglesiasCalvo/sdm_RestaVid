@@ -28,22 +28,20 @@ public class MainAdminDeleteReserva extends BaseActivity {
         setContentView(R.layout.activity_admin_delete_reserva);
 
         // --- activity_admin_delete_reserva
-        Button btnAceptarEliminarReserva;
-        btnAceptarEliminarReserva = (Button) findViewById(R.id.btnBuscar);
+        Button btnBuscar;
+        btnBuscar = (Button) findViewById(R.id.btnBuscar);
 
-        btnAceptarEliminarReserva.setOnClickListener((new View.OnClickListener() {
+        btnBuscar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Se elimina reserva y se regresa al panel principal del admin
-
-                // Se añade la reserva al usuario si existe el usuario en la BDD.
-                //cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
                 rellenarTabla(null, null);
+
+                // Se elimina la reserva al usuario si existe el usuario en la BDD.
             }
         }));
     }
 
-    //TODO este método No debería estar aquí pero lo pongo mientras no tenemos BBDD
+    //TODO este método No debería estar aquí pero lo pongo mientras no tenemos BBDD (:
     private void rellenarTabla(LocalDate fecha, String hora){
         tabla = (TableLayout)findViewById(R.id.tablaAdmDelRev);
         List<Reserva> lista = new ArrayList();

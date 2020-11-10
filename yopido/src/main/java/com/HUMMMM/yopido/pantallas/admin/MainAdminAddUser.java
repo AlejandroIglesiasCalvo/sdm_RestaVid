@@ -36,10 +36,7 @@ public class MainAdminAddUser extends BaseActivity {
         btnAñadirUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(String.valueOf(correo.getText()).length() == 0
-                        || (String.valueOf(pass.getText()).length() == 0)
-                        || (String.valueOf(nombre.getText()).length() == 0)
-                        || (String.valueOf(telf.getText()).length() == 0)) {
+                if(!checks.camposRellenos(correo,pass,nombre,telf)) {
                     Snackbar.make(findViewById(R.id.buttonAceptar_AñadirUser_Admin), R.string.error_admin_addUser, Snackbar.LENGTH_SHORT).show();
                 }
                 else {

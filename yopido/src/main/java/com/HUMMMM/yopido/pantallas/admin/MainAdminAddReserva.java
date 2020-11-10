@@ -8,6 +8,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.HUMMMM.yopido.R;
+import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.pantallas.BaseActivity;
 import com.google.android.material.snackbar.Snackbar;
@@ -30,8 +31,7 @@ public class MainAdminAddReserva extends BaseActivity {
         btnAñadirReserva.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if((String.valueOf(nombre.getText()).length() == 0)
-                        || (String.valueOf(telf.getText()).length() == 0)) {
+                if(!checks.camposRellenos(nombre,telf)) {
                     Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.error_admin_addReserva, Snackbar.LENGTH_SHORT).show();
                 }
                 // Se añade usuario nuevo y la reserva, en caso de no existir en la BDD.
