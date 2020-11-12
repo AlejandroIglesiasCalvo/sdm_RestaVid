@@ -22,9 +22,10 @@ public class MyDBHelper extends SQLiteOpenHelper {
     public static final String TABLA_USUARIO = "tabla_usuario";
 
     public static final String COLUMNA_ID_USUARIO = "id_usuario";
+    public static final String COLUMNA_EMAIL_USUARIO = "email_usuario";
     public static final String COLUMNA_NOMBRE_USUARIO = "nombre_usuario";
     public static final String COLUMNA_APELLIDOS_USUARIO = "apellidos_usuario";
-    public static final String COLUMNA_EMAIL_USUARIO = "email_usuario";
+    public static final String COLUMNA_TELEFONO_USUARIO = "telefono_usuario";
     public static final String COLUMNA_CONTRASEÑA_USUARIO = "contraseña_usuario";
     public static final String COLUMNA_POLITICA_DATOS = "politca_usuario";
 
@@ -47,11 +48,12 @@ public class MyDBHelper extends SQLiteOpenHelper {
     private static final String CREATE_TABLA_USUARIO = "create table if not exists " + TABLA_USUARIO
             + "( " +
             COLUMNA_ID_USUARIO + " " + "integer primary key, " +
+            COLUMNA_EMAIL_USUARIO + " text not null, " +
             COLUMNA_NOMBRE_USUARIO + " text not null, " +
             COLUMNA_APELLIDOS_USUARIO + " text not null, " +
-            COLUMNA_EMAIL_USUARIO + " text not null, " +
+            COLUMNA_TELEFONO_USUARIO + " text not null, " +
             COLUMNA_CONTRASEÑA_USUARIO + " text not null, " +
-            COLUMNA_POLITICA_DATOS + " text not null, " +
+            COLUMNA_POLITICA_DATOS + " text not null " +
             ")" ;
 
     private static final String CREATE_TABLA_RESERVAS = "create table if not exists " + TABLA_RESERVAS
@@ -60,7 +62,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
             COLUMNA_ID_USUARIO_RESERVA + " " + "integer not null, " +
             COLUMNA_NUMERO_RESERVA + " integer, " +
             COLUMNA_INICIO_RESERVA + " text not null, " +
-            COLUMNA_FIN_RESERVA + " text not null, "
+            COLUMNA_FIN_RESERVA + " text not null "
             + ")";
 
 
