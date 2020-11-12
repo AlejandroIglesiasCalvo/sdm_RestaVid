@@ -21,8 +21,8 @@ public class UsuariosDataSource {
     /**
      * Columnas de la tabla
      */
-    private final String[] allColumns = {MyDBHelper.COLUMNA_ID_USUARIO, MyDBHelper.COLUMNA_NOMBRE_USUARIO,
-            MyDBHelper.COLUMNA_APELLIDOS_USUARIO, MyDBHelper.COLUMNA_EMAIL_USUARIO, MyDBHelper.COLUMNA_CONTRASEÑA_USUARIO,
+    private final String[] allColumns = {MyDBHelper.COLUMNA_ID_USUARIO, MyDBHelper.COLUMNA_EMAIL_USUARIO, MyDBHelper.COLUMNA_NOMBRE_USUARIO,
+            MyDBHelper.COLUMNA_APELLIDOS_USUARIO, MyDBHelper.COLUMNA_TELEFONO_USUARIO, MyDBHelper.COLUMNA_CONTRASEÑA_USUARIO,
             MyDBHelper.COLUMNA_POLITICA_DATOS};
 
     /**
@@ -64,9 +64,10 @@ public class UsuariosDataSource {
         ContentValues values = new ContentValues();
 
         values.put(MyDBHelper.COLUMNA_ID_USUARIO, usuarioInsert.getId());
+        values.put(MyDBHelper.COLUMNA_EMAIL_USUARIO, usuarioInsert.getEmail());
         values.put(MyDBHelper.COLUMNA_NOMBRE_USUARIO, usuarioInsert.getNombre());
         values.put(MyDBHelper.COLUMNA_APELLIDOS_USUARIO, usuarioInsert.getApellidos());
-        values.put(MyDBHelper.COLUMNA_EMAIL_USUARIO, usuarioInsert.getEmail());
+        values.put(MyDBHelper.COLUMNA_TELEFONO_USUARIO, usuarioInsert.getEmail());
         values.put(MyDBHelper.COLUMNA_CONTRASEÑA_USUARIO, usuarioInsert.getContraseña());
         values.put(MyDBHelper.COLUMNA_POLITICA_DATOS, usuarioInsert.isPoliticaDeProteccionDeDatos());
         // Insertamos la valoracion
@@ -92,10 +93,11 @@ public class UsuariosDataSource {
         while (!cursor.isAfterLast()) {
             final Usuario user = new Usuario();
             user.setId(cursor.getInt(0));
-            user.setNombre(cursor.getString(1));
-            user.setApellidos(cursor.getString(2));
-            user.setEmail(cursor.getString(3));
-            user.setContraseña(cursor.getString(4));
+            user.setEmail(cursor.getString(1));
+            user.setNombre(cursor.getString(2));
+            user.setApellidos(cursor.getString(3));
+            user.setTelefono(cursor.getString(4));
+            user.setContraseña(cursor.getString(5));
             Boolean politica;
             if (cursor.getString(5).equals("SI")) {
                 politica = true;
@@ -132,10 +134,11 @@ public class UsuariosDataSource {
         while (!cursor.isAfterLast()) {
             final Usuario user = new Usuario();
             user.setId(cursor.getInt(0));
-            user.setNombre(cursor.getString(1));
-            user.setApellidos(cursor.getString(2));
-            user.setEmail(cursor.getString(3));
-            user.setContraseña(cursor.getString(4));
+            user.setEmail(cursor.getString(1));
+            user.setNombre(cursor.getString(2));
+            user.setApellidos(cursor.getString(3));
+            user.setTelefono(cursor.getString(4));
+            user.setContraseña(cursor.getString(5));
             Boolean politica;
             if (cursor.getString(5).equals("SI")) {
                 politica = true;
