@@ -45,9 +45,9 @@ public class checks {
 
     /**
      * @param contra
-     * @return true si esta correcto, false si no existe o esta mal escrita
+     * @return true si essta correcto, false si no existe o esta mal escrita
      */
-    private static boolean isValidPassword(String contra) {
+    public static boolean isValidPassword(String contra) {
         //TODO: Aqui deberiamos comprobar que existe en el modelo
         if(contra.isEmpty() || contra.length() < MIN_LENGTH_CONTRA || contra.length() > MAX_LENGTH_CONTRA){
             return false;

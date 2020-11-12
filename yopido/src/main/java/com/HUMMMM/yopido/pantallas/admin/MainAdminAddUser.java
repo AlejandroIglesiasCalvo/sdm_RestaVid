@@ -15,31 +15,39 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MainAdminAddUser extends BaseActivity {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_add_user);
-        final EditText correo = (EditText) findViewById(R.id.editTextCorreo);
-        final EditText pass = (EditText) findViewById(R.id.editTextTextPassword);
-        final EditText nombre = (EditText) findViewById(R.id.editTextTextNombre);
-        final EditText telf = (EditText) findViewById(R.id.editTextPhone);
+        final EditText correo = findViewById(R.id.editTextCorreo);
+        final EditText pass =  findViewById(R.id.editTextTextPassword);
+        final EditText nombre =  findViewById(R.id.editTextTextNombre);
+        final EditText apellidos = findViewById(R.id.editTextTextApellidos);
+        final EditText telf = findViewById(R.id.editTextPhone);
 
 
         // --- activity_admin_add_user
-        Button btnAñadirUser;
-        btnAñadirUser = (Button) findViewById(R.id.buttonAceptar_AñadirUser_Admin);
+        Button btnAddUser;
+        btnAddUser = findViewById(R.id.buttonAceptar_AñadirUser_Admin);
 
 
 
-        btnAñadirUser.setOnClickListener(new View.OnClickListener() {
+        btnAddUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!checks.camposRellenos(correo,pass,nombre,telf)) {
+                if(!checks.camposRellenos(correo,pass,nombre,telf,apellidos)) {
                     Snackbar.make(findViewById(R.id.buttonAceptar_AñadirUser_Admin), R.string.error_admin_addUser, Snackbar.LENGTH_SHORT).show();
                 }
                 else {
+                    // comprbar que están bien y añadirlo a la BDD.
+                    if(!checks.existeEmailEnBDD(correo)
+                            && checks.isEmailValid(String.valueOf(correo)) && checks.isValidPassword(String.valueOf(pass)))
+                    {
+
+                    }
+                    else
+                        Snackbar.make(findViewById(R.id.buttonAceptar_AñadirUser_Admin), R.string.error_admin_addUser, Snackbar.LENGTH_SHORT).show();
+
                     cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
                 }
 

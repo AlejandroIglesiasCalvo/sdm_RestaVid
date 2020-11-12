@@ -20,24 +20,25 @@ public class MainAdminAddReserva extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_add_reserva);
 
-        final EditText nombre = (EditText) findViewById(R.id.editTextTextNombre);
-        final EditText telf = (EditText) findViewById(R.id.editTextPhone);
+        final EditText nombre =  findViewById(R.id.editTextTextNombre);
+        final EditText telf =  findViewById(R.id.editTextPhone);
         // --- activity_admin_add_reserva
-        Button btnAñadirReserva;
+        Button btnAddReserva;
 
-        btnAñadirReserva = (Button) findViewById(R.id.button_Aceptar_Reserva_Admin);
+        btnAddReserva = findViewById(R.id.button_Aceptar_Reserva_Admin);
 
 
-        btnAñadirReserva.setOnClickListener((new View.OnClickListener() {
+        btnAddReserva.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(!checks.camposRellenos(nombre,telf)) {
                     Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.error_admin_addReserva, Snackbar.LENGTH_SHORT).show();
                 }
-                // Se añade usuario nuevo y la reserva, en caso de no existir en la BDD.
                 else
-                // Se añade la reserva al usuario si existe el usuario en la BDD.
                 {
+                    //Se comprueban los datos.
+                    // Se añade la reserva al usuario si existe el usuario en la BDD.
+
                     cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
                 }
             }
