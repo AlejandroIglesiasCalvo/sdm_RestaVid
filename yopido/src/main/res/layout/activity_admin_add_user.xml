@@ -122,6 +122,33 @@
                 app:layout_constraintVertical_bias="0.368" />
 
             <TextView
+                android:id="@+id/apellidos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/apellidos"
+                app:layout_constraintBottom_toTopOf="@+id/correo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.055"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/loging"
+                app:layout_constraintVertical_bias="0.296" />
+
+            <EditText
+                android:id="@+id/editTextTextApellidos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autofillHints="@+id/editTextTextNombre"
+                android:ems="10"
+                android:hint="@string/apellidosUsuario"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toTopOf="@+id/correo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.08"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nombre"
+                app:layout_constraintVertical_bias="0.368" />
+
+            <TextView
                 android:id="@+id/telefono"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

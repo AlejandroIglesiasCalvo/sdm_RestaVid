@@ -38,8 +38,11 @@
     <string name="reservaUsuario">Reserva: </string>
 
 
-    <string name="nombre">Nombre y apellidos</string>
+    <string name="nombre">Nombre</string>
     <string name="nombreUsuario">Nombre de usuario (correo electrónico)</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="apellidosUsuario">Apellidos de usuario</string>
+
 
     <string name="hintEmail">correo electrónico</string>
     <string name="telefono">Teléfono de contacto</string>
