@@ -8,31 +8,34 @@ import java.util.List;
 
 public class Usuario implements Parcelable {
     private int id;
-    private String Nombre;
-    private String Apellidos;
-    private String Email;
-    private String contrseña;
+    private String email;
+    private String nombre;
+    private String apellidos;
+    private String telefono;
+    private String contraseña;
     private boolean politicaDeProteccionDeDatos = false;
+
     private List<Integer> reservas = new ArrayList<>();
 
     public Usuario() {
     }
 
-    public Usuario(int id, String nombre, String apellidos, String email, String contrseña, boolean politicaDeProteccionDeDatos) {
+    public Usuario(int id, String email, String nombre, String apellidos, String telefono, String contraseña, boolean politicaDeProteccionDeDatos) {
+        this.email = email;
         this.id = id;
-        Nombre = nombre;
-        Apellidos = apellidos;
-        Email = email;
-        this.contrseña = contrseña;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.telefono=telefono;
+        this.contraseña = contraseña;
         this.politicaDeProteccionDeDatos = politicaDeProteccionDeDatos;
     }
 
     protected Usuario(Parcel in) {
         id = in.readInt();
-        Nombre = in.readString();
-        Apellidos = in.readString();
-        Email = in.readString();
-        contrseña = in.readString();
+        nombre = in.readString();
+        apellidos = in.readString();
+        email = in.readString();
+        contraseña = in.readString();
         politicaDeProteccionDeDatos = in.readByte() != 0;
     }
 
@@ -56,36 +59,45 @@ public class Usuario implements Parcelable {
         this.id = id;
     }
 
-    public String getNombre() {
-        return Nombre;
-    }
-
-    public void setNombre(String nombre) {
-        Nombre = nombre;
-    }
-
-    public String getApellidos() {
-        return Apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        Apellidos = apellidos;
-    }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
-    public String getContrseña() {
-        return contrseña;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setContrseña(String contrseña) {
-        this.contrseña = contrseña;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
     public boolean isPoliticaDeProteccionDeDatos() {
@@ -112,10 +124,10 @@ public class Usuario implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
-        dest.writeString(Nombre);
-        dest.writeString(Apellidos);
-        dest.writeString(Email);
-        dest.writeString(contrseña);
+        dest.writeString(nombre);
+        dest.writeString(apellidos);
+        dest.writeString(email);
+        dest.writeString(contraseña);
         dest.writeBoolean(politicaDeProteccionDeDatos);
     }
 }

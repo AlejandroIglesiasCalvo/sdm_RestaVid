@@ -67,7 +67,7 @@ public class UsuariosDataSource {
         values.put(MyDBHelper.COLUMNA_NOMBRE_USUARIO, usuarioInsert.getNombre());
         values.put(MyDBHelper.COLUMNA_APELLIDOS_USUARIO, usuarioInsert.getApellidos());
         values.put(MyDBHelper.COLUMNA_EMAIL_USUARIO, usuarioInsert.getEmail());
-        values.put(MyDBHelper.COLUMNA_CONTRASEÑA_USUARIO, usuarioInsert.getContrseña());
+        values.put(MyDBHelper.COLUMNA_CONTRASEÑA_USUARIO, usuarioInsert.getContraseña());
         values.put(MyDBHelper.COLUMNA_POLITICA_DATOS, usuarioInsert.isPoliticaDeProteccionDeDatos());
         // Insertamos la valoracion
         long insertId =
@@ -95,7 +95,7 @@ public class UsuariosDataSource {
             user.setNombre(cursor.getString(1));
             user.setApellidos(cursor.getString(2));
             user.setEmail(cursor.getString(3));
-            user.setContrseña(cursor.getString(4));
+            user.setContraseña(cursor.getString(4));
             Boolean politica;
             if (cursor.getString(5).equals("SI")) {
                 politica = true;
@@ -135,7 +135,7 @@ public class UsuariosDataSource {
             user.setNombre(cursor.getString(1));
             user.setApellidos(cursor.getString(2));
             user.setEmail(cursor.getString(3));
-            user.setContrseña(cursor.getString(4));
+            user.setContraseña(cursor.getString(4));
             Boolean politica;
             if (cursor.getString(5).equals("SI")) {
                 politica = true;
