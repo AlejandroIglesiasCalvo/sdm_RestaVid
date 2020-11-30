@@ -30,8 +30,7 @@ public class MainAdminAddUser extends BaseActivity {
         Button btnAddUser;
         btnAddUser = findViewById(R.id.buttonAceptar_AñadirUser_Admin);
 
-
-
+        
         btnAddUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +49,6 @@ public class MainAdminAddUser extends BaseActivity {
 
                     cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
                 }
-
             }
         });
 

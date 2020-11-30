@@ -39,6 +39,7 @@ public class MainAdminAddReserva extends BaseActivity {
                     //Se comprueban los datos.
                     // Se añade la reserva al usuario si existe el usuario en la BDD.
 
+                    // Se cambia finalmente, si todo sale bien, de clase
                     cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
                 }
             }

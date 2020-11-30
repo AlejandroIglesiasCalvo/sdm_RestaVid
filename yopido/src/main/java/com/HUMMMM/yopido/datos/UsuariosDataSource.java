@@ -21,8 +21,13 @@ public class UsuariosDataSource {
     /**
      * Columnas de la tabla
      */
-    private final String[] allColumns = {MyDBHelper.COLUMNA_ID_USUARIO, MyDBHelper.COLUMNA_EMAIL_USUARIO, MyDBHelper.COLUMNA_NOMBRE_USUARIO,
-            MyDBHelper.COLUMNA_APELLIDOS_USUARIO, MyDBHelper.COLUMNA_TELEFONO_USUARIO, MyDBHelper.COLUMNA_CONTRASEÑA_USUARIO,
+    private final String[] allColumns = {
+            MyDBHelper.COLUMNA_ID_USUARIO,
+            MyDBHelper.COLUMNA_EMAIL_USUARIO,
+            MyDBHelper.COLUMNA_NOMBRE_USUARIO,
+            MyDBHelper.COLUMNA_APELLIDOS_USUARIO,
+            MyDBHelper.COLUMNA_TELEFONO_USUARIO,
+            MyDBHelper.COLUMNA_CONTRASEÑA_USUARIO,
             MyDBHelper.COLUMNA_POLITICA_DATOS};
 
     /**
