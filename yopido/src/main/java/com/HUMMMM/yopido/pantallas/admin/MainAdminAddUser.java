@@ -19,6 +19,7 @@ public class MainAdminAddUser extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_add_user);
+
         final EditText correo = findViewById(R.id.editTextCorreo);
         final EditText pass =  findViewById(R.id.editTextTextPassword);
         final EditText nombre =  findViewById(R.id.editTextTextNombre);

@@ -36,15 +36,13 @@ public class checks {
     public static boolean isAdmin(EditText texto, EditText contra1) {
         String correo = String.valueOf(texto.getText());
 
-        System.out.println("correo: " + correo + ", contra: " + String.valueOf(contra1.getText()));
-
         if(correo.equals(CORREO_ADMIN) && isPasswordAdminValid(contra1))
             return true;
         else return false;
     }
 
     /**
-     * @param contra
+     * @param contra contraseña
      * @return true si essta correcto, false si no existe o esta mal escrita
      */
     public static boolean isValidPassword(String contra) {
@@ -59,7 +57,7 @@ public class checks {
     /**
      * method is used for checking valid email id format.
      *
-     * @param email
+     * @param email email
      * @return boolean true for valid false for invalid
      */
     public static boolean isEmailValid(String email) {
@@ -76,8 +74,8 @@ public class checks {
 
     /**
      *
-     * @param textos
-     * @return
+     * @param textos cosas a comprobar
+     * @return true o false
      */
     public static boolean camposRellenos(EditText... textos)
     {
@@ -89,8 +87,8 @@ public class checks {
 
     /**
      *
-     * @param texto
-     * @return
+     * @param texto editText
+     * @return true o false
      */
     public static boolean existeEmailEnBDD(EditText texto)
     {
@@ -104,8 +102,8 @@ public class checks {
 
     /**
      *
-     * @param texto
-     * @return
+     * @param texto editText
+     * @return true o false
      */
     public static boolean isPasswordAdminValid(EditText texto)
     {

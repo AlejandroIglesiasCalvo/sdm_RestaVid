@@ -21,12 +21,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <!--        Aqui las demas actividades-->
         <activity android:name="com.HUMMMM.yopido.pantallas.admin.MainActivityAdmin" />
         <activity android:name="com.HUMMMM.yopido.pantallas.admin.MainAdminAddReserva" />
         <activity android:name="com.HUMMMM.yopido.pantallas.admin.MainAdminDeleteReserva" />
         <activity android:name="com.HUMMMM.yopido.pantallas.admin.MainAdminDeleteUser" />
         <activity android:name="com.HUMMMM.yopido.pantallas.admin.MainAdminAddUser" />
+        <activity android:name="com.HUMMMM.yopido.pantallas.admin.MainAdminModData" />
 
         <activity android:name="com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLoggeado" />
         <activity android:name="com.HUMMMM.yopido.pantallas.loguedUser.ReservarLogueado" />

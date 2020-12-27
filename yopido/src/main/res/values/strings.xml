@@ -14,12 +14,20 @@
     <string name="EliminarReserva">Eliminar Reservas</string>
     <string name="EliminarUsuarios">Eliminar Usuarios</string>
     <string name="AñadirUsuarios">Añadir Usuarios</string>
+    <string name="ModData">Modificar Restricciones</string>
+
 
     // --- Pantalla principal Usuario
     <string name="Reservar">Reservar</string>
     <string name="AnularReserva">Anular Reserva</string>
     <string name="VerRservas">Mis reservas</string>
 
+    //Admin Mod Data
+    <string name="Admin_Mod_numero_personas">Numero número de personas: </string>
+    <string name="Admin_Mod_hora_reserva">Nueva hora límite de reserva: </string>
+    <string name="Admin_Mod_Cerrados">¿Marcar restaurante como cerrado?</string>
+
+    <string name="cerrar_restaurante">Se va a marcar el restaurante como cerrado</string>
 
     //Admin delete reserva
     <string name="btnBuscar">Buscar</string>
