@@ -22,8 +22,8 @@ public class MyDBHelper extends SQLiteOpenHelper {
     public static final String TABLA_RESTAURANTE = "tabla_restaurante";
 
     public static final String COLUMNA_ID_RESTAURANTE = "id_reserva";
-    public static final String COLUMNA_HORA = "hora";
     public static final String COLUMNA_NUM_PERSONAS = "num_personas";
+    public static final String COLUMNA_HORA = "hora";
     public static final String COLUMNA_CERRADOS = "cerrados";
 
     /**
@@ -57,8 +57,8 @@ public class MyDBHelper extends SQLiteOpenHelper {
     private static final String CREATE_TABLA_RESTAURANTE = "create table if not exists " + TABLA_RESTAURANTE
             + "( " +
             COLUMNA_ID_RESTAURANTE + " " + "integer primary key, " +
-            COLUMNA_HORA + " " + "text not null, " +
             COLUMNA_NUM_PERSONAS + " text not null, " +
+            COLUMNA_HORA + " " + "text not null, " +
             COLUMNA_CERRADOS + " text not null "
             + ")";
 
