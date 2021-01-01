@@ -17,6 +17,16 @@ public class MyDBHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     /**
+     * Nombre de la tabla restaurante con las restricciones actuales
+     */
+    public static final String TABLA_RESTAURANTE = "tabla_restaurante";
+
+    public static final String COLUMNA_ID_RESTAURANTE = "id_reserva";
+    public static final String COLUMNA_HORA = "hora";
+    public static final String COLUMNA_NUM_PERSONAS = "num_personas";
+    public static final String COLUMNA_CERRADOS = "cerrados";
+
+    /**
      * Nombre de la tabla Usuario
      */
     public static final String TABLA_USUARIO = "tabla_usuario";
@@ -33,7 +43,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
     /**
      * Nombre de la tabla resevas
      */
-    public static final String TABLA_RESERVAS = "tabla_peliculas_reparto";
+    public static final String TABLA_RESERVAS = "tabla_reservas";
 
     public static final String COLUMNA_ID_RESERVA = "id_reserva";
     public static final String COLUMNA_NUMERO_RESERVA = "numero_reserva";
@@ -41,10 +51,17 @@ public class MyDBHelper extends SQLiteOpenHelper {
     public static final String COLUMNA_FIN_RESERVA = "fin_reserva";
     public static final String  COLUMNA_ID_USUARIO_RESERVA="id_usuario_reserva";
 
-
     /**
      * Script para crear la base datos en SQL
      */
+    private static final String CREATE_TABLA_RESTAURANTE = "create table if not exists " + TABLA_RESTAURANTE
+            + "( " +
+            COLUMNA_ID_RESTAURANTE + " " + "integer primary key, " +
+            COLUMNA_HORA + " " + "text not null, " +
+            COLUMNA_NUM_PERSONAS + " text not null, " +
+            COLUMNA_CERRADOS + " text not null "
+            + ")";
+
     private static final String CREATE_TABLA_USUARIO = "create table if not exists " + TABLA_USUARIO
             + "( " +
             COLUMNA_ID_USUARIO + " " + "integer primary key, " +

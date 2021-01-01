@@ -41,8 +41,8 @@ public class MainAdminAddUser extends BaseActivity {
                 else {
                     // comprbar que están bien y añadirlo a la BDD.
                     if(!checks.existeEmailEnBDD(correo)
-                            && checks.isEmailValid(String.valueOf(correo)) && checks.isValidPassword(String.valueOf(pass)))
-                    {
+                            && checks.isEmailValid(String.valueOf(correo))
+                            && checks.isValidPassword(String.valueOf(pass))){
 
                     }
                     else
