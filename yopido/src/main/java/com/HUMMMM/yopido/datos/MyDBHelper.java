@@ -21,7 +21,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
      */
     public static final String TABLA_RESTAURANTE = "tabla_restaurante";
 
-    public static final String COLUMNA_ID_RESTAURANTE = "id_reserva";
+    public static final String COLUMNA_ID_RESTAURANTE = "id_restaurante";
     public static final String COLUMNA_NUM_PERSONAS = "num_personas";
     public static final String COLUMNA_HORA = "hora";
     public static final String COLUMNA_CERRADOS = "cerrados";
