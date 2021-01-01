@@ -86,6 +86,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
     /**
      * Script para borrar la base de datos (SQL)
      */
+    private static final String DATABASE_DROP_TABLA_RESTAURANTE = "DROP TABLE IF EXISTS " + TABLA_RESTAURANTE;
     private static final String DATABASE_DROP_TABLA_USUARIO = "DROP TABLE IF EXISTS " + TABLA_USUARIO;
     private static final String DATABASE_DROP_TABLA_RESERVAS = "DROP TABLE IF EXISTS " + TABLA_RESERVAS;
 
@@ -98,6 +99,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         //invocamos execSQL pq no devuelve ningún tipo de dataset
+        db.execSQL(CREATE_TABLA_RESTAURANTE);
         db.execSQL(CREATE_TABLA_USUARIO);
         db.execSQL(CREATE_TABLA_RESERVAS);
         Log.i("ONCREATE", "EJECUTO CREACION");
@@ -105,6 +107,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL(DATABASE_DROP_TABLA_RESTAURANTE);
         db.execSQL(DATABASE_DROP_TABLA_USUARIO);
         db.execSQL(DATABASE_DROP_TABLA_RESERVAS);
         this.onCreate(db);
