@@ -123,7 +123,7 @@ public class RestauranteDataSource {
 
         cursor.moveToFirst();
 
-        hora = cursor.getString(0);
+        hora = cursor.getString(1);
         cursor.close();
         return hora;
     }
@@ -143,7 +143,7 @@ public class RestauranteDataSource {
 
         cursor.moveToFirst();
 
-        personas = cursor.getString(1);
+        personas = cursor.getString(2);
         cursor.close();
         return personas;
     }
@@ -163,7 +163,7 @@ public class RestauranteDataSource {
 
         cursor.moveToFirst();
 
-        cerrado = cursor.getString(2);
+        cerrado = cursor.getString(3);
         cursor.close();
 
         if(cerrado.equals("SI"))
