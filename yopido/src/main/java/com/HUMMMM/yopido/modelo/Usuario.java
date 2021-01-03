@@ -6,13 +6,23 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.realm.annotations.PrimaryKey;
+import io.realm.annotations.Required;
+
 public class Usuario implements Parcelable {
+    @PrimaryKey
     private int id;
+    @Required
     private String email;
+    @Required
     private String nombre;
+    @Required
     private String apellidos;
+    @Required
     private String telefono;
+    @Required
     private String contraseña;
+    @Required
     private boolean politicaDeProteccionDeDatos = false;
 
     private List<Integer> reservas = new ArrayList<>();
@@ -128,6 +138,7 @@ public class Usuario implements Parcelable {
         dest.writeString(apellidos);
         dest.writeString(email);
         dest.writeString(contraseña);
-        dest.writeBoolean(politicaDeProteccionDeDatos);
+        //TODO arreglar este metodo para la api 24
+        //dest.writeBoolean(politicaDeProteccionDeDatos);
     }
 }

@@ -33,16 +33,17 @@ public class MainActivity extends BaseActivity {
     Button btnPedirYa;
     App app;
     Realm uiThreadRealm;
+
     protected final void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //bbdd realm
         Realm.init(this);
-        String appID = "restavidbbdd-djyny";
+        String appID = "restavidbbdd-djyny";//Id online de atlas mongo
         app = new App(new AppConfiguration.Builder(appID)
                 .build());
-//botones
+        //botones
         btnEntar = (Button) findViewById(R.id.btnEntrar);
         btnEntar.setOnClickListener((new View.OnClickListener() {
             @Override
@@ -86,11 +87,15 @@ public class MainActivity extends BaseActivity {
             }
         });
     }
+
+    //Un objeto realm guarda el estado de la bbdd y sus cambios
     private void addChangeListenerToRealm(Realm realm) {
         // all tasks in the realm
+        //Esto se asegura de que esta funcionando la bbdd realm no fake
         RealmResults<Task> tasks = uiThreadRealm.where(Task.class).findAllAsync();
         tasks.addChangeListener(new OrderedRealmCollectionChangeListener<RealmResults<Task>>() {
             @Override
+            // Esto recibe un objeto realm con los cambios y lo usa para actualizar la bbdd
             public void onChange(RealmResults<Task> collection, OrderedCollectionChangeSet changeSet) {
                 // process deletions in reverse order if maintaining parallel data structures so indices don't change as you iterate
                 OrderedCollectionChangeSet.Range[] deletions = changeSet.getDeletionRanges();
@@ -99,13 +104,16 @@ public class MainActivity extends BaseActivity {
                 }
                 OrderedCollectionChangeSet.Range[] insertions = changeSet.getInsertionRanges();
                 for (OrderedCollectionChangeSet.Range range : insertions) {
-                    Log.v("QUICKSTART", "Inserted range: " + range.startIndex + " to " + (range.startIndex + range.length - 1));                            }
+                    Log.v("QUICKSTART", "Inserted range: " + range.startIndex + " to " + (range.startIndex + range.length - 1));
+                }
                 OrderedCollectionChangeSet.Range[] modifications = changeSet.getChangeRanges();
                 for (OrderedCollectionChangeSet.Range range : modifications) {
-                    Log.v("QUICKSTART", "Updated range: " + range.startIndex + " to " + (range.startIndex + range.length - 1));                            }
+                    Log.v("QUICKSTART", "Updated range: " + range.startIndex + " to " + (range.startIndex + range.length - 1));
+                }
             }
         });
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -120,11 +128,14 @@ public class MainActivity extends BaseActivity {
             }
         });
     }
+
     public class BackgroundQuickStart implements Runnable {
         User user;
+
         public BackgroundQuickStart(User user) {
             this.user = user;
         }
+
         @Override
         public void run() {
             String partitionValue = "My Project";
@@ -134,7 +145,7 @@ public class MainActivity extends BaseActivity {
                     .build();
             Realm backgroundThreadRealm = Realm.getInstance(config);
             Task task = new Task("New Task");
-            backgroundThreadRealm.executeTransaction (transactionRealm -> {
+            backgroundThreadRealm.executeTransaction(transactionRealm -> {
                 transactionRealm.insert(task);
             });
             // all tasks in the realm
@@ -144,14 +155,14 @@ public class MainActivity extends BaseActivity {
             RealmResults<Task> openTasks = tasks.where().equalTo("status", TaskStatus.Open.name()).findAll();
             Task otherTask = tasks.get(0);
             // all modifications to a realm must happen inside of a write block
-            backgroundThreadRealm.executeTransaction( transactionRealm -> {
+            backgroundThreadRealm.executeTransaction(transactionRealm -> {
                 Task innerOtherTask = transactionRealm.where(Task.class).equalTo("_id", otherTask.get_id()).findFirst();
                 innerOtherTask.setStatus(TaskStatus.Complete);
             });
             Task yetAnotherTask = tasks.get(0);
             ObjectId yetAnotherTaskId = yetAnotherTask.get_id();
             // all modifications to a realm must happen inside of a write block
-            backgroundThreadRealm.executeTransaction( transactionRealm -> {
+            backgroundThreadRealm.executeTransaction(transactionRealm -> {
                 Task innerYetAnotherTask = transactionRealm.where(Task.class).equalTo("_id", yetAnotherTaskId).findFirst();
                 innerYetAnotherTask.deleteFromRealm();
             });
