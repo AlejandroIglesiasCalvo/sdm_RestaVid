@@ -6,10 +6,11 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 import io.realm.annotations.Required;
 
-public class Usuario implements Parcelable {
+public class Usuario extends RealmObject implements Parcelable {
     @PrimaryKey
     private int id;
     @Required
@@ -35,7 +36,7 @@ public class Usuario implements Parcelable {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
-        this.telefono=telefono;
+        this.telefono = telefono;
         this.contraseña = contraseña;
         this.politicaDeProteccionDeDatos = politicaDeProteccionDeDatos;
     }
