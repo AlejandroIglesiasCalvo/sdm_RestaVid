@@ -1,36 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".pantallas.admin.MainAdminDeleteReserva">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="20dp">
+        android:layout_margin="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/fechaCalendario"
+                android:id="@+id/textoAdminFechaCalendario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/FechaCalendario" />
 
             <CalendarView
-                android:id="@+id/calendarReserva"
-                android:minDate="@string/minDateCalendar"
+                android:id="@+id/calendarioAdminEliminarReserva"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="225dp"
+                android:layout_marginTop="28dp" />
+
+            <Button
+                android:id="@+id/btnBuscar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btnBuscar" />
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.073"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/numero_personas" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TableLayout
+                    android:id="@+id/tablaUserDeleteReserva"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:ignore="UselessParent">
+
+                        <TextView
+                            android:id="@+id/txNombre"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:padding="10dp"
+                            android:text="@string/tablaNombre" />
+
+                        <TextView
+                            android:id="@+id/txHora"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:padding="10dp"
+                            android:text="@string/tablaHora" />
+
+                    </TableRow>
+
+                </TableLayout>
+            </HorizontalScrollView>
+
 
         </LinearLayout>
     </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

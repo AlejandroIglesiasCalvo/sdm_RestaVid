@@ -20,12 +20,11 @@ public class MainRegistro extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
-        EditText correo =  findViewById(R.id.editTextCorreo);
-        EditText pass =  findViewById(R.id.editTextTextPassword);
-        EditText nombre =  findViewById(R.id.editTextTextNombre);
-        EditText apellidos =  findViewById(R.id.editTextTextApellidos);
-        EditText telefono =  findViewById(R.id.editTextPhone);
-
+        final EditText correo =  findViewById(R.id.editTextCorreo);
+        final EditText pass =  findViewById(R.id.editTextTextPassword);
+        final EditText nombre =  findViewById(R.id.editTextTextNombre);
+        final EditText apellidos =  findViewById(R.id.editTextTextApellidos);
+        final EditText telefono =  findViewById(R.id.editTextPhone);
 
         Button btnRegistroAceptar;
 
