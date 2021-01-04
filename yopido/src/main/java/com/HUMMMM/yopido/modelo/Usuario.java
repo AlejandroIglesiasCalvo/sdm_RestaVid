@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 import io.realm.annotations.Required;
@@ -23,10 +24,9 @@ public class Usuario extends RealmObject implements Parcelable {
     private String telefono;
     @Required
     private String contraseña;
-    @Required
     private boolean politicaDeProteccionDeDatos = false;
 
-    private List<Integer> reservas = new ArrayList<>();
+    private RealmList<Reserva> reservas = new RealmList<Reserva>();
 
     public Usuario() {
     }
@@ -119,11 +119,11 @@ public class Usuario extends RealmObject implements Parcelable {
         this.politicaDeProteccionDeDatos = politicaDeProteccionDeDatos;
     }
 
-    public List<Integer> getReservas() {
+    public RealmList<Reserva> getReservas() {
         return reservas;
     }
 
-    public void setReservas(List<Integer> reservas) {
+    public void setReservas(RealmList<Reserva> reservas) {
         this.reservas = reservas;
     }
 

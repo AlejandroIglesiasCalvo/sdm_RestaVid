@@ -9,7 +9,9 @@ import androidx.annotation.RequiresApi;
 import java.time.LocalDate;
 import java.util.Date;
 
-public class Reserva implements Parcelable {
+import io.realm.RealmObject;
+
+public class Reserva extends RealmObject implements Parcelable {
     private int id;
     private int id_usuario;
     private String nombreUsuario;
