@@ -75,6 +75,8 @@
         //Iniciar Sesión
         <string name="error_usuario_contra">Email o contraseña incorrectos</string>
 
+        //Iniciar Sesión
+        <string name="error_registro">Campos incompletos</string>
         //Admin add user
         <string name="error_admin_addUser">Error al intentar crear el usuario, rellene todos los campos</string>
         <string name="error_admin_addReserva">Error al intentar crear la reserva, rellene todos los campos</string>
