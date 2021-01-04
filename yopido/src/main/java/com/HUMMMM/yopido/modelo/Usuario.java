@@ -13,7 +13,7 @@ import io.realm.annotations.Required;
 
 public class Usuario extends RealmObject implements Parcelable {
     @PrimaryKey
-    private int id;
+    private int _id;
     @Required
     private String email;
     @Required
@@ -33,7 +33,7 @@ public class Usuario extends RealmObject implements Parcelable {
 
     public Usuario(int id, String email, String nombre, String apellidos, String telefono, String contraseña, boolean politicaDeProteccionDeDatos) {
         this.email = email;
-        this.id = id;
+        this._id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.telefono = telefono;
@@ -42,7 +42,7 @@ public class Usuario extends RealmObject implements Parcelable {
     }
 
     protected Usuario(Parcel in) {
-        id = in.readInt();
+        _id = in.readInt();
         nombre = in.readString();
         apellidos = in.readString();
         email = in.readString();
@@ -63,11 +63,11 @@ public class Usuario extends RealmObject implements Parcelable {
     };
 
     public int getId() {
-        return id;
+        return _id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this._id = id;
     }
 
 
@@ -134,7 +134,7 @@ public class Usuario extends RealmObject implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
+        dest.writeInt(_id);
         dest.writeString(nombre);
         dest.writeString(apellidos);
         dest.writeString(email);

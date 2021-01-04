@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "945382176788",
+    "project_id": "sdm-buscarciudades",
+    "storage_bucket": "sdm-buscarciudades.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:945382176788:android:9cb31922e0975f46f74f01",
+        "android_client_info": {
+          "package_name": "com.HUMMMM.yopido"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "945382176788-d4u5m8f4dsq55aubkbi6agv6n8pc5hdc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBA-v0fYZh4VOaGGeOQ7OA2ylUiWJ7jC9s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "945382176788-d4u5m8f4dsq55aubkbi6agv6n8pc5hdc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

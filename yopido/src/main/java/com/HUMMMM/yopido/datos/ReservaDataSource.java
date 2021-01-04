@@ -61,7 +61,7 @@ public class ReservaDataSource {
         // Establecemos los valores que se insertaran
         ContentValues values = new ContentValues();
 
-        values.put(MyDBHelper.COLUMNA_ID_RESERVA, reservaInsert.getId());
+        values.put(MyDBHelper.COLUMNA_ID_RESERVA, reservaInsert.get_id());
         values.put(MyDBHelper.COLUMNA_NUMERO_RESERVA, reservaInsert.getNumeroDePersonas());
         values.put(MyDBHelper.COLUMNA_INICIO_RESERVA, reservaInsert.getInicio());
         values.put(MyDBHelper.COLUMNA_FIN_RESERVA, reservaInsert.getFin());
@@ -88,7 +88,7 @@ public class ReservaDataSource {
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             final Reserva reserva = new Reserva();
-            reserva.setId(cursor.getInt(0));
+            reserva.set_id(cursor.getInt(0));
             reserva.setNumeroDePersonas(cursor.getInt(1));
             reserva.setInicio(cursor.getInt(2));
             reserva.setFin(cursor.getInt(3));
@@ -122,7 +122,7 @@ public class ReservaDataSource {
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             final Reserva reserva = new Reserva();
-            reserva.setId(cursor.getInt(0));
+            reserva.set_id(cursor.getInt(0));
             reserva.setNumeroDePersonas(cursor.getInt(1));
             reserva.setInicio(cursor.getInt(2));
             reserva.setFin(cursor.getInt(3));

@@ -1,18 +1,14 @@
 package com.HUMMMM.yopido.modelo;
 
-import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import androidx.annotation.RequiresApi;
-
-import java.time.LocalDate;
-import java.util.Date;
-
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 public class Reserva extends RealmObject implements Parcelable {
-    private int id;
+    @PrimaryKey
+    private int _id;
     private int id_usuario;
     private String nombreUsuario;
     private String telef;
@@ -25,8 +21,8 @@ public class Reserva extends RealmObject implements Parcelable {
 
 public Reserva (){}
 
-    public Reserva(int id, int id_usuario, int numeroDePersonas, int inicio, int fin) {
-        this.id = id;
+    public Reserva(int _id, int id_usuario, int numeroDePersonas, int inicio, int fin) {
+        this._id = _id;
         this.id_usuario=id_usuario;
         NumeroDePersonas = numeroDePersonas;
         Inicio = inicio;
@@ -50,7 +46,7 @@ public Reserva (){}
 
 
     protected Reserva(Parcel in) {
-        id = in.readInt();
+        _id = in.readInt();
         NumeroDePersonas = in.readInt();
         Inicio = in.readInt();
         Fin = in.readInt();
@@ -73,12 +69,12 @@ public Reserva (){}
         }
     };
 
-    public int getId() {
-        return id;
+    public int get_id() {
+        return _id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void set_id(int _id) {
+        this._id = _id;
     }
 
     public int getNumeroDePersonas() {
@@ -144,7 +140,7 @@ public Reserva (){}
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
+        dest.writeInt(_id);
         dest.writeInt(NumeroDePersonas);
         dest.writeInt(Inicio);
         dest.writeInt(Fin);
