@@ -7,5 +7,5 @@ public class FireBase {
     FirebaseStorage storage = FirebaseStorage.getInstance();
     // Create a storage reference from our app
     StorageReference storageRef = storage.getReference();
-
+//TODO https://firebase.google.com/docs/storage/android/upload-files?authuser=0
 }
