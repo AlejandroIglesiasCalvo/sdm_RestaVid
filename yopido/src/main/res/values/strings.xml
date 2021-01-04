@@ -10,7 +10,7 @@
 
 
     // ----- Pantalla principal Admin
-    <string name="AñadirReserva">Añadir Reserva</string>
+    <string name="AñadirReserva">Añadir Reservas</string>
     <string name="EliminarReserva">Eliminar Reservas</string>
     <string name="EliminarUsuarios">Eliminar Usuarios</string>
     <string name="AñadirUsuarios">Añadir Usuarios</string>

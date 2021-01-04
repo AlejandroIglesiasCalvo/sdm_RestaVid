@@ -12,44 +12,47 @@
         android:id="@+id/btnEliminarUsuarios"
         android:layout_width="139dp"
         android:layout_height="139dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="28dp"
         android:text="@string/EliminarUsuarios"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEliminarReservas"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnAñadirReservas"
         android:layout_width="139dp"
         android:layout_height="139dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginStart="40dp"
         android:text="@string/AñadirReserva"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toEndOf="@+id/btnEliminarUsuarios"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.128" />
 
     <Button
         android:id="@+id/btnEliminarReservas"
         android:layout_width="139dp"
         android:layout_height="139dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginEnd="28dp"
         android:text="@string/EliminarReserva"
-        app:layout_constraintEnd_toStartOf="@+id/btnAñadirUsuarios"
-        app:layout_constraintHorizontal_bias="0.019"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEliminarUsuarios" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.128" />
 
     <Button
         android:id="@+id/btnAñadirUsuarios"
         android:layout_width="139dp"
         android:layout_height="139dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="20dp"
         android:text="@string/AñadirUsuarios"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAñadirReservas" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAñadirReservas"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnModData"
