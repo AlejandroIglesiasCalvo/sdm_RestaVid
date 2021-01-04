@@ -70,7 +70,6 @@
     <string name="Gracias">Su pedido ha sido realizado</string>
 
 
-
     // ---- Mensajes por pantalla de errores
         //Iniciar Sesión
         <string name="error_usuario_contra">Email o contraseña incorrectos</string>
@@ -86,4 +85,6 @@
         <string name="ok_delete_user">Usuario eliminado correctamente. </string>
         <string name="error_contra_delete_user">contraseña incorrecta. </string>
 
+        // Reserva
+        <string name="error_reserva"> Rellene los campos de reserva </string>
 </resources>
