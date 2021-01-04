@@ -71,7 +71,7 @@ public class RestauranteDataSource {
      * @param numeroComensales numero personas
      * @return el id
      */
-    public long setNumberOfUsers(int numeroComensales) {
+    public long setNumberOfUsers(String numeroComensales) {
 
         long insertId;
         // Establecemos los valores que se insertaran
@@ -90,7 +90,7 @@ public class RestauranteDataSource {
      * @param cerrados si se marca como cerrado el restaurante
      * @return si esta cerrado o no
      */
-    public long setNumberOfUsers(boolean cerrados) {
+    public long setCerrado(boolean cerrados) {
         long insertId;
         // Establecemos los valores que se insertaran
         ContentValues values = new ContentValues();

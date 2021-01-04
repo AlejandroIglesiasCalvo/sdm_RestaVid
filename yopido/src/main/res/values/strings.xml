@@ -27,7 +27,7 @@
     <string name="Admin_Mod_hora_reserva">Nueva hora límite de reserva: </string>
     <string name="Admin_Mod_Cerrados">¿Marcar restaurante como cerrado?</string>
 
-    <string name="cerrar_restaurante">Se va a marcar el restaurante como cerrado</string>
+    <string name="cerrar_restaurante">Restaurante cerrado</string>
 
     //Admin delete reserva
     <string name="btnBuscar">Buscar</string>
