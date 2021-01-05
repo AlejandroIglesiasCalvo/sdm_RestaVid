@@ -9,9 +9,11 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.HUMMMM.yopido.R;
+import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.modelo.Reserva;
 import com.HUMMMM.yopido.pantallas.BaseActivity;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -27,23 +29,31 @@ public class MainAdminDeleteReserva extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_delete_reserva);
 
-        Button btnBuscar;
-        btnBuscar = (Button) findViewById(R.id.btnBuscar);
+        final Button btnBuscar = (Button) findViewById(R.id.btnBuscar);
+        final Button btnEliminarSeleccionado =  (Button) findViewById(R.id.btnEliminarSeleccionado);
+        TableRow fila = (TableRow) findViewById(R.id.tableRow);
+
+        fila.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tabla.setBackgroundResource(android.R.drawable.alert_dark_frame);
+            }
+        }));
 
         btnBuscar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                rellenarTabla(null, null);
+                rellenarTabla(null,null);
+            }
+        }));
 
-                // Se elimina la reserva al usuario si existe el usuario en la BDD.
-                // Cuando se hace click en el botón de la tabla, se mira la fila que ha sido clickado.
-                // Se coge el id de la reserva, se busca y elimina en la base de datos.
-
-                // Posible modificación a más fácil:
-                // 1- Auitar botón de la tabla.
-                // 2- Añadir botón "Eliminar seleccionada".
-                // 3- Cuando se pulsa el botón, y si hay una fila seleccionada, se elimina
-                //    cogiendo el id de ella y eliminandola de la BDD.
+        btnEliminarSeleccionado.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!eliminarSeleccionado())
+                    Snackbar.make(findViewById(R.id.btnEliminarSeleccionado), R.string.ok_admin_deleteReserva, Snackbar.LENGTH_SHORT).show();
+                else
+                    Snackbar.make(findViewById(R.id.btnEliminarSeleccionado), R.string.error_admin_deleteReserva, Snackbar.LENGTH_SHORT).show();
             }
         }));
     }
@@ -51,6 +61,7 @@ public class MainAdminDeleteReserva extends BaseActivity {
     //TODO este método No debería estar aquí pero lo pongo mientras no tenemos BBDD (:
     private void rellenarTabla(LocalDate fecha, String hora){
         tabla = (TableLayout)findViewById(R.id.tablaAdmDelRev);
+
         List<Reserva> lista = new ArrayList();
         Reserva r1 = new Reserva("Pablo Suarez", "13:00", "9/11/2020", "676452158");
         Reserva r2 = new Reserva("Pedro Lopez", "14:00", "9/11/2020", "676454155");
@@ -70,31 +81,26 @@ public class MainAdminDeleteReserva extends BaseActivity {
             col1.setId(200+i);
             col1.setText(lista.get(i).getNombreUsuario() + "  ");
 
-
             TextView col2 = new TextView(this);
             col2.setId(300+i);
             col2.setText(lista.get(i).getHora() + "  ");
 
             TextView col3 = new TextView(this);
-            col3.setId(400+i);
-            col3.setText(lista.get(i).getFecha() + "  ");
-
-            TextView col4 = new TextView(this);
-            col4.setId(500+i);
-            col4.setText(lista.get(i).getTelef() + "  ");
-
-            Button button = new Button(this);
-            button.setId(600+i);
-            button.setText("Borrar");
+            col3.setId(500+i);
+            col3.setText(lista.get(i).getTelef() + "  ");
 
             f.addView(col1);
             f.addView(col2);
             f.addView(col3);
-            f.addView(col4);
-            f.addView(button);
+
             tabla.addView(f);
             colu = colu + 4;
         }
 
+    }
+
+    private boolean eliminarSeleccionado()
+    {
+        return false;
     }
 }

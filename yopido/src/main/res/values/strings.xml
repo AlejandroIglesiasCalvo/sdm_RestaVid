@@ -35,7 +35,7 @@
     <string name="tablaHora">Hora</string>
     <string name="tablaFecha">Fecha</string>
     <string name="tablaTelefono">Teléfono</string>
-    <string name="tablaEliminar">Eliminar</string>
+    <string name="btnEliminarSeleccionado">Eliminar Seleccionado</string>
 
     //Admin add User
     <string name="admin_addUser">Usuario creado</string>
@@ -70,7 +70,7 @@
     <string name="Gracias">Su pedido ha sido realizado</string>
 
 
-    // ---- Mensajes por pantalla de errores
+    // ---- Mensajes por pantalla de errores y aciertos
         //Iniciar Sesión
         <string name="error_usuario_contra">Email o contraseña incorrectos</string>
 
@@ -90,6 +90,10 @@
         <string name="error_admin_addReserva">Error al intentar crear la reserva, rellene todos los campos</string>
         <string name="ok_admin_addReserva">Añadida la reserva</string>
         <string name="error_fecha_admin_addReserva">Solo se puede reservar a partir de mañana</string>
+
+        //Admin Delete Reserva
+        <string name="ok_admin_deleteReserva"> Reserva eliminada </string>
+        <string name="error_admin_deleteReserva"> Seleccione reserva a eliminar </string>
 
         // Reserva
         <string name="error_reserva"> Rellene los campos de reserva </string>
