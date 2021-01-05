@@ -64,8 +64,7 @@ public class MainAdminAddReserva extends BaseActivity {
                     if(addReserva(nombre.toString(),
                             telf.toString(),
                             Integer.parseInt(numPersonas.getSelectedItem().toString()),
-                            horaReserva.toString(),
-                            calendario)
+                            horaReserva.toString())
                     ){
                         Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.ok_admin_addReserva, Snackbar.LENGTH_SHORT).show();
                         cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
@@ -79,8 +78,7 @@ public class MainAdminAddReserva extends BaseActivity {
         }));
     }
 
-    private boolean addReserva(String nombre, String telf, int nPersonas, String horaReserva,
-                            CalendarView calendario)
+    private boolean addReserva(String nombre, String telf, int nPersonas, String horaReserva)
     {
         final Calendar c = Calendar.getInstance();
         int mYear = c.get(Calendar.YEAR);
