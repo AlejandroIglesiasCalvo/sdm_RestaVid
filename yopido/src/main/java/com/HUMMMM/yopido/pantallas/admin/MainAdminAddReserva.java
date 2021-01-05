@@ -1,5 +1,6 @@
 package com.HUMMMM.yopido.pantallas.admin;
 
+import android.media.MediaActionSound;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -43,6 +44,12 @@ public class MainAdminAddReserva extends BaseActivity {
         Button btnAddReserva;
         btnAddReserva = findViewById(R.id.button_Aceptar_Reserva_Admin);
 
+        calendario.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                    fechaseleccionada = dayOfMonth + "/" + month + "/" + year + "";
+            }
+        });
+
 
         btnAddReserva.setOnClickListener((new View.OnClickListener() {
             @Override
@@ -80,24 +87,23 @@ public class MainAdminAddReserva extends BaseActivity {
         int mMonth = c.get(Calendar.MONTH);
         int mDay = c.get(Calendar.DAY_OF_MONTH);
 
-
         Reserva reserva = new Reserva();
         reserva.setNombreUsuario(nombre);
         reserva.setTelef(telf);
         reserva.setNumeroDePersonas(nPersonas);
         reserva.setHora(horaReserva);
 
-        calendario.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){
-            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                if(dayOfMonth <= mDay || month < mMonth || year < mYear) {
-                    fechaBien = false;
-                }
-                else {
-                    fechaseleccionada = dayOfMonth + "/" + month + "/" + year + "";
-                    fechaBien = true;
-                }
-            }
-        });
+        String[] fechaAComprobar = fechaseleccionada.split("/");
+        int compDia = Integer.parseInt(fechaAComprobar[0]);
+        int compMes = Integer.parseInt(fechaAComprobar[1]);
+        int compAnio = Integer.parseInt(fechaAComprobar[2]);
+
+        if(compDia <= mDay || compMes < mMonth || compAnio < mYear) {
+            fechaBien = false;
+        }
+        else {
+            fechaBien = true;
+        }
         reserva.setFecha(fechaseleccionada);
 
         //if(fechaBien) rds.createReserva(reserva);
