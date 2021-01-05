@@ -41,6 +41,7 @@
             <HorizontalScrollView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_margin="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -48,11 +49,12 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TableLayout
-                    android:id="@+id/tablaUserDeleteReserva"
+                    android:id="@+id/tablaAdmDelRev"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent">
 
                     <TableRow
+                        android:id="@+id/tableRow"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         tools:ignore="UselessParent">
@@ -61,7 +63,7 @@
                             android:id="@+id/txNombre"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="2"
+                            android:layout_weight="4"
                             android:padding="10dp"
                             android:text="@string/tablaNombre" />
 
@@ -69,14 +71,36 @@
                             android:id="@+id/txHora"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="2"
+                            android:layout_weight="4"
                             android:padding="10dp"
                             android:text="@string/tablaHora" />
+
+                        <TextView
+                            android:id="@+id/txTelefono"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            android:padding="10dp"
+                            android:text="@string/tablaTelefono" />
+
+                        <TextView
+                            android:id="@+id/txEliminar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:padding="10dp"
+                            android:text="@string/tablaEliminar" />
 
                     </TableRow>
 
                 </TableLayout>
             </HorizontalScrollView>
+
+            <Button
+                android:id="@+id/btnAceptar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btnAceptar" />
 
 
         </LinearLayout>

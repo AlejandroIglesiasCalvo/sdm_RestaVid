@@ -121,7 +121,7 @@ public class MainAdminDeleteReserva extends BaseActivity {
 
                     System.out.println(usuario);
                     //Aquí es cuando se haría el método para eliminar la BDD.
-
+                    //Se coge como dato lo que se desee y se elimina de la BDD.
 
 
                     //y se actualizaría la tabla rellenandola de nuevo.
