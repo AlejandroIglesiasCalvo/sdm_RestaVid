@@ -17,6 +17,12 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MainAdminAddUser extends BaseActivity {
 
+    final EditText correo = findViewById(R.id.editTextCorreo);
+    final EditText pass =  findViewById(R.id.editTextTextPassword);
+    final EditText nombre =  findViewById(R.id.editTextTextNombre);
+    final EditText apellidos = findViewById(R.id.editTextTextApellidos);
+    final EditText telf = findViewById(R.id.editTextPhone);
+
     UsuariosDataSource uds;
 
     @Override
@@ -24,11 +30,7 @@ public class MainAdminAddUser extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_add_user);
 
-        final EditText correo = findViewById(R.id.editTextCorreo);
-        final EditText pass =  findViewById(R.id.editTextTextPassword);
-        final EditText nombre =  findViewById(R.id.editTextTextNombre);
-        final EditText apellidos = findViewById(R.id.editTextTextApellidos);
-        final EditText telf = findViewById(R.id.editTextPhone);
+
 
 
 
@@ -50,7 +52,7 @@ public class MainAdminAddUser extends BaseActivity {
                             && checks.isValidPassword(String.valueOf(pass))){
 
 
-                        addUsuario(correo.toString(), nombre.toString(),apellidos.toString(),telf.toString(),pass.toString());
+                        addUsuario();
                     }
                     else
                         Snackbar.make(findViewById(R.id.buttonAceptar_AñadirUser_Admin), R.string.error_admin_addUser, Snackbar.LENGTH_SHORT).show();
@@ -62,15 +64,15 @@ public class MainAdminAddUser extends BaseActivity {
 
     }
 
-    private void addUsuario(String email, String nombre, String apellidos, String telefono, String contraseña)
+    private void addUsuario()
     {
         Usuario usuario = new Usuario();
 
-        usuario.setEmail(email);
-        usuario.setNombre(nombre);
-        usuario.setApellidos(apellidos);
-        usuario.setTelefono(telefono);
-        usuario.setContraseña(contraseña);
+        usuario.setEmail(correo.toString());
+        usuario.setNombre(nombre.toString());
+        usuario.setApellidos(apellidos.toString());
+        usuario.setTelefono(telf.toString());
+        usuario.setContraseña(pass.toString());
         usuario.setPoliticaDeProteccionDeDatos(true);
 
         uds.createUsuario(usuario);
