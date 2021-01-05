@@ -25,7 +25,6 @@ public class MainAdminDeleteUser extends BaseActivity {
 
         final EditText correoUsuario = findViewById(R.id.editTextCorreoUser);
 
-        // --- activity_admin_delete_user
         Button btnAceptarEliminarUser;
         btnAceptarEliminarUser = (Button) findViewById(R.id.buttonAceptar_EliminarUser_Admin);
 
@@ -36,8 +35,13 @@ public class MainAdminDeleteUser extends BaseActivity {
                 // Si no eiste, se muestra mensaje de que nanai.
 
                     if (checks.existeEmailEnBDD(correoUsuario)) {
-                        if (uds.deleteUser(correoUsuario))
-                            Snackbar.make(findViewById(R.id.buttonAceptar_EliminarUser_Admin), R.string.ok_delete_user, Snackbar.LENGTH_SHORT).show();
+                        if (uds.deleteUser(correoUsuario)){
+                            if(!eliminarUsuario(correoUsuario))
+                                Snackbar.make(findViewById(R.id.buttonAceptar_EliminarUser_Admin), R.string.error_delete_user, Snackbar.LENGTH_SHORT).show();
+                            else
+                                Snackbar.make(findViewById(R.id.buttonAceptar_EliminarUser_Admin), R.string.ok_delete_user, Snackbar.LENGTH_SHORT).show();
+                        }
+
                         else
                             Snackbar.make(findViewById(R.id.buttonAceptar_EliminarUser_Admin), R.string.error_delete_user, Snackbar.LENGTH_SHORT).show();
                     } else
@@ -47,5 +51,10 @@ public class MainAdminDeleteUser extends BaseActivity {
                     cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
             }
         }));
+    }
+
+    private boolean eliminarUsuario(EditText correo)
+    {
+        return uds.deleteUser(correo);
     }
 }
