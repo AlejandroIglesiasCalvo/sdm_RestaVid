@@ -49,6 +49,7 @@ public class MainAdminAddUser extends BaseActivity {
                     if(!checks.existeEmailEnBDD(correo)
                             && checks.isEmailValid(String.valueOf(correo))
                             && checks.isValidPassword(String.valueOf(pass))){
+
                         addUsuario(correo.toString(), nombre.toString(), apellidos.toString(), telf.toString(), pass.toString());
                         Snackbar.make(findViewById(R.id.buttonAceptar_AñadirUser_Admin), R.string.ok_admin_addUser, Snackbar.LENGTH_SHORT).show();
                         cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
@@ -67,11 +68,11 @@ public class MainAdminAddUser extends BaseActivity {
     {
         Usuario usuario = new Usuario();
 
-        usuario.setEmail(correo.toString());
-        usuario.setNombre(nombre.toString());
-        usuario.setApellidos(apellidos.toString());
-        usuario.setTelefono(telf.toString());
-        usuario.setContraseña(pass.toString());
+        usuario.setEmail(correo);
+        usuario.setNombre(nombre);
+        usuario.setApellidos(apellidos);
+        usuario.setTelefono(telf);
+        usuario.setContraseña(pass);
         usuario.setPoliticaDeProteccionDeDatos(true);
 
         //uds.createUsuario(usuario);
