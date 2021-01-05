@@ -17,15 +17,14 @@ import com.HUMMMM.yopido.modelo.Reserva;
 import com.HUMMMM.yopido.pantallas.BaseActivity;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class MainAdminAddReserva extends BaseActivity {
 
 
-    Long date;
     boolean fechaBien = true;
-
-    String diaSeleccionado;
     String fechaseleccionada;
     
     ReservaDataSource rds;
@@ -40,7 +39,6 @@ public class MainAdminAddReserva extends BaseActivity {
         final Spinner numPersonas = findViewById(R.id.spPersonas);
         final Spinner horaReserva = findViewById(R.id.spHora);
         final CalendarView calendario = findViewById(R.id.calendarReserva);
-        date = calendario.getDate();
 
         Button btnAddReserva;
         btnAddReserva = findViewById(R.id.button_Aceptar_Reserva_Admin);
@@ -77,6 +75,10 @@ public class MainAdminAddReserva extends BaseActivity {
     private boolean addReserva(String nombre, String telf, int nPersonas, String horaReserva,
                             CalendarView calendario)
     {
+        final Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
 
 
         Reserva reserva = new Reserva();
@@ -87,12 +89,11 @@ public class MainAdminAddReserva extends BaseActivity {
 
         calendario.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                if(calendario.getDate() <= date) {
+                if(dayOfMonth <= mDay || month < mMonth || year < mYear) {
                     fechaBien = false;
                 }
                 else {
-                    date = calendario.getDate();
-                    diaSeleccionado = dayOfMonth + "/" + month + "/" + year + "";
+                    fechaseleccionada = dayOfMonth + "/" + month + "/" + year + "";
                     fechaBien = true;
                 }
             }
