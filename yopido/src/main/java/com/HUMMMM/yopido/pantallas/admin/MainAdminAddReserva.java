@@ -22,7 +22,6 @@ public class MainAdminAddReserva extends BaseActivity {
 
         final EditText nombre =  findViewById(R.id.editTextTextNombre);
         final EditText telf =  findViewById(R.id.editTextPhone);
-        // --- activity_admin_add_reserva
         Button btnAddReserva;
 
         btnAddReserva = findViewById(R.id.button_Aceptar_Reserva_Admin);
@@ -37,9 +36,8 @@ public class MainAdminAddReserva extends BaseActivity {
                 else
                 {
                     //Se comprueban los datos.
-                    // Se añade la reserva al usuario si existe el usuario en la BDD.
 
-                    // Se cambia finalmente, si todo sale bien, de clase
+                    // Se cambia finalmente, si sale bien, de clase
                     cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
                 }
             }
