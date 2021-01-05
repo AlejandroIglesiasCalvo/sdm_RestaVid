@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -12,15 +13,18 @@ import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.modelo.Reserva;
 import com.HUMMMM.yopido.pantallas.BaseActivity;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class MainAdminDeleteReserva extends BaseActivity {
 
     private TableLayout tabla;
     private int fila, colu = 1;
+    String fechaseleccionada;
 
     int vecesBuscar = 0;
 
@@ -29,18 +33,31 @@ public class MainAdminDeleteReserva extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_delete_reserva);
 
+        final CalendarView calendario = findViewById(R.id.calendarioAdminEliminarReserva);
         final Button btnBuscar = (Button) findViewById(R.id.btnBuscar);
         final Button btnAceptar =  (Button) findViewById(R.id.btnAceptar);
+
+        calendario.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                fechaseleccionada = dayOfMonth + "/" + month + "/" + year + "";
+            }
+        });
 
         btnBuscar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(vecesBuscar==0) {
-                    rellenarTabla(null, null);
-                    vecesBuscar++;
+
+                if(comprobarFechaCalendario())
+                {
+                    if(vecesBuscar==0) {
+                        rellenarTabla(null, null);
+                        vecesBuscar++;
+                    }
+                    else
+                        refrescarTabla();
                 }
                 else
-                    refrescarTabla();
+                    Snackbar.make(findViewById(R.id.btnBuscar), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
             }
         }));
 
@@ -126,5 +143,25 @@ public class MainAdminDeleteReserva extends BaseActivity {
             if (child instanceof TableRow) ((ViewGroup) child).removeAllViews();
         }
         rellenarTabla(null,null);
+    }
+
+    private boolean comprobarFechaCalendario()
+    {
+        final Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        String[] fechaAComprobar = fechaseleccionada.split("/");
+        int compDia = Integer.parseInt(fechaAComprobar[0]);
+        int compMes = Integer.parseInt(fechaAComprobar[1]);
+        int compAnio = Integer.parseInt(fechaAComprobar[2]);
+
+
+        if(compDia <= mDay || compMes < mMonth || compAnio < mYear) {
+            return false;
+        }
+
+        return true;
     }
 }

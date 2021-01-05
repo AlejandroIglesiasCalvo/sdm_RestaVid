@@ -93,7 +93,7 @@
 
         //Admin Delete Reserva
         <string name="ok_admin_deleteReserva"> Reserva eliminada </string>
-        <string name="error_admin_deleteReserva"> Seleccione reserva a eliminar </string>
+        <string name="error_fecha_calendario"> Seleccione una fecha a partir de mañana </string>
 
         // Reserva
         <string name="error_reserva"> Rellene los campos de reserva </string>
