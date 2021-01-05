@@ -27,7 +27,6 @@ public class MainAdminDeleteReserva extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_delete_reserva);
 
-        // --- activity_admin_delete_reserva
         Button btnBuscar;
         btnBuscar = (Button) findViewById(R.id.btnBuscar);
 
@@ -37,6 +36,14 @@ public class MainAdminDeleteReserva extends BaseActivity {
                 rellenarTabla(null, null);
 
                 // Se elimina la reserva al usuario si existe el usuario en la BDD.
+                // Cuando se hace click en el botón de la tabla, se mira la fila que ha sido clickado.
+                // Se coge el id de la reserva, se busca y elimina en la base de datos.
+
+                // Posible modificación a más fácil:
+                // 1- Auitar botón de la tabla.
+                // 2- Añadir botón "Eliminar seleccionada".
+                // 3- Cuando se pulsa el botón, y si hay una fila seleccionada, se elimina
+                //    cogiendo el id de ella y eliminandola de la BDD.
             }
         }));
     }
