@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
+import com.HUMMMM.yopido.modelo.ElementoTabla;
 import com.HUMMMM.yopido.modelo.Reserva;
 import com.HUMMMM.yopido.pantallas.BaseActivity;
 import com.google.android.material.snackbar.Snackbar;
@@ -24,21 +25,15 @@ public class MainAdminDeleteReserva extends BaseActivity {
     private TableLayout tabla;
     private int fila, colu = 1;
 
+    List<ElementoTabla> elementosTabla = new ArrayList();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_delete_reserva);
 
         final Button btnBuscar = (Button) findViewById(R.id.btnBuscar);
-        final Button btnEliminarSeleccionado =  (Button) findViewById(R.id.btnEliminarSeleccionado);
-        TableRow fila = (TableRow) findViewById(R.id.tableRow);
-
-        fila.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tabla.setBackgroundResource(android.R.drawable.alert_dark_frame);
-            }
-        }));
+        final Button btnAceptar =  (Button) findViewById(R.id.btnAceptar);
 
         btnBuscar.setOnClickListener((new View.OnClickListener() {
             @Override
@@ -47,13 +42,10 @@ public class MainAdminDeleteReserva extends BaseActivity {
             }
         }));
 
-        btnEliminarSeleccionado.setOnClickListener((new View.OnClickListener() {
+        btnAceptar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!eliminarSeleccionado())
-                    Snackbar.make(findViewById(R.id.btnEliminarSeleccionado), R.string.ok_admin_deleteReserva, Snackbar.LENGTH_SHORT).show();
-                else
-                    Snackbar.make(findViewById(R.id.btnEliminarSeleccionado), R.string.error_admin_deleteReserva, Snackbar.LENGTH_SHORT).show();
+                cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
             }
         }));
     }
@@ -86,21 +78,31 @@ public class MainAdminDeleteReserva extends BaseActivity {
             col2.setText(lista.get(i).getHora() + "  ");
 
             TextView col3 = new TextView(this);
-            col3.setId(500+i);
+            col3.setId(400+i);
             col3.setText(lista.get(i).getTelef() + "  ");
+
+            Button button = new Button(this);
+            button.setId(500+i);
+            button.setText("Borrar");
 
             f.addView(col1);
             f.addView(col2);
             f.addView(col3);
+            f.addView(button);
+
+            button.setOnClickListener((new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
+                }
+            }));
+
 
             tabla.addView(f);
             colu = colu + 4;
+
+            elementosTabla.add(new ElementoTabla(lista.get(i),button,i));
         }
 
-    }
-
-    private boolean eliminarSeleccionado()
-    {
-        return false;
     }
 }

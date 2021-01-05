@@ -35,7 +35,7 @@
     <string name="tablaHora">Hora</string>
     <string name="tablaFecha">Fecha</string>
     <string name="tablaTelefono">Teléfono</string>
-    <string name="btnEliminarSeleccionado">Eliminar Seleccionado</string>
+    <string name="tablaEliminar">Eliminar</string>
 
     //Admin add User
     <string name="admin_addUser">Usuario creado</string>
