@@ -76,16 +76,18 @@
 
         //Iniciar Sesión
         <string name="error_registro">Campos incompletos</string>
+
         //Admin add user
         <string name="error_admin_addUser">Error al intentar crear el usuario, rellene todos los campos</string>
-        <string name="error_admin_addReserva">Error al intentar crear la reserva, rellene todos los campos</string>
+
 
         //Admin delete user
         <string name="error_delete_user">No se ha podido eliminar el usuario. </string>
         <string name="ok_delete_user">Usuario eliminado correctamente. </string>
 
         //Admin Add Reserva
-
+        <string name="error_admin_addReserva">Error al intentar crear la reserva, rellene todos los campos</string>
+        <string name="ok_admin_addReserva">Añadida la reserva</string>
 
         // Reserva
         <string name="error_reserva"> Rellene los campos de reserva </string>

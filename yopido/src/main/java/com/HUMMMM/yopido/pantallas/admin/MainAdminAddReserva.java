@@ -56,15 +56,15 @@ public class MainAdminAddReserva extends BaseActivity {
                 {
                     //Se comprueban los datos.
                     // Se cambia finalmente, si sale bien, de clase
-                    comprobarDatos();
+                    addReserva();
+                    Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.ok_admin_addReserva, Snackbar.LENGTH_SHORT).show();
                     cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
-
                 }
             }
         }));
     }
 
-    private void comprobarDatos()
+    private void addReserva()
     {
         Reserva reserva = new Reserva();
         reserva.setNombreUsuario(nombre.toString());
