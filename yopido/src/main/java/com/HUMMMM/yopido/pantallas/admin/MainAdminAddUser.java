@@ -17,11 +17,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MainAdminAddUser extends BaseActivity {
 
-    final EditText correo = findViewById(R.id.editTextCorreo);
-    final EditText pass =  findViewById(R.id.editTextTextPassword);
-    final EditText nombre =  findViewById(R.id.editTextTextNombre);
-    final EditText apellidos = findViewById(R.id.editTextTextApellidos);
-    final EditText telf = findViewById(R.id.editTextPhone);
+
 
     UsuariosDataSource uds;
 
@@ -30,8 +26,11 @@ public class MainAdminAddUser extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_add_user);
 
-
-
+        final EditText correo = findViewById(R.id.editTextCorreo);
+        final EditText pass =  findViewById(R.id.editTextTextPassword);
+        final EditText nombre =  findViewById(R.id.editTextTextNombre);
+        final EditText apellidos = findViewById(R.id.editTextTextApellidos);
+        final EditText telf = findViewById(R.id.editTextPhone);
 
 
         // --- activity_admin_add_user
@@ -50,7 +49,7 @@ public class MainAdminAddUser extends BaseActivity {
                     if(!checks.existeEmailEnBDD(correo)
                             && checks.isEmailValid(String.valueOf(correo))
                             && checks.isValidPassword(String.valueOf(pass))){
-                        addUsuario();
+                        addUsuario(correo.toString(), nombre.toString(), apellidos.toString(), telf.toString(), pass.toString());
                         Snackbar.make(findViewById(R.id.buttonAceptar_AñadirUser_Admin), R.string.ok_admin_addUser, Snackbar.LENGTH_SHORT).show();
                         cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
                     }
@@ -64,7 +63,7 @@ public class MainAdminAddUser extends BaseActivity {
 
     }
 
-    private void addUsuario()
+    private void addUsuario(String correo, String nombre, String apellidos, String telf, String pass)
     {
         Usuario usuario = new Usuario();
 
@@ -75,6 +74,6 @@ public class MainAdminAddUser extends BaseActivity {
         usuario.setContraseña(pass.toString());
         usuario.setPoliticaDeProteccionDeDatos(true);
 
-        uds.createUsuario(usuario);
+        //uds.createUsuario(usuario);
     }
 }

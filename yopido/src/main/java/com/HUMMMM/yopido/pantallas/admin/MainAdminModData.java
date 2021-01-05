@@ -14,10 +14,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MainAdminModData  extends BaseActivity {
 
-    final Spinner spinnerPersonas = findViewById(R.id.spPersonas_Mod_Data);
-    final Spinner spinnerHora = findViewById(R.id.spHora_Mod_Data);
-    final CheckBox cerrados = findViewById(R.id.checkBox_cerrados);
-    final Button botonAceptar = findViewById(R.id.buttonAceptar_ModData_Admin);
+
 
     RestauranteDataSource rds;
 
@@ -25,6 +22,11 @@ public class MainAdminModData  extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_mod_data);
+
+        final Spinner spinnerPersonas = findViewById(R.id.spPersonas_Mod_Data);
+        final Spinner spinnerHora = findViewById(R.id.spHora_Mod_Data);
+        final CheckBox cerrados = findViewById(R.id.checkBox_cerrados);
+        final Button botonAceptar = findViewById(R.id.buttonAceptar_ModData_Admin);
 
 
         botonAceptar.setOnClickListener(new View.OnClickListener() {
@@ -34,16 +36,16 @@ public class MainAdminModData  extends BaseActivity {
                 if(cerrados.isSelected())
                     Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.cerrar_restaurante, Snackbar.LENGTH_SHORT).show();
                 else
-                    guardarValores();
+                    //guardarValores(spinnerHora.toString(), spinnerPersonas.toString());
                 cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
             }
         });
     }
 
-    private void guardarValores()
+    private void guardarValores(String hora, String personas)
     {
-        rds.setHora(spinnerHora.getSelectedItem().toString());
-        rds.setNumberOfUsers(spinnerPersonas.getSelectedItem().toString());
+        rds.setHora(hora);
+        rds.setNumberOfUsers(personas);
     }
 
 }

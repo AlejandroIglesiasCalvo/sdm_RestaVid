@@ -89,6 +89,7 @@
         //Admin Add Reserva
         <string name="error_admin_addReserva">Error al intentar crear la reserva, rellene todos los campos</string>
         <string name="ok_admin_addReserva">Añadida la reserva</string>
+        <string name="error_fecha_admin_addReserva">Solo se puede reservar a partir de mañana</string>
 
         // Reserva
         <string name="error_reserva"> Rellene los campos de reserva </string>

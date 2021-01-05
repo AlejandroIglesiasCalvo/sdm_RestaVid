@@ -21,16 +21,11 @@ import java.util.Date;
 
 public class MainAdminAddReserva extends BaseActivity {
 
-    final EditText nombre =  findViewById(R.id.editTextTextNombre);
-    final EditText telf =  findViewById(R.id.editTextPhone);
-    final Spinner numPersonas = findViewById(R.id.spPersonas);
-    final Spinner horaReserva = findViewById(R.id.spHora);
 
-    final CalendarView calendario = findViewById(R.id.calendarReserva);
-    Long date = calendario.getDate();
+    Long date;
+    boolean fechaBien = true;
 
     String diaSeleccionado;
-
     String fechaseleccionada;
     
     ReservaDataSource rds;
@@ -40,9 +35,14 @@ public class MainAdminAddReserva extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_add_reserva);
 
+        final EditText nombre =  findViewById(R.id.editTextTextNombre);
+        final EditText telf =  findViewById(R.id.editTextPhone);
+        final Spinner numPersonas = findViewById(R.id.spPersonas);
+        final Spinner horaReserva = findViewById(R.id.spHora);
+        final CalendarView calendario = findViewById(R.id.calendarReserva);
+        date = calendario.getDate();
 
         Button btnAddReserva;
-
         btnAddReserva = findViewById(R.id.button_Aceptar_Reserva_Admin);
 
 
@@ -56,32 +56,51 @@ public class MainAdminAddReserva extends BaseActivity {
                 {
                     //Se comprueban los datos.
                     // Se cambia finalmente, si sale bien, de clase
-                    addReserva();
-                    Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.ok_admin_addReserva, Snackbar.LENGTH_SHORT).show();
-                    cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
+                    if(addReserva(nombre.toString(),
+                            telf.toString(),
+                            Integer.parseInt(numPersonas.getSelectedItem().toString()),
+                            horaReserva.toString(),
+                            calendario)
+                    ){
+                        Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.ok_admin_addReserva, Snackbar.LENGTH_SHORT).show();
+                        cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
+                    }
+                    else
+                        Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.error_fecha_admin_addReserva, Snackbar.LENGTH_SHORT).show();
+
+
                 }
             }
         }));
     }
 
-    private void addReserva()
+    private boolean addReserva(String nombre, String telf, int nPersonas, String horaReserva,
+                            CalendarView calendario)
     {
+
+
         Reserva reserva = new Reserva();
-        reserva.setNombreUsuario(nombre.toString());
-        reserva.setTelef(telf.toString());
-        reserva.setNumeroDePersonas(Integer.parseInt(numPersonas.getSelectedItem().toString()));
-        reserva.setHora(horaReserva.toString());
+        reserva.setNombreUsuario(nombre);
+        reserva.setTelef(telf);
+        reserva.setNumeroDePersonas(nPersonas);
+        reserva.setHora(horaReserva);
 
         calendario.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                if(calendario.getDate() != date){
+                if(calendario.getDate() <= date) {
+                    fechaBien = false;
+                }
+                else {
                     date = calendario.getDate();
                     diaSeleccionado = dayOfMonth + "/" + month + "/" + year + "";
+                    fechaBien = true;
                 }
             }
         });
         reserva.setFecha(fechaseleccionada);
-        
-        rds.createReserva(reserva);
+
+        //if(fechaBien) rds.createReserva(reserva);
+
+        return fechaBien;
     }
 }

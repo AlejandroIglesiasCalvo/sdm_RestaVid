@@ -55,6 +55,7 @@ public class MainAdminDeleteUser extends BaseActivity {
 
     private boolean eliminarUsuario(EditText correo)
     {
-        return uds.deleteUser(correo);
+        //return uds.deleteUser(correo);
+        return true;
     }
 }
