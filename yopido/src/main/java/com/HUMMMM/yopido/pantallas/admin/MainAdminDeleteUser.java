@@ -24,7 +24,6 @@ public class MainAdminDeleteUser extends BaseActivity {
         setContentView(R.layout.activity_admin_delete_user);
 
         final EditText correoUsuario = findViewById(R.id.editTextCorreoUser);
-        final  EditText contraAdmin = findViewById(R.id.editTextTextPasswordAdmin);
 
         // --- activity_admin_delete_user
         Button btnAceptarEliminarUser;
@@ -36,7 +35,6 @@ public class MainAdminDeleteUser extends BaseActivity {
                 // Se comprueba que todos los campos estén bien y se elimina a la BDD en caso de existir.
                 // Si no eiste, se muestra mensaje de que nanai.
 
-                if (checks.isPasswordAdminValid(contraAdmin)) {
                     if (checks.existeEmailEnBDD(correoUsuario)) {
                         if (uds.deleteUser(correoUsuario))
                             Snackbar.make(findViewById(R.id.buttonAceptar_EliminarUser_Admin), R.string.ok_delete_user, Snackbar.LENGTH_SHORT).show();
@@ -47,9 +45,6 @@ public class MainAdminDeleteUser extends BaseActivity {
 
                     // Se regresa a la pantalla principal del admin
                     cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
-                }
-                else
-                    Snackbar.make(findViewById(R.id.buttonAceptar_EliminarUser_Admin), R.string.error_contra_delete_user, Snackbar.LENGTH_SHORT).show();
             }
         }));
     }

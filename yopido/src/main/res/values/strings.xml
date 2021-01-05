@@ -83,7 +83,6 @@
         //Admin delete user
         <string name="error_delete_user">No se ha podido eliminar el usuario. </string>
         <string name="ok_delete_user">Usuario eliminado correctamente. </string>
-        <string name="error_contra_delete_user">contraseña incorrecta. </string>
 
         // Reserva
         <string name="error_reserva"> Rellene los campos de reserva </string>
