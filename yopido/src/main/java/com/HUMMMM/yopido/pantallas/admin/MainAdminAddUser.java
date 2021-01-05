@@ -50,14 +50,14 @@ public class MainAdminAddUser extends BaseActivity {
                     if(!checks.existeEmailEnBDD(correo)
                             && checks.isEmailValid(String.valueOf(correo))
                             && checks.isValidPassword(String.valueOf(pass))){
-
-
                         addUsuario();
+                        Snackbar.make(findViewById(R.id.buttonAceptar_AñadirUser_Admin), R.string.ok_admin_addUser, Snackbar.LENGTH_SHORT).show();
+                        cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
                     }
                     else
                         Snackbar.make(findViewById(R.id.buttonAceptar_AñadirUser_Admin), R.string.error_admin_addUser, Snackbar.LENGTH_SHORT).show();
 
-                    cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
+
                 }
             }
         });

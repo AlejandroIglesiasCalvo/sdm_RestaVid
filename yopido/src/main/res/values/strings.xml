@@ -78,6 +78,7 @@
         <string name="error_registro">Campos incompletos</string>
 
         //Admin add user
+        <string name="ok_admin_addUser">Usuario creado correctamente</string>
         <string name="error_admin_addUser">Error al intentar crear el usuario, rellene todos los campos</string>
 
 
