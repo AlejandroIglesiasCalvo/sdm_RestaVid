@@ -38,8 +38,6 @@ public class MainRegistro extends BaseActivity {
                 cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class);
             }
         }));
-
-
     }
 
     private void guardardatos(EditText correo,EditText contraseña, EditText nombre, EditText telefono) {
