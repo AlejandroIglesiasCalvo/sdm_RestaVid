@@ -37,9 +37,9 @@ public class ReservarLogueado extends BaseActivity {
         final Spinner numPersonas = findViewById(R.id.spPersonas);
         final Spinner horaReserva = findViewById(R.id.spHora);
         final CalendarView calendario = findViewById(R.id.calendarReserva);
+        Button btnAddReserva = findViewById(R.id.buttonAceptar);
 
-        Button btnAddReserva;
-        btnAddReserva = findViewById(R.id.button_Aceptar_Reserva_Admin);
+        inicializarFechaDefecto();
 
         calendario.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
@@ -47,35 +47,33 @@ public class ReservarLogueado extends BaseActivity {
             }
         });
 
-/*
         btnAddReserva.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(!checks.camposRellenos(nombre,telf)) {
-                    Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.error_admin_addReserva, Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(R.id.buttonAceptar), R.string.error_add_Reserva, Snackbar.LENGTH_SHORT).show();
                 }
                 else
                 {
                     //Se comprueban los datos.
                     // Se cambia finalmente, si sale bien, de clase
-                    if(comprobarFechaCalendario(fechaseleccionada))
+                    if(comprobarFechaCalendario(fechaseleccionada)){
                         if(addReserva(nombre.toString(),
                                 telf.toString(),
                                 Integer.parseInt(numPersonas.getSelectedItem().toString()),
                                 horaReserva.toString())
-                        ){
-                            Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.ok_admin_addReserva, Snackbar.LENGTH_SHORT).show();
-                            cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
+                        ) {
+                            Snackbar.make(findViewById(R.id.buttonAceptar), R.string.ok_add_Reserva, Snackbar.LENGTH_SHORT).show();
+                            cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class);
                         }
                         else
-                            Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.error_fecha_admin_addReserva, Snackbar.LENGTH_SHORT).show();
-
-
+                            Snackbar.make(findViewById(R.id.buttonAceptar), R.string.error_add_Reserva, Snackbar.LENGTH_SHORT).show();
+                    }
+                        else
+                            Snackbar.make(findViewById(R.id.buttonAceptar), R.string.error_fecha_add_Reserva, Snackbar.LENGTH_SHORT).show();
                 }
             }
         }));
-
-         */
     }
 
     private boolean addReserva(String nombre, String telf, int nPersonas, String horaReserva)
@@ -109,6 +107,16 @@ public class ReservarLogueado extends BaseActivity {
         }
 
         return true;
+    }
+
+    private void inicializarFechaDefecto()
+    {
+        final Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        fechaseleccionada = mDay + "/" + mMonth + "/" + mYear + "";
     }
 
 }

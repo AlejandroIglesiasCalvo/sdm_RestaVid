@@ -38,6 +38,7 @@ public class ReservaSinLoggear extends BaseActivity {
 
         final Button btnReservar = (Button) findViewById(R.id.buttonReservaDirectaAceptar);
 
+        inicializarFechaDefecto();
 
         calendario.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
@@ -53,8 +54,6 @@ public class ReservaSinLoggear extends BaseActivity {
 
                 if (checks.camposRellenos(editTextnombre, editTextPhone))
                 {
-                    System.out.println("Campos rellenos");
-                    /*
                     if (comprobarFechaCalendario(fechaseleccionada))
                     {
                         if (guardarValores(editTextnombre.toString(),
@@ -63,15 +62,15 @@ public class ReservaSinLoggear extends BaseActivity {
                                 horaReserva.getSelectedItem().toString()))
                             cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class);
                         else
-                            Snackbar.make(findViewById(R.id.buttonAceptar_AñadirUser_Admin), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
+                            Snackbar.make(findViewById(R.id.buttonReservaDirectaAceptar), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
                     }
                     else
-                        Snackbar.make(findViewById(R.id.buttonAceptar_AñadirUser_Admin), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
-                     */
+                        Snackbar.make(findViewById(R.id.buttonReservaDirectaAceptar), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
+
 
                 }
                 else
-                    Snackbar.make(findViewById(R.id.buttonAceptar_AñadirUser_Admin), R.string.error_reserva, Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(R.id.buttonReservaDirectaAceptar), R.string.error_reserva, Snackbar.LENGTH_SHORT).show();
             }
         }));
 
@@ -108,6 +107,16 @@ public class ReservaSinLoggear extends BaseActivity {
         }
 
         return true;
+    }
+
+    private void inicializarFechaDefecto()
+    {
+        final Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        fechaseleccionada = mDay + "/" + mMonth + "/" + mYear + "";
     }
 
 }

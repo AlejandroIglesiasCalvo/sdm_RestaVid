@@ -53,7 +53,6 @@ public class MainAdminDeleteReserva extends BaseActivity {
             public void onClick(View v) {
                 if(comprobarFechaCalendario(fechaseleccionada))
                 {
-                    System.out.println("pulsado buscar");
                     if(vecesBuscar == 0) {
                         rellenarTabla(null, null);
                         vecesBuscar++;
