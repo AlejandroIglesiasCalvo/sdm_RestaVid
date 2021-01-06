@@ -66,7 +66,7 @@ public class MainActivity extends BaseActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FireBase fb = new FireBase(db);
         Log.d(TAG, "================= Lets goL ===============");
-        fb.runAll();
+        //fb.runAll(); //No ejecutar todos los test
     }
 
 
