@@ -8,20 +8,20 @@ import android.widget.EditText;
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
-import com.HUMMMM.yopido.datos.RealmDB;
+import com.HUMMMM.yopido.datos.FireBase;
 import com.HUMMMM.yopido.pantallas.admin.MainActivityAdmin;
 import com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLoggeado;
 import com.google.android.material.snackbar.Snackbar;
 
 public class MainIniciarSesion extends BaseActivity {
-    RealmDB rd;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_iniciar_sesion);
         Button btnIniciarSesionAceptar;
-        rd = new RealmDB();
+
         final EditText correo = (EditText) findViewById(R.id.editTextCorreo);
         final EditText contraseña = findViewById(R.id.editTextTextPassword);
         btnIniciarSesionAceptar = (Button) findViewById(R.id.buttonIniciarSesionAceptar);
@@ -31,10 +31,10 @@ public class MainIniciarSesion extends BaseActivity {
             public void onClick(View v) {
 
                 if (checks.isAdmin(correo, contraseña)) {
-                    rd.InciarSesion(String.valueOf(correo), String.valueOf(contraseña));
+
                     cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
                 } else if (checks.comprobarIniciarSesion(correo, contraseña)) {
-                    rd.InciarSesion(String.valueOf(correo), String.valueOf(contraseña));
+
                     cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class);
                 } else
                     Snackbar.make(findViewById(R.id.buttonIniciarSesionAceptar), R.string.error_usuario_contra, Snackbar.LENGTH_SHORT).show();

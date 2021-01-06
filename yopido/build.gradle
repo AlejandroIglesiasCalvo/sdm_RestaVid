@@ -25,6 +25,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    //enabling data binding
+    dataBinding {
+        enabled = true
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -36,20 +40,33 @@ realm {
 }
 
 dependencies {
-    implementation 'com.google.firebase:firebase-analytics'
+    // Import the Firebase BoM (see: https://firebase.google.com/docs/android/learn-more#bom)
     implementation platform('com.google.firebase:firebase-bom:26.2.0')
+    // Firebase Realtime Database (Java)
+    implementation 'com.google.firebase:firebase-database'
+    // Firebase Authentication (Java)
+    implementation 'com.google.firebase:firebase-auth:20.0.1'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.firebaseui:firebase-ui-database:7.1.0'
+    implementation 'com.google.firebase:firebase-firestore:22.0.1'
 
+    // Needed to fix a dependency conflict with FirebaseUI'
+    implementation 'androidx.arch.core:core-runtime:2.1.0'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
-    implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'org.jetbrains:annotations-java5:15.0'
-    implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'androidx.navigation:navigation-fragment:2.3.2'
     implementation 'androidx.preference:preference:1.1.1'
-    implementation 'com.google.firebase:firebase-storage:19.2.1'
+
+    implementation 'com.google.android.material:material:1.2.1'
+
+    implementation 'org.jetbrains:annotations-java5:15.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.google.firebase:firebase-auth:20.0.1'
+
+
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
