@@ -25,13 +25,13 @@ import java.util.Date;
 public class MainAdminAddReserva extends BaseActivity {
 
     String fechaseleccionada;
-    
     ReservaDataSource rds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_add_reserva);
+
 
         final EditText nombre =  findViewById(R.id.editTextTextNombre);
         final EditText telf =  findViewById(R.id.editTextPhone);
@@ -59,7 +59,7 @@ public class MainAdminAddReserva extends BaseActivity {
                 {
                     //Se comprueban los datos.
                     // Se cambia finalmente, si sale bien, de clase
-                    if(checks.comprobarFechaCalendario(fechaseleccionada))
+                    if(comprobarFechaCalendario(fechaseleccionada))
                         if(addReserva(nombre.toString(),
                             telf.toString(),
                             Integer.parseInt(numPersonas.getSelectedItem().toString()),
@@ -75,15 +75,11 @@ public class MainAdminAddReserva extends BaseActivity {
                 }
             }
         }));
+
     }
 
     private boolean addReserva(String nombre, String telf, int nPersonas, String horaReserva)
     {
-        final Calendar c = Calendar.getInstance();
-        int mYear = c.get(Calendar.YEAR);
-        int mMonth = c.get(Calendar.MONTH);
-        int mDay = c.get(Calendar.DAY_OF_MONTH);
-
         Reserva reserva = new Reserva();
         reserva.setNombreUsuario(nombre);
         reserva.setTelef(telf);
@@ -92,6 +88,25 @@ public class MainAdminAddReserva extends BaseActivity {
         reserva.setFecha(fechaseleccionada);
 
         //rds.createReserva(reserva);
+
+        return true;
+    }
+
+    public boolean comprobarFechaCalendario(String fechaseleccionada) {
+        final Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        String[] fechaAComprobar = fechaseleccionada.split("/");
+        int compDia = Integer.parseInt(fechaAComprobar[0]);
+        int compMes = Integer.parseInt(fechaAComprobar[1]);
+        int compAnio = Integer.parseInt(fechaAComprobar[2]);
+
+
+        if (compDia <= mDay || compMes < mMonth || compAnio < mYear) {
+            return false;
+        }
 
         return true;
     }

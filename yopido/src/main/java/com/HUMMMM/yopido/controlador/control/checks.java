@@ -115,23 +115,4 @@ public class checks {
         else
             return false;
     }
-
-    public static boolean comprobarFechaCalendario(String fechaseleccionada) {
-        final Calendar c = Calendar.getInstance();
-        int mYear = c.get(Calendar.YEAR);
-        int mMonth = c.get(Calendar.MONTH);
-        int mDay = c.get(Calendar.DAY_OF_MONTH);
-
-        String[] fechaAComprobar = fechaseleccionada.split("/");
-        int compDia = Integer.parseInt(fechaAComprobar[0]);
-        int compMes = Integer.parseInt(fechaAComprobar[1]);
-        int compAnio = Integer.parseInt(fechaAComprobar[2]);
-
-
-        if (compDia <= mDay || compMes < mMonth || compAnio < mYear) {
-            return false;
-        }
-
-        return true;
-    }
 }

@@ -43,7 +43,8 @@ public class MainActivity extends BaseActivity {
         String appID = "restavidbbdd-djyny";
         app = new App(new AppConfiguration.Builder(appID)
                 .build());
-//botones
+
+        //botones
         btnEntar = (Button) findViewById(R.id.btnEntrar);
         btnEntar.setOnClickListener((new View.OnClickListener() {
             @Override

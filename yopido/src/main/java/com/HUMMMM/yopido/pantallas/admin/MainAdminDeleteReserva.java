@@ -1,5 +1,6 @@
 package com.HUMMMM.yopido.pantallas.admin;
 
+import android.content.SyncStatusObserver;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,9 @@ public class MainAdminDeleteReserva extends BaseActivity {
         final CalendarView calendario = findViewById(R.id.calendarioAdminEliminarReserva);
         final Button btnBuscar = (Button) findViewById(R.id.btnBuscar);
         final Button btnAceptar =  (Button) findViewById(R.id.btnAceptar);
+        tabla = (TableLayout)findViewById(R.id.tablaAdmDelRev);
+
+        inicializarFechaDefecto();
 
         calendario.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
@@ -47,15 +51,16 @@ public class MainAdminDeleteReserva extends BaseActivity {
         btnBuscar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if(checks.comprobarFechaCalendario(fechaseleccionada))
+                if(comprobarFechaCalendario(fechaseleccionada))
                 {
-                    if(vecesBuscar==0) {
+                    System.out.println("pulsado buscar");
+                    if(vecesBuscar == 0) {
                         rellenarTabla(null, null);
                         vecesBuscar++;
                     }
-                    else
+                    else {
                         refrescarTabla();
+                    }
                 }
                 else
                     Snackbar.make(findViewById(R.id.btnBuscar), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
@@ -72,8 +77,6 @@ public class MainAdminDeleteReserva extends BaseActivity {
 
     //TODO este método No debería estar aquí pero lo pongo mientras no tenemos BBDD (:
     private void rellenarTabla(LocalDate fecha, String hora){
-
-        tabla = (TableLayout)findViewById(R.id.tablaAdmDelRev);
 
         List<Reserva> lista = new ArrayList();
         Reserva r1 = new Reserva("Pablo Suarez", "13:00", "9/11/2020", "676452158");
@@ -144,5 +147,34 @@ public class MainAdminDeleteReserva extends BaseActivity {
             if (child instanceof TableRow) ((ViewGroup) child).removeAllViews();
         }
         rellenarTabla(null,null);
+    }
+
+    public boolean comprobarFechaCalendario(String fechaseleccionada) {
+        final Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        String[] fechaAComprobar = fechaseleccionada.split("/");
+        int compDia = Integer.parseInt(fechaAComprobar[0]);
+        int compMes = Integer.parseInt(fechaAComprobar[1]);
+        int compAnio = Integer.parseInt(fechaAComprobar[2]);
+
+
+        if (compDia <= mDay || compMes < mMonth || compAnio < mYear) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private void inicializarFechaDefecto()
+    {
+        final Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        fechaseleccionada = mDay + "/" + mMonth + "/" + mYear + "";
     }
 }

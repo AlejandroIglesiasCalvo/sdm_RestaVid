@@ -31,6 +31,7 @@ public class ReservarLogueado extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservar_logueado);
 
+
         final EditText nombre =  findViewById(R.id.editTextTextNombre);
         final EditText telf =  findViewById(R.id.editTextPhone);
         final Spinner numPersonas = findViewById(R.id.spPersonas);
@@ -46,7 +47,7 @@ public class ReservarLogueado extends BaseActivity {
             }
         });
 
-
+/*
         btnAddReserva.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +58,7 @@ public class ReservarLogueado extends BaseActivity {
                 {
                     //Se comprueban los datos.
                     // Se cambia finalmente, si sale bien, de clase
-                    if(checks.comprobarFechaCalendario(fechaseleccionada))
+                    if(comprobarFechaCalendario(fechaseleccionada))
                         if(addReserva(nombre.toString(),
                                 telf.toString(),
                                 Integer.parseInt(numPersonas.getSelectedItem().toString()),
@@ -73,6 +74,8 @@ public class ReservarLogueado extends BaseActivity {
                 }
             }
         }));
+
+         */
     }
 
     private boolean addReserva(String nombre, String telf, int nPersonas, String horaReserva)
@@ -85,6 +88,25 @@ public class ReservarLogueado extends BaseActivity {
         reserva.setFecha(fechaseleccionada);
 
         //rds.createReserva(reserva);
+
+        return true;
+    }
+
+    public boolean comprobarFechaCalendario(String fechaseleccionada) {
+        final Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        String[] fechaAComprobar = fechaseleccionada.split("/");
+        int compDia = Integer.parseInt(fechaAComprobar[0]);
+        int compMes = Integer.parseInt(fechaAComprobar[1]);
+        int compAnio = Integer.parseInt(fechaAComprobar[2]);
+
+
+        if (compDia <= mDay || compMes < mMonth || compAnio < mYear) {
+            return false;
+        }
 
         return true;
     }

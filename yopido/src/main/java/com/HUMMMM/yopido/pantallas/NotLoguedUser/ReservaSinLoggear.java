@@ -16,11 +16,13 @@ import com.HUMMMM.yopido.pantallas.BaseActivity;
 import com.HUMMMM.yopido.pantallas.FinalizarPedido;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.Calendar;
+
 public class ReservaSinLoggear extends BaseActivity {
 
-    ReservaDataSource rds;
 
     String fechaseleccionada;
+    ReservaDataSource rds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,33 +36,45 @@ public class ReservaSinLoggear extends BaseActivity {
         final Spinner spNumPersonas = findViewById(R.id.spPersonas_directa);
         final Spinner horaReserva = findViewById(R.id.spHora_directa);
 
-        final Button btnReservar = (Button) findViewById(R.id.buttonAceptar);
+        final Button btnReservar = (Button) findViewById(R.id.buttonReservaDirectaAceptar);
 
 
         calendario.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 fechaseleccionada = dayOfMonth + "/" + month + "/" + year + "";
-                System.out.println(fechaseleccionada);
             }
         });
+
+
 
         btnReservar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checks.camposRellenos(editTextnombre,editTextPhone))
-                    if(checks.comprobarFechaCalendario(fechaseleccionada))
-                        if(guardarValores(editTextnombre.toString(),
+
+                if (checks.camposRellenos(editTextnombre, editTextPhone))
+                {
+                    System.out.println("Campos rellenos");
+                    /*
+                    if (comprobarFechaCalendario(fechaseleccionada))
+                    {
+                        if (guardarValores(editTextnombre.toString(),
                                 editTextPhone.toString(),
                                 Integer.parseInt(spNumPersonas.getSelectedItem().toString()),
                                 horaReserva.getSelectedItem().toString()))
-                                        cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class);
-
+                            cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class);
+                        else
+                            Snackbar.make(findViewById(R.id.buttonAceptar_AñadirUser_Admin), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
+                    }
                     else
                         Snackbar.make(findViewById(R.id.buttonAceptar_AñadirUser_Admin), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
+                     */
+
+                }
                 else
                     Snackbar.make(findViewById(R.id.buttonAceptar_AñadirUser_Admin), R.string.error_reserva, Snackbar.LENGTH_SHORT).show();
             }
         }));
+
     }
 
     private boolean guardarValores(String nombre, String telf, int nPersonas, String horaReserva)
@@ -73,6 +87,25 @@ public class ReservaSinLoggear extends BaseActivity {
         r.setFecha(fechaseleccionada);
 
         //rds.createReserva(r);
+
+        return true;
+    }
+
+    public boolean comprobarFechaCalendario(String fechaseleccionada) {
+        final Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        String[] fechaAComprobar = fechaseleccionada.split("/");
+        int compDia = Integer.parseInt(fechaAComprobar[0]);
+        int compMes = Integer.parseInt(fechaAComprobar[1]);
+        int compAnio = Integer.parseInt(fechaAComprobar[2]);
+
+
+        if (compDia <= mDay || compMes < mMonth || compAnio < mYear) {
+            return false;
+        }
 
         return true;
     }
