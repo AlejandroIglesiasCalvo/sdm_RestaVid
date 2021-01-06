@@ -10,6 +10,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.HUMMMM.yopido.R;
+import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.modelo.Reserva;
 import com.HUMMMM.yopido.pantallas.BaseActivity;
@@ -47,7 +48,7 @@ public class MainAdminDeleteReserva extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-                if(comprobarFechaCalendario())
+                if(checks.comprobarFechaCalendario(fechaseleccionada))
                 {
                     if(vecesBuscar==0) {
                         rellenarTabla(null, null);
@@ -143,25 +144,5 @@ public class MainAdminDeleteReserva extends BaseActivity {
             if (child instanceof TableRow) ((ViewGroup) child).removeAllViews();
         }
         rellenarTabla(null,null);
-    }
-
-    private boolean comprobarFechaCalendario()
-    {
-        final Calendar c = Calendar.getInstance();
-        int mYear = c.get(Calendar.YEAR);
-        int mMonth = c.get(Calendar.MONTH);
-        int mDay = c.get(Calendar.DAY_OF_MONTH);
-
-        String[] fechaAComprobar = fechaseleccionada.split("/");
-        int compDia = Integer.parseInt(fechaAComprobar[0]);
-        int compMes = Integer.parseInt(fechaAComprobar[1]);
-        int compAnio = Integer.parseInt(fechaAComprobar[2]);
-
-
-        if(compDia <= mDay || compMes < mMonth || compAnio < mYear) {
-            return false;
-        }
-
-        return true;
     }
 }

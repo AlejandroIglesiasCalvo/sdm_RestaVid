@@ -67,7 +67,7 @@
     <string name="btnAceptar">Aceptar</string>
 
     // --- Pantalla final
-    <string name="Gracias">Su pedido ha sido realizado</string>
+    <string name="Gracias">Reserva realizada.</string>
 
 
     // ---- Mensajes por pantalla de errores y aciertos
