@@ -8,7 +8,6 @@ import android.widget.EditText;
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
-import com.HUMMMM.yopido.datos.FireBase;
 import com.HUMMMM.yopido.pantallas.admin.MainActivityAdmin;
 import com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLoggeado;
 import com.google.android.material.snackbar.Snackbar;

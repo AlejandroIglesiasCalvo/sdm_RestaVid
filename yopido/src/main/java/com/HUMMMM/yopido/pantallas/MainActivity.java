@@ -8,27 +8,18 @@ import android.widget.Button;
 
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
-import com.HUMMMM.yopido.datos.FireBase;
+import com.HUMMMM.yopido.datos.FireBaseEjemplo;
 import com.google.firebase.analytics.FirebaseAnalytics;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import io.realm.Realm;
-import io.realm.mongodb.App;
-import io.realm.mongodb.AppConfiguration;
 
 public class MainActivity extends BaseActivity {
     private static final String TAG = "prueba";
     Button btnEntar;
     Button btnRegistro;
     Button btnPedirYa;
-    App app;
-    Realm uiThreadRealm;
+
     private FirebaseAnalytics mFirebaseAnalytics;
+
     protected final void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
@@ -61,12 +52,7 @@ public class MainActivity extends BaseActivity {
         Bundle bundle = new Bundle();
         bundle.putString("mensaje", "Inicio de la app");
         mFirebaseAnalytics.logEvent("PantallaInicio", bundle);
-
-        //a ver que pasa
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        FireBase fb = new FireBase(db);
-        Log.d(TAG, "================= Lets goL ===============");
-        //fb.runAll(); //No ejecutar todos los test
+        mFirebaseAnalytics.resetAnalyticsData();
     }
 
 
@@ -74,7 +60,6 @@ public class MainActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
     }
-
 
 
 }
