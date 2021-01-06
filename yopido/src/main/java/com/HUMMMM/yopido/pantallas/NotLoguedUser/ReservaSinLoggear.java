@@ -7,8 +7,6 @@ import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
@@ -16,7 +14,6 @@ import com.HUMMMM.yopido.datos.ReservaDataSource;
 import com.HUMMMM.yopido.modelo.Reserva;
 import com.HUMMMM.yopido.pantallas.BaseActivity;
 import com.HUMMMM.yopido.pantallas.FinalizarPedido;
-import com.HUMMMM.yopido.pantallas.MainReservaDirecta;
 import com.google.android.material.snackbar.Snackbar;
 
 public class ReservaSinLoggear extends BaseActivity {
@@ -34,8 +31,8 @@ public class ReservaSinLoggear extends BaseActivity {
         final EditText editTextPhone = findViewById(R.id.editTextPhone_directa);
         final CalendarView calendario = findViewById(R.id.calendarReserva_directa);
 
-        Spinner spNumPersonas = findViewById(R.id.spPersonas_directa);
-        Spinner horaReserva = findViewById(R.id.spHora_directa);
+        final Spinner spNumPersonas = findViewById(R.id.spPersonas_directa);
+        final Spinner horaReserva = findViewById(R.id.spHora_directa);
 
         final Button btnReservar = (Button) findViewById(R.id.buttonAceptar);
 

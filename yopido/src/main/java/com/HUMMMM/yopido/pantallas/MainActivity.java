@@ -10,6 +10,7 @@ import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.modelo.realm.Task;
 import com.HUMMMM.yopido.modelo.realm.TaskStatus;
+import com.HUMMMM.yopido.pantallas.NotLoguedUser.ReservaSinLoggear;
 
 import org.bson.types.ObjectId;
 
@@ -61,7 +62,7 @@ public class MainActivity extends BaseActivity {
         btnPedirYa.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cambiarDeClase.MoverA(v.getContext(), MainReservaDirecta.class);
+                cambiarDeClase.MoverA(v.getContext(), ReservaSinLoggear.class);
             }
         }));
 
