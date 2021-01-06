@@ -47,7 +47,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/reserva" />
 
             <EditText
-                android:id="@+id/editTextTextNombre"
+                android:id="@+id/editTextTextNombre_directa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -73,7 +73,7 @@
                 app:layout_constraintVertical_bias="0.023" />
 
             <EditText
-                android:id="@+id/editTextPhone"
+                android:id="@+id/editTextPhone_directa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -100,7 +100,7 @@
                 app:layout_constraintVertical_bias="0.083" />
 
             <Spinner
-                android:id="@+id/spPersonas"
+                android:id="@+id/spPersonas_directa"
                 android:layout_width="77dp"
                 android:layout_height="40dp"
                 android:entries="@array/numPersonas"
@@ -112,7 +112,7 @@
                 app:layout_constraintVertical_bias="0.444" />
 
             <CalendarView
-                android:id="@+id/calendarReserva"
+                android:id="@+id/calendarReserva_directa"
                 android:minDate="@string/minDateCalendar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -134,7 +134,7 @@
                 app:layout_constraintVertical_bias="0.037" />
 
             <Spinner
-                android:id="@+id/spHora"
+                android:id="@+id/spHora_directa"
                 android:layout_width="122dp"
                 android:layout_height="40dp"
                 android:entries="@array/horasReserva"

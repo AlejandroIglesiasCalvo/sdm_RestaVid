@@ -30,12 +30,12 @@ public class ReservaSinLoggear extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserva_directa);
 
-        final EditText editTextnombre = findViewById(R.id.editTextTextNombre);
-        final EditText editTextPhone = findViewById(R.id.editTextPhone);
-        final CalendarView calendario = findViewById(R.id.calendarReserva);
+        final EditText editTextnombre = findViewById(R.id.editTextTextNombre_directa);
+        final EditText editTextPhone = findViewById(R.id.editTextPhone_directa);
+        final CalendarView calendario = findViewById(R.id.calendarReserva_directa);
 
-        Spinner spNumPersonas = findViewById(R.id.spPersonas);
-        Spinner horaReserva = findViewById(R.id.spHora);
+        Spinner spNumPersonas = findViewById(R.id.spPersonas_directa);
+        Spinner horaReserva = findViewById(R.id.spHora_directa);
 
         final Button btnReservar = (Button) findViewById(R.id.buttonAceptar);
 
