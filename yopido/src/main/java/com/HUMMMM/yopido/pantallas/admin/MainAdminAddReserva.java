@@ -24,8 +24,6 @@ import java.util.Date;
 
 public class MainAdminAddReserva extends BaseActivity {
 
-
-    boolean fechaBien = true;
     String fechaseleccionada;
     
     ReservaDataSource rds;
@@ -61,13 +59,14 @@ public class MainAdminAddReserva extends BaseActivity {
                 {
                     //Se comprueban los datos.
                     // Se cambia finalmente, si sale bien, de clase
-                    if(addReserva(nombre.toString(),
+                    if(checks.comprobarFechaCalendario(fechaseleccionada))
+                        if(addReserva(nombre.toString(),
                             telf.toString(),
                             Integer.parseInt(numPersonas.getSelectedItem().toString()),
                             horaReserva.toString())
-                    ){
-                        Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.ok_admin_addReserva, Snackbar.LENGTH_SHORT).show();
-                        cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
+                        ){
+                            Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.ok_admin_addReserva, Snackbar.LENGTH_SHORT).show();
+                            cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
                     }
                     else
                         Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.error_fecha_admin_addReserva, Snackbar.LENGTH_SHORT).show();
@@ -90,22 +89,10 @@ public class MainAdminAddReserva extends BaseActivity {
         reserva.setTelef(telf);
         reserva.setNumeroDePersonas(nPersonas);
         reserva.setHora(horaReserva);
-
-        String[] fechaAComprobar = fechaseleccionada.split("/");
-        int compDia = Integer.parseInt(fechaAComprobar[0]);
-        int compMes = Integer.parseInt(fechaAComprobar[1]);
-        int compAnio = Integer.parseInt(fechaAComprobar[2]);
-
-        if(compDia <= mDay || compMes < mMonth || compAnio < mYear) {
-            fechaBien = false;
-        }
-        else {
-            fechaBien = true;
-        }
         reserva.setFecha(fechaseleccionada);
 
-        //if(fechaBien) rds.createReserva(reserva);
+        //rds.createReserva(reserva);
 
-        return fechaBien;
+        return true;
     }
 }
