@@ -4,9 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.control.checks;
@@ -16,6 +13,7 @@ import com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLoggeado;
 import com.google.android.material.snackbar.Snackbar;
 
 public class MainIniciarSesion extends BaseActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +29,14 @@ public class MainIniciarSesion extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-                    if (checks.isAdmin(correo,contraseña))
-                        cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
-                    else if (checks.comprobarIniciarSesion(correo, contraseña))
-                        cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class);
-                    else
-                        Snackbar.make(findViewById(R.id.buttonIniciarSesionAceptar), R.string.error_usuario_contra, Snackbar.LENGTH_SHORT).show();
+                if (checks.isAdmin(correo, contraseña)) {
+
+                    cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
+                } else if (checks.comprobarIniciarSesion(correo, contraseña)) {
+
+                    cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class);
+                } else
+                    Snackbar.make(findViewById(R.id.buttonIniciarSesionAceptar), R.string.error_usuario_contra, Snackbar.LENGTH_SHORT).show();
             }
         });
     }

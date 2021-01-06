@@ -6,32 +6,43 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Usuario implements Parcelable {
-    private int id;
+import io.realm.RealmList;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+import io.realm.annotations.Required;
+
+public class Usuario extends RealmObject implements Parcelable {
+    @PrimaryKey
+    private int _id;
+    @Required
     private String email;
+    @Required
     private String nombre;
+    @Required
     private String apellidos;
+    @Required
     private String telefono;
+    @Required
     private String contraseña;
     private boolean politicaDeProteccionDeDatos = false;
 
-    private List<Integer> reservas = new ArrayList<>();
+    private RealmList<Reserva> reservas = new RealmList<Reserva>();
 
     public Usuario() {
     }
 
     public Usuario(int id, String email, String nombre, String apellidos, String telefono, String contraseña, boolean politicaDeProteccionDeDatos) {
         this.email = email;
-        this.id = id;
+        this._id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
-        this.telefono=telefono;
+        this.telefono = telefono;
         this.contraseña = contraseña;
         this.politicaDeProteccionDeDatos = politicaDeProteccionDeDatos;
     }
 
     protected Usuario(Parcel in) {
-        id = in.readInt();
+        _id = in.readInt();
         nombre = in.readString();
         apellidos = in.readString();
         email = in.readString();
@@ -52,11 +63,11 @@ public class Usuario implements Parcelable {
     };
 
     public int getId() {
-        return id;
+        return _id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this._id = id;
     }
 
 
@@ -108,11 +119,11 @@ public class Usuario implements Parcelable {
         this.politicaDeProteccionDeDatos = politicaDeProteccionDeDatos;
     }
 
-    public List<Integer> getReservas() {
+    public RealmList<Reserva> getReservas() {
         return reservas;
     }
 
-    public void setReservas(List<Integer> reservas) {
+    public void setReservas(RealmList<Reserva> reservas) {
         this.reservas = reservas;
     }
 
@@ -123,11 +134,12 @@ public class Usuario implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
+        dest.writeInt(_id);
         dest.writeString(nombre);
         dest.writeString(apellidos);
         dest.writeString(email);
         dest.writeString(contraseña);
-        dest.writeBoolean(politicaDeProteccionDeDatos);
+        //TODO arreglar este metodo para la api 24
+        //dest.writeBoolean(politicaDeProteccionDeDatos);
     }
 }
