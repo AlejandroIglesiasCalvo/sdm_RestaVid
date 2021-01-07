@@ -10,19 +10,17 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 @SuppressWarnings({"unused", "Convert2Lambda"})
 public class FireBase {
@@ -100,51 +98,48 @@ public class FireBase {
         return existe;
     }
 
-    public boolean checkEmailEnUso(EditText correo, EditText pass){
-        final boolean[] sePuede = {false, false};
-        AtomicBoolean done = new AtomicBoolean(false);
-        try {
-            auth.createUserWithEmailAndPassword(correo.getText().toString(), pass.getText().toString()).addOnCompleteListener(
-                    new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (!task.isSuccessful()) {
-                                try {
-                                    throw task.getException();
-                                }
-                                // if user enters wrong email.
-                                catch (FirebaseAuthWeakPasswordException weakPassword) {
-                                    Log.d(TAG, "onComplete: weak_password");
-                                    done.set(true);
-                                    sePuede[0] = true;
-                                    sePuede[1] = true;
-                                }
-                                // if user enters wrong password.
-                                catch (FirebaseAuthInvalidCredentialsException malformedEmail) {
-                                    Log.d(TAG, "onComplete: malformed_email");
-                                    done.set(true);
-                                    sePuede[0] = true;
-                                    sePuede[1] = true;
-                                } catch (FirebaseAuthUserCollisionException existEmail) {
-                                    Log.d(TAG, "onComplete: exist_email");
-                                    done.set(true);
-                                    sePuede[0] = true;
-                                    sePuede[1] = false;
-                                } catch (Exception e) {
-                                    Log.d(TAG, "onComplete: " + e.getMessage());
-                                }
-                            }
-                        }
-                    });
-        }catch (Exception e ) {
 
-        }
-        synchronized (done) {
-            while (done.get() == false) {
-                done.wait(); // wait here until the listener fires
-            }
-        }
-        return sePuede[1];
+    public void buscarUsuario(String correo, String contraseña) {
+        auth.createUserWithEmailAndPassword(correo, contraseña)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "createUserWithEmail:success");
+                            FirebaseUser user = auth.getCurrentUser();
+
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+
+                        }
+
+                        // ...
+                    }
+                });
+
     }
+
+
+    public void getAllUsers() {
+        // [START get_all_users]
+        db.collection("pedo")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, document.getId() + " => " + document.getData());
+                            }
+                        } else {
+                            Log.w(TAG, "Error getting documents.", task.getException());
+                        }
+                    }
+                });
+        // [END get_all_users]
+    }
+
 }
 
