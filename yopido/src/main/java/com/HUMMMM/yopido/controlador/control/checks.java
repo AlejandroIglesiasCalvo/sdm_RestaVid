@@ -1,8 +1,10 @@
 package com.HUMMMM.yopido.controlador.control;
 
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.HUMMMM.yopido.datos.FireBase;
 import com.HUMMMM.yopido.datos.UsuariosDataSource;
 
 import org.jetbrains.annotations.NotNull;
@@ -88,18 +90,16 @@ public class checks {
     }
 
     /**
-     *
+     *Busca en google firebase el correo que pretende registrarse
      * @param texto
-     * @return
+     * @return si existe si, y si no, no
      */
     public static boolean existeEmailEnBDD(EditText texto)
     {
         String email = String.valueOf(texto.getText());
-
-        if(uds.existeEnBDD(email))
-            return true;
-        else
-            return false;
+        FireBase fb = new FireBase();
+        fb.buscarUsuario(email);
+        return fb.getEstado();
     }
 
     /**
