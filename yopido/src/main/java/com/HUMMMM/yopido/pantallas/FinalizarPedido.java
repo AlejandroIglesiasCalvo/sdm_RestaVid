@@ -21,7 +21,7 @@ public class FinalizarPedido extends BaseActivity {
         btnAceptar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (correo.length() == 0) {
+                if (correo.equals("SINCORREO@SINCORREO.COM")) {
                     cambiarDeClase.MoverA(v.getContext(), MainActivity.class);
                 } else {
                     cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class, correo);

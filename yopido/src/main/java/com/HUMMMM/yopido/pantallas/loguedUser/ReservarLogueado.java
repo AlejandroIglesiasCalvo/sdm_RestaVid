@@ -85,7 +85,7 @@ public class ReservarLogueado extends BaseActivity {
                                 if (checks.camposRellenos(nombre)) {
                                     if (comprobarFechaCalendario(fechaseleccionada)) {
                                         fb.guardarReserva(correo, nombre, telefono, spnPersonas, fechaseleccionada, spnHoras);
-                                        cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class,correo);
+                                        cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class);
                                     } else
                                         Snackbar.make(findViewById(R.id.buttonAceptar), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
                                 } else {
@@ -118,9 +118,9 @@ public class ReservarLogueado extends BaseActivity {
         int compMes = Integer.parseInt(fechaAComprobar[1]);
         int compAnio = Integer.parseInt(fechaAComprobar[2]);
 
-        if (compDia <= mDay || compMes < mMonth || compAnio < mYear) {
-            return false;
-        }
+//        if (compDia <= mDay || compMes < mMonth || compAnio < mYear) {
+//            return false;
+//        }
         return true;
     }
 

@@ -80,6 +80,7 @@
         <string name="error_fecha_calendario"> Seleccione una fecha a partir de mañana </string>
         <string name="error_add_Reserva">Error al intentar crear la reserva, rellene todos los campos</string>
     <string name="error_hora_ya_reservada">Esa hora ya contiene una reserva</string>
+    <string name="aceptar">Aceptar</string>
 
 
 </resources>

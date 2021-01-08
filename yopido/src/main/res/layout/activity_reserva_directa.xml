@@ -14,7 +14,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -113,10 +114,10 @@
 
             <CalendarView
                 android:id="@+id/calendarReserva"
-                android:minDate="@string/minDateCalendar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="36dp"
+                android:minDate="@string/minDateCalendar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.429"
                 app:layout_constraintStart_toStartOf="parent"
@@ -146,10 +147,10 @@
                 app:layout_constraintVertical_bias="0.444" />
 
             <Button
-                android:id="@+id/buttonReservaDirectaAceptar"
+                android:id="@+id/btnAceptar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/btnAceptar" />
+                android:text="@string/aceptar" />
 
 
         </LinearLayout>
