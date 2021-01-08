@@ -85,7 +85,7 @@ public class ReservarLogueado extends BaseActivity {
                                 if (checks.camposRellenos(nombre)) {
                                     if (comprobarFechaCalendario(fechaseleccionada)) {
                                         fb.guardarReserva(correo, nombre, telefono, spnPersonas, fechaseleccionada, spnHoras);
-                                        cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class);
+                                        cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class,correo);
                                     } else
                                         Snackbar.make(findViewById(R.id.buttonAceptar), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
                                 } else {

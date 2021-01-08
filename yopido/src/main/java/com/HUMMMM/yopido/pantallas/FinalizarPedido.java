@@ -1,11 +1,12 @@
 package com.HUMMMM.yopido.pantallas;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.HUMMMM.yopido.R;
+import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
+import com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLoggeado;
 
 public class FinalizarPedido extends BaseActivity {
 
@@ -13,18 +14,18 @@ public class FinalizarPedido extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finalizar_pedido);
-
+        String correo = getIntent().getStringExtra("correo");
         Button btnAceptar;
 
         btnAceptar = (Button) findViewById(R.id.btnBuscar);
         btnAceptar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
-                Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.addCategory(Intent.CATEGORY_HOME);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+                if (correo.length() == 0) {
+                    cambiarDeClase.MoverA(v.getContext(), MainActivity.class);
+                } else {
+                    cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class, correo);
+                }
             }
         }));
     }

@@ -54,7 +54,6 @@ public class MainMenuLoggeado extends BaseActivity {
         btnVerMisReservas.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 // Click para ir a pantalla de ver reservas
                 cambiarDeClase.MoverA(v.getContext(), UserViewReserva.class, correo, telefono);
             }
