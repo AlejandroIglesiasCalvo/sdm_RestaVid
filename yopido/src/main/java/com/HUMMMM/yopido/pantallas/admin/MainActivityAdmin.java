@@ -17,7 +17,8 @@ public class MainActivityAdmin extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_main);
-
+        String correo = getIntent().getStringExtra("correo");
+        String telefono = getIntent().getStringExtra("telefono");
         Button btnAddUsuario;
         Button btnEliminarUsuario;
         Button btnAddReserva;

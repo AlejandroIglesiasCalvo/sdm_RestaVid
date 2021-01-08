@@ -10,6 +10,7 @@ import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.datos.FireBase;
+import com.HUMMMM.yopido.pantallas.admin.MainActivityAdmin;
 import com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLoggeado;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -45,7 +46,12 @@ public class MainIniciarSesion extends BaseActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class, correo.getText().toString());
+                                    if(correo.getText().toString().equals("admin@restavid.es")){
+                                        cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class, correo.getText().toString());
+                                    }else{
+                                        cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class, correo.getText().toString());
+                                    }
+
                                 } else {
                                     System.out.println("NO VA");
                                     Snackbar.make(findViewById(R.id.buttonIniciarSesionAceptar), R.string.error_usuario_contra, Snackbar.LENGTH_SHORT).show();
