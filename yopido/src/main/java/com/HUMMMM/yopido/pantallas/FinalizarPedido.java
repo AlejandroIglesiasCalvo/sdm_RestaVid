@@ -6,6 +6,7 @@ import android.widget.Button;
 
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
+import com.HUMMMM.yopido.pantallas.admin.MainActivityAdmin;
 import com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLoggeado;
 
 public class FinalizarPedido extends BaseActivity {
@@ -23,7 +24,11 @@ public class FinalizarPedido extends BaseActivity {
             public void onClick(View v) {
                 if (correo.equals("SINCORREO@SINCORREO.COM")) {
                     cambiarDeClase.MoverA(v.getContext(), MainActivity.class);
-                } else {
+                }
+                else if (correo.equals("admin@restavid.es")){
+                    cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
+                }
+                else {
                     cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class, correo);
                 }
             }

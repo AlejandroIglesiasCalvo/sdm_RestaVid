@@ -46,7 +46,7 @@
 
     <string name="hintEmail">correo electrónico</string>
     <string name="telefono">Teléfono de contacto</string>
-    <string name="hintPhone">999999999</string>
+    <string name="hintPhone">Teléfono</string>
     <string name="hintContraseña">Contraseña</string>
 
     <string name="numero_personas">Número de personas: </string>

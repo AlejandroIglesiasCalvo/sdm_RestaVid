@@ -6,15 +6,28 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.Spinner;
+
+import androidx.annotation.Nullable;
 
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
+import com.HUMMMM.yopido.datos.FireBase;
 import com.HUMMMM.yopido.pantallas.BaseActivity;
+import com.HUMMMM.yopido.pantallas.FinalizarPedido;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainAdminAddReserva extends BaseActivity {
-
+    private FireBase fb;
     private String fechaseleccionada;
 
     @Override
@@ -22,15 +35,16 @@ public class MainAdminAddReserva extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_add_reserva);
 
-        final EditText nombre = findViewById(R.id.editTextTextNombre);
-        final EditText telf = findViewById(R.id.editTextPhone);
+        EditText nombre = (EditText) findViewById(R.id.editTextTextNombre);
+        EditText telefono = (EditText) findViewById(R.id.editTextPhone);
         CalendarView calendar = (CalendarView) findViewById(R.id.calendarReserva);
-        // --- activity_admin_add_reserva
-        Button btnAddReserva;
+        Button btnAddReserva = (Button) findViewById(R.id.button_Aceptar_Reserva_Admin);
+        Spinner spnPersonas= (Spinner) findViewById(R.id.spPersonas);
+        Spinner spnHoras= (Spinner) findViewById(R.id.spHora);
 
-        btnAddReserva = findViewById(R.id.button_Aceptar_Reserva_Admin);
 
         inicializarFechaDefecto();
+        fb = new FireBase();
 
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
@@ -38,24 +52,42 @@ public class MainAdminAddReserva extends BaseActivity {
             }
         });
 
-        btnAddReserva.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!checks.camposRellenos(nombre, telf)) {
-                    Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.error_add_Reserva, Snackbar.LENGTH_SHORT).show();
-                } else {
-                    if (checks.camposRellenos(nombre)) {
-                        if (comprobarFechaCalendario(fechaseleccionada)) {
-
-                            cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
-                        } else
-                            Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
-                    } else
-                        Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.error_add_Reserva, Snackbar.LENGTH_SHORT).show();
-                }
-            }
+        btnAddReserva.setOnClickListener((v -> {
+            //Buscar las reservas en ese dia
+            // [START get_all_users]
+            FirebaseFirestore.getInstance().collection("reservas")
+                    .whereEqualTo("fecha", fechaseleccionada)
+                    .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                        @Override
+                        public void onEvent(@Nullable QuerySnapshot snapshots,
+                                            @Nullable FirebaseFirestoreException e) {
+                            if (e != null) {
+                                System.out.println("Listen failed. " + e);
+                                return;
+                            }
+                            List<DocumentSnapshot> docs = snapshots.getDocuments();
+                            List<String> ocupadas = new ArrayList<String>();
+                            for (DocumentSnapshot a : docs) {
+                                ocupadas.add(a.getString("hora"));
+                            }
+                            if (ocupadas.contains(spnHoras.getSelectedItem().toString())) {
+                                Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.error_hora_ya_reservada, Snackbar.LENGTH_SHORT).show();
+                            } else {
+                                if (checks.camposRellenos(nombre, telefono)) {
+                                    if (comprobarFechaCalendario(fechaseleccionada)) {
+                                        fb.guardarReserva("SINCORREO@SINCORREO.COM", nombre, telefono.getText().toString(), spnPersonas, fechaseleccionada, spnHoras);
+                                        cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class, "admin@restavid.es");
+                                    } else
+                                        Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
+                                } else {
+                                    Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.error_add_Reserva, Snackbar.LENGTH_SHORT).show();
+                                }
+                            }
+                        }
+                    });
         }));
     }
+
 
     private void inicializarFechaDefecto() {
         final Calendar c = Calendar.getInstance();
