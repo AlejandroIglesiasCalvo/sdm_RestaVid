@@ -110,7 +110,7 @@ public class ReservarLogueado extends BaseActivity {
     public boolean comprobarFechaCalendario(String fechaseleccionada) {
         final Calendar c = Calendar.getInstance();
         int mYear = c.get(Calendar.YEAR);
-        int mMonth = c.get(Calendar.MONTH);
+        int mMonth = c.get(Calendar.MONTH)+1;
         int mDay = c.get(Calendar.DAY_OF_MONTH);
 
         String[] fechaAComprobar = fechaseleccionada.split("/");
@@ -118,9 +118,23 @@ public class ReservarLogueado extends BaseActivity {
         int compMes = Integer.parseInt(fechaAComprobar[1]);
         int compAnio = Integer.parseInt(fechaAComprobar[2]);
 
-//        if (compDia <= mDay || compMes < mMonth || compAnio < mYear) {
-//            return false;
-//        }
+        if (compAnio < mYear) {
+            return false;
+        } else if (compAnio > mYear) {
+            return true;
+        } else {
+            if (compMes < mMonth) {
+                return false;
+            } else if (compMes > mMonth) {
+                return true;
+            } else {
+                if (compDia <= mDay) {
+                    return false;
+                } else if (compDia > mDay) {
+                    return true;
+                }
+            }
+        }
         return true;
     }
 

@@ -7,13 +7,10 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.pantallas.BaseActivity;
-import com.HUMMMM.yopido.pantallas.FinalizarPedido;
 import com.google.android.material.snackbar.Snackbar;
 
 public class MainAdminAddReserva extends BaseActivity {
@@ -25,8 +22,8 @@ public class MainAdminAddReserva extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_add_reserva);
 
-        final EditText nombre =  findViewById(R.id.editTextTextNombre);
-        final EditText telf =  findViewById(R.id.editTextPhone);
+        final EditText nombre = findViewById(R.id.editTextTextNombre);
+        final EditText telf = findViewById(R.id.editTextPhone);
         CalendarView calendar = (CalendarView) findViewById(R.id.calendarReserva);
         // --- activity_admin_add_reserva
         Button btnAddReserva;
@@ -37,25 +34,24 @@ public class MainAdminAddReserva extends BaseActivity {
 
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                fechaseleccionada = dayOfMonth + "/" + month + "/" + year + "";
+                fechaseleccionada = dayOfMonth + "/" + (month+1) + "/" + year + "";
             }
         });
 
         btnAddReserva.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!checks.camposRellenos(nombre,telf)) {
+                if (!checks.camposRellenos(nombre, telf)) {
                     Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.error_add_Reserva, Snackbar.LENGTH_SHORT).show();
-                }
-                else
-                {if (checks.camposRellenos(nombre)) {
-                    if (comprobarFechaCalendario(fechaseleccionada)) {
+                } else {
+                    if (checks.camposRellenos(nombre)) {
+                        if (comprobarFechaCalendario(fechaseleccionada)) {
 
-                        cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
+                            cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
+                        } else
+                            Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
                     } else
-                        Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
-                } else
-                    Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.error_add_Reserva, Snackbar.LENGTH_SHORT).show();
+                        Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.error_add_Reserva, Snackbar.LENGTH_SHORT).show();
                 }
             }
         }));
@@ -74,7 +70,7 @@ public class MainAdminAddReserva extends BaseActivity {
     public boolean comprobarFechaCalendario(String fechaseleccionada) {
         final Calendar c = Calendar.getInstance();
         int mYear = c.get(Calendar.YEAR);
-        int mMonth = c.get(Calendar.MONTH);
+        int mMonth = c.get(Calendar.MONTH)+1;
         int mDay = c.get(Calendar.DAY_OF_MONTH);
 
         String[] fechaAComprobar = fechaseleccionada.split("/");
@@ -83,8 +79,22 @@ public class MainAdminAddReserva extends BaseActivity {
         int compAnio = Integer.parseInt(fechaAComprobar[2]);
 
 
-        if (compDia <= mDay || compMes < mMonth || compAnio < mYear) {
+        if (compAnio < mYear) {
             return false;
+        } else if (compAnio > mYear) {
+            return true;
+        } else {
+            if (compMes < mMonth) {
+                return false;
+            } else if (compMes > mMonth) {
+                return true;
+            } else {
+                if (compDia <= mDay) {
+                    return false;
+                } else if (compDia > mDay) {
+                    return true;
+                }
+            }
         }
         return true;
     }

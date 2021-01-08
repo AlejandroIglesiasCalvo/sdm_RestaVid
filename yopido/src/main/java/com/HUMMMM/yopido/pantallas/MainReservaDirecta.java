@@ -2,22 +2,17 @@ package com.HUMMMM.yopido.pantallas;
 
 import android.icu.util.Calendar;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Spinner;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.datos.FireBase;
-import com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLoggeado;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -76,9 +71,9 @@ public class MainReservaDirecta extends BaseActivity {
                             } else {
                                 if (checks.camposRellenos()) {
                                     if (comprobarFechaCalendario(fechaseleccionada)) {
-                                        fb= new FireBase();
+                                        fb = new FireBase();
                                         fb.guardarReserva("SINCORREO@SINCORREO.COM", nombre, telefono.getText().toString(), spnPersonas, fechaseleccionada, spnHoras);
-                                        cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class,"SINCORREO@SINCORREO.COM");
+                                        cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class, "SINCORREO@SINCORREO.COM");
                                     } else
                                         Snackbar.make(findViewById(R.id.btnAceptar), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
                                 } else {
@@ -104,7 +99,7 @@ public class MainReservaDirecta extends BaseActivity {
     public boolean comprobarFechaCalendario(String fechaseleccionada) {
         final Calendar c = Calendar.getInstance();
         int mYear = c.get(Calendar.YEAR);
-        int mMonth = c.get(Calendar.MONTH);
+        int mMonth = c.get(Calendar.MONTH)+1;
         int mDay = c.get(Calendar.DAY_OF_MONTH);
 
         String[] fechaAComprobar = fechaseleccionada.split("/");
@@ -112,9 +107,23 @@ public class MainReservaDirecta extends BaseActivity {
         int compMes = Integer.parseInt(fechaAComprobar[1]);
         int compAnio = Integer.parseInt(fechaAComprobar[2]);
 
-//        if (compDia <= mDay || compMes < mMonth || compAnio < mYear) {
-//            return false;
-//        }
+        if (compAnio < mYear) {
+            return false;
+        } else if (compAnio > mYear) {
+            return true;
+        } else {
+            if (compMes < mMonth) {
+                return false;
+            } else if (compMes > mMonth) {
+                return true;
+            } else {
+                if (compDia <= mDay) {
+                    return false;
+                } else if (compDia > mDay) {
+                    return true;
+                }
+            }
+        }
         return true;
     }
 
