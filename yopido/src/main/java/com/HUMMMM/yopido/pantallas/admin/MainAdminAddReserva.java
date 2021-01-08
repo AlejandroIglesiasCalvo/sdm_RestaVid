@@ -53,9 +53,9 @@ public class MainAdminAddReserva extends BaseActivity {
 
                         cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
                     } else
-                        Snackbar.make(findViewById(R.id.buttonIniciarSesionAceptar), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
+                        Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
                 } else
-                    Snackbar.make(findViewById(R.id.buttonIniciarSesionAceptar), R.string.error_add_Reserva, Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.error_add_Reserva, Snackbar.LENGTH_SHORT).show();
                 }
             }
         }));

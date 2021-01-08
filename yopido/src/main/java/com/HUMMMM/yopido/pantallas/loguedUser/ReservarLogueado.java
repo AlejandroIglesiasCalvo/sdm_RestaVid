@@ -61,9 +61,9 @@ public class ReservarLogueado extends BaseActivity {
                         fb.guardarReserva(correo, nombre, telefono, spnPersonas, calendar, spnHoras);
                         cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class);
                     } else
-                        Snackbar.make(findViewById(R.id.buttonIniciarSesionAceptar), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
+                        Snackbar.make(findViewById(R.id.buttonAceptar), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
                 } else
-                    Snackbar.make(findViewById(R.id.buttonIniciarSesionAceptar), R.string.error_add_Reserva, Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(R.id.buttonAceptar), R.string.error_add_Reserva, Snackbar.LENGTH_SHORT).show();
             }
         }));
     }
