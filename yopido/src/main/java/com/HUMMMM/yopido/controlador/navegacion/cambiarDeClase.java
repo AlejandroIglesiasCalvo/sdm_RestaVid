@@ -21,6 +21,11 @@ public class cambiarDeClase extends AppCompatActivity {
         Intent intent = new Intent(mContext, clase);
         mContext.startActivity(intent);
     }
+    public static void MoverA(Context mContext, Class clase, String correo) {
+        Intent intent = new Intent(mContext, clase);
+        intent.putExtra("correo",correo);
+        mContext.startActivity(intent);
+    }
     public static void MoverA(Context mContext, Class clase, String correo, String telefono) {
         Intent intent = new Intent(mContext, clase);
         intent.putExtra("correo",correo);

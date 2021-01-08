@@ -1,43 +1,60 @@
 package com.HUMMMM.yopido.pantallas;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.annotation.NonNull;
 
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
-import com.HUMMMM.yopido.pantallas.admin.MainActivityAdmin;
+import com.HUMMMM.yopido.datos.FireBase;
 import com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLoggeado;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainIniciarSesion extends BaseActivity {
-
+    private FireBase fb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_iniciar_sesion);
+        FirebaseAnalytics fa = FirebaseAnalytics.getInstance(this);
+        Bundle bundle = new Bundle();
+        bundle.putString("InciarSesion", "Iniciar sesion");
+        fa.logEvent("InciarSesion", bundle);
+
         Button btnIniciarSesionAceptar;
 
         final EditText correo = (EditText) findViewById(R.id.editTextCorreo);
         final EditText contraseña = findViewById(R.id.editTextTextPassword);
         btnIniciarSesionAceptar = (Button) findViewById(R.id.buttonIniciarSesionAceptar);
 
-        btnIniciarSesionAceptar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (checks.isAdmin(correo, contraseña)) {
-
-                    cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
-                } else if (checks.comprobarIniciarSesion(correo, contraseña)) {
-
-                    cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class);
-                } else
-                    Snackbar.make(findViewById(R.id.buttonIniciarSesionAceptar), R.string.error_usuario_contra, Snackbar.LENGTH_SHORT).show();
+        btnIniciarSesionAceptar.setOnClickListener(((v) -> {
+            if (checks.camposRellenos(correo, contraseña)) {
+                fb = new FireBase();
+                FirebaseAuth.getInstance()
+                        .signInWithEmailAndPassword(correo.getText().toString(), contraseña.getText().toString())
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class, correo.getText().toString());
+                                } else {
+                                    System.out.println("NO VA");
+                                    Snackbar.make(findViewById(R.id.buttonIniciarSesionAceptar), R.string.error_usuario_contra, Snackbar.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+            } else {
+                Snackbar.make(findViewById(R.id.buttonIniciarSesionAceptar), R.string.error_usuario_contra, Snackbar.LENGTH_SHORT).show();
             }
-        });
+        }));
     }
 }

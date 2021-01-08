@@ -39,6 +39,7 @@ public class ReservarLogueado extends BaseActivity {
         btnAceptar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //TODO validar campos y otra reserva
                 fb.guardarReserva(correo,nombre,telefono,spnPersonas,calendar,spnHoras);
                 cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class);
             }
