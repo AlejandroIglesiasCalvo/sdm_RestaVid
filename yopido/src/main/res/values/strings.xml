@@ -46,7 +46,7 @@
 
     <string name="hintEmail">correo electrónico</string>
     <string name="telefono">Teléfono de contacto</string>
-    <string name="hintPhone">+34</string>
+    <string name="hintPhone">999999999</string>
     <string name="hintContraseña">Contraseña</string>
 
     <string name="numero_personas">Número de personas: </string>
@@ -69,12 +69,16 @@
 
         //Admin add user
         <string name="error_admin_addUser">Error al intentar crear el usuario, rellene todos los campos</string>
-        <string name="error_admin_addReserva">Error al intentar crear la reserva, rellene todos los campos</string>
 
         //Admin delete user
         <string name="error_delete_user">No se ha podido eliminar el usuario. </string>
         <string name="ok_delete_user">Usuario eliminado correctamente. </string>
         <string name="error_contra_delete_user">contraseña incorrecta. </string>
-    <string name="error_registro">Error al registrarse</string>
+        <string name="error_registro">Error al registrarse</string>
+
+        // Error reservar
+        <string name="error_fecha_calendario"> Seleccione una fecha a partir de mañana </string>
+        <string name="error_add_Reserva">Error al intentar crear la reserva, rellene todos los campos</string>
+
 
 </resources>

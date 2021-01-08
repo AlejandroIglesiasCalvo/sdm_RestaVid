@@ -32,7 +32,7 @@ public class MainAdminAddReserva extends BaseActivity {
             @Override
             public void onClick(View v) {
                 if(!checks.camposRellenos(nombre,telf)) {
-                    Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.error_admin_addReserva, Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.error_add_Reserva, Snackbar.LENGTH_SHORT).show();
                 }
                 else
                 {
