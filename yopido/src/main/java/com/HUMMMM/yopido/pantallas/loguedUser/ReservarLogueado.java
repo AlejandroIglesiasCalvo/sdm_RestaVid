@@ -2,13 +2,12 @@ package com.HUMMMM.yopido.pantallas.loguedUser;
 
 import android.icu.util.Calendar;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
 
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.control.checks;
@@ -18,10 +17,19 @@ import com.HUMMMM.yopido.pantallas.BaseActivity;
 import com.HUMMMM.yopido.pantallas.FinalizarPedido;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReservarLogueado extends BaseActivity {
     private FireBase fb;
     private String fechaseleccionada;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,23 +56,44 @@ public class ReservarLogueado extends BaseActivity {
 
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                fechaseleccionada = dayOfMonth + "/" + (month+1) + "/" + year + "";
+                fechaseleccionada = dayOfMonth + "/" + (month + 1) + "/" + year + "";
             }
         });
 
 
-        btnAceptar.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (checks.camposRellenos(nombre)) {
-                    if (comprobarFechaCalendario(fechaseleccionada)) {
-                        fb.guardarReserva(correo, nombre, telefono, spnPersonas, fechaseleccionada, spnHoras);
-                        cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class);
-                    } else
-                        Snackbar.make(findViewById(R.id.buttonAceptar), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
-                } else
-                    Snackbar.make(findViewById(R.id.buttonAceptar), R.string.error_add_Reserva, Snackbar.LENGTH_SHORT).show();
-            }
+        btnAceptar.setOnClickListener((v -> {
+            //Buscar las reservas en ese dia
+            // [START get_all_users]
+            FirebaseFirestore.getInstance().collection("reservas")
+                    .whereEqualTo("fecha", fechaseleccionada)
+                    .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                        @Override
+                        public void onEvent(@Nullable QuerySnapshot snapshots,
+                                            @Nullable FirebaseFirestoreException e) {
+                            if (e != null) {
+                                System.out.println("Listen failed. " + e);
+                                return;
+                            }
+                            List<DocumentSnapshot> docs = snapshots.getDocuments();
+                            List<String> ocupadas = new ArrayList<String>();
+                            for (DocumentSnapshot a : docs) {
+                                ocupadas.add(a.getString("hora"));
+                            }
+                            if (ocupadas.contains(spnHoras.getSelectedItem().toString())) {
+                                Snackbar.make(findViewById(R.id.buttonAceptar), R.string.error_hora_ya_reservada, Snackbar.LENGTH_SHORT).show();
+                            } else {
+                                if (checks.camposRellenos(nombre)) {
+                                    if (comprobarFechaCalendario(fechaseleccionada)) {
+                                        fb.guardarReserva(correo, nombre, telefono, spnPersonas, fechaseleccionada, spnHoras);
+                                        cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class);
+                                    } else
+                                        Snackbar.make(findViewById(R.id.buttonAceptar), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
+                                } else {
+                                    Snackbar.make(findViewById(R.id.buttonAceptar), R.string.error_add_Reserva, Snackbar.LENGTH_SHORT).show();
+                                }
+                            }
+                        }
+                    });
         }));
     }
 
@@ -94,4 +123,5 @@ public class ReservarLogueado extends BaseActivity {
         }
         return true;
     }
+
 }

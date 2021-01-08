@@ -39,8 +39,7 @@ public class MainMenuLoggeado extends BaseActivity {
         btnReservar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getTelefono(correo);
-                cambiarDeClase.MoverA(v.getContext(), ReservarLogueado.class, correo, telefono);
+                getTelefono(correo,v);
             }
         }));
         btnAnularReserva = (Button) findViewById(R.id.btnAnularReserva);
@@ -62,7 +61,7 @@ public class MainMenuLoggeado extends BaseActivity {
         }));
     }
 
-    public void getTelefono(String correo) {
+    public void getTelefono(String correo,View v) {
         // [START get_all_users]
         FirebaseFirestore.getInstance().collection("usuarios")
                 .whereEqualTo("correo",correo)
@@ -81,6 +80,7 @@ public class MainMenuLoggeado extends BaseActivity {
                             telefono=a.getString("telefono");
                         }
                         System.out.println("TELEFONO  "+ telefono);
+                        cambiarDeClase.MoverA(v.getContext(), ReservarLogueado.class, correo, telefono);
                     }
                 });
         // [END get_all_users]

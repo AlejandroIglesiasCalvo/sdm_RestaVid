@@ -46,12 +46,11 @@ public class MainIniciarSesion extends BaseActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    if(correo.getText().toString().equals("admin@restavid.es")){
+                                    if (correo.getText().toString().equals("admin@restavid.es")) {
                                         cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class, correo.getText().toString());
-                                    }else{
+                                    } else {
                                         cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class, correo.getText().toString());
                                     }
-
                                 } else {
                                     System.out.println("NO VA");
                                     Snackbar.make(findViewById(R.id.buttonIniciarSesionAceptar), R.string.error_usuario_contra, Snackbar.LENGTH_SHORT).show();
