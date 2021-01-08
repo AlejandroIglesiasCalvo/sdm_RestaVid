@@ -75,6 +75,7 @@
         <string name="ok_delete_user">Usuario eliminado correctamente. </string>
         <string name="error_contra_delete_user">contraseña incorrecta. </string>
         <string name="error_registro">Error al registrarse</string>
+        <string name="error_corrreo_no_valido">Error, introduzca un correo válido</string>
 
         // Error reservar
         <string name="error_fecha_calendario"> Seleccione una fecha a partir de mañana </string>
