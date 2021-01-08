@@ -44,14 +44,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="@string/tablaNombre" />
+                            android:text="@string/tablaHora" />
 
                         <TextView
                             android:id="@+id/txHora"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="@string/tablaHora" />
+                            android:text="@string/tablaNombre" />
 
                         <TextView
                             android:id="@+id/txDia"
@@ -67,6 +67,12 @@
                             android:layout_height="match_parent"
                             android:padding="10dp"
                             android:text="@string/tablaTelefono" />
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Gente" />
 
 
                     </TableRow>

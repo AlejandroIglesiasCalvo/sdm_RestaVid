@@ -6,14 +6,14 @@ import android.os.Parcelable;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class Reserva extends RealmObject implements Parcelable {
-    @PrimaryKey
+public class Reserva implements Parcelable {
+
     private int _id;
     private int id_usuario;
     private String nombreUsuario;
     private String telef;
     private int NumeroDePersonas;
-    //TODO poner fecha como LocalDate
+
     private String fecha;
     private String hora;
     private int Inicio;

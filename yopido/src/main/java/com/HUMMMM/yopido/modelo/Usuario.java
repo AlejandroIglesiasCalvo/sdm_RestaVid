@@ -26,7 +26,7 @@ public class Usuario extends RealmObject implements Parcelable {
     private String contraseña;
     private boolean politicaDeProteccionDeDatos = false;
 
-    private RealmList<Reserva> reservas = new RealmList<Reserva>();
+
 
     public Usuario() {
     }
@@ -119,13 +119,6 @@ public class Usuario extends RealmObject implements Parcelable {
         this.politicaDeProteccionDeDatos = politicaDeProteccionDeDatos;
     }
 
-    public RealmList<Reserva> getReservas() {
-        return reservas;
-    }
-
-    public void setReservas(RealmList<Reserva> reservas) {
-        this.reservas = reservas;
-    }
 
     @Override
     public int describeContents() {
