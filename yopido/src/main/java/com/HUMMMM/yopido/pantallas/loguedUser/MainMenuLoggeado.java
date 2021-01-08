@@ -1,14 +1,12 @@
 package com.HUMMMM.yopido.pantallas.loguedUser;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.HUMMMM.yopido.R;
-import com.HUMMMM.yopido.pantallas.BaseActivity;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
+import com.HUMMMM.yopido.pantallas.BaseActivity;
 
 public class MainMenuLoggeado extends BaseActivity {
 
@@ -19,12 +17,13 @@ public class MainMenuLoggeado extends BaseActivity {
         Button btnReservar;
         Button btnAnularReserva;
         Button btnVerMisReservas;
-
+        String correo = getIntent().getStringExtra("correo");
+        String telefono = getIntent().getStringExtra("telefono");
         btnReservar = (Button) findViewById(R.id.btnReservar);
         btnReservar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cambiarDeClase.MoverA(v.getContext(), ReservarLogueado.class);
+                cambiarDeClase.MoverA(v.getContext(), ReservarLogueado.class,correo, telefono);
             }
         }));
         btnAnularReserva = (Button) findViewById(R.id.btnAnularReserva);
@@ -40,7 +39,7 @@ public class MainMenuLoggeado extends BaseActivity {
             @Override
             public void onClick(View v) {
                 // Click para ir a pantalla de ver reservas
-                cambiarDeClase.MoverA(v.getContext(), UserViewReserva.class);
+                cambiarDeClase.MoverA(v.getContext(), UserViewReserva.class, correo, telefono);
             }
         }));
     }

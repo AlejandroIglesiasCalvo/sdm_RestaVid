@@ -1,16 +1,15 @@
 package com.HUMMMM.yopido.datos;
 
 import android.util.Log;
+import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -26,7 +25,6 @@ import java.util.Map;
 public class FireBase {
     private static final String TAG = "RestaVidBBDD100%RealNOFake";
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    FirebaseAuth auth = FirebaseAuth.getInstance();
     boolean existe = false;
     public boolean semaforo = false;
 
@@ -50,6 +48,29 @@ public class FireBase {
         datos.put("telefono", telefono.getText().toString());
 
         db.collection("usuarios").add(
+                datos
+        );
+    }
+
+    /**
+     * Metodo que guarda una reserva
+     * @param correo
+     * @param nombre
+     * @param telefono
+     * @param numeroPersonas
+     * @param fecha
+     * @param hora
+     */
+    public void guardarReserva(String correo, EditText nombre, String telefono, Spinner numeroPersonas, CalendarView fecha, Spinner hora) {
+        Map<String, Object> datos = new HashMap<>();
+        datos.put("correo", correo);
+        datos.put("nombre", nombre.getText().toString());
+        datos.put("telefono", telefono);
+        datos.put("numeroPersonas", numeroPersonas.getSelectedItem().toString());
+        datos.put("fecha", fecha.getDate());
+        datos.put("hora", hora.getSelectedItem().toString());
+
+        db.collection("reservas").add(
                 datos
         );
     }
@@ -96,29 +117,6 @@ public class FireBase {
      */
     public boolean getEstado() {
         return existe;
-    }
-
-
-    public void buscarUsuario(String correo, String contraseña) {
-        auth.createUserWithEmailAndPassword(correo, contraseña)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "createUserWithEmail:success");
-                            FirebaseUser user = auth.getCurrentUser();
-
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-
-                        }
-
-                        // ...
-                    }
-                });
-
     }
 
 
