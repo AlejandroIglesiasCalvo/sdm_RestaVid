@@ -48,7 +48,7 @@ public class ReservarLogueado extends BaseActivity {
 
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                fechaseleccionada = dayOfMonth + "/" + month + "/" + year + "";
+                fechaseleccionada = dayOfMonth + "/" + (month+1) + "/" + year + "";
             }
         });
 
@@ -58,7 +58,7 @@ public class ReservarLogueado extends BaseActivity {
             public void onClick(View v) {
                 if (checks.camposRellenos(nombre)) {
                     if (comprobarFechaCalendario(fechaseleccionada)) {
-                        fb.guardarReserva(correo, nombre, telefono, spnPersonas, calendar, spnHoras);
+                        fb.guardarReserva(correo, nombre, telefono, spnPersonas, fechaseleccionada, spnHoras);
                         cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class);
                     } else
                         Snackbar.make(findViewById(R.id.buttonAceptar), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
@@ -88,7 +88,6 @@ public class ReservarLogueado extends BaseActivity {
         int compDia = Integer.parseInt(fechaAComprobar[0]);
         int compMes = Integer.parseInt(fechaAComprobar[1]);
         int compAnio = Integer.parseInt(fechaAComprobar[2]);
-
 
         if (compDia <= mDay || compMes < mMonth || compAnio < mYear) {
             return false;

@@ -1,5 +1,6 @@
 package com.HUMMMM.yopido.datos;
 
+import android.icu.util.Calendar;
 import android.util.Log;
 import android.widget.CalendarView;
 import android.widget.EditText;
@@ -62,13 +63,13 @@ public class FireBase {
      * @param fecha
      * @param hora
      */
-    public void guardarReserva(String correo, EditText nombre, String telefono, Spinner numeroPersonas, CalendarView fecha, Spinner hora) {
+    public void guardarReserva(String correo, EditText nombre, String telefono, Spinner numeroPersonas, String fecha, Spinner hora) {
         Map<String, Object> datos = new HashMap<>();
         datos.put("correo", correo);
         datos.put("nombre", nombre.getText().toString());
         datos.put("telefono", telefono);
         datos.put("numeroPersonas", numeroPersonas.getSelectedItem().toString());
-        datos.put("fecha", fecha.getDate());
+        datos.put("fecha", fecha);
         datos.put("hora", hora.getSelectedItem().toString());
 
         db.collection("reservas").add(
