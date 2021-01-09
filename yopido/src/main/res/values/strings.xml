@@ -62,26 +62,32 @@
     <string name="Gracias">Su pedido ha sido realizado</string>
 
 
-
     // ---- Mensajes por pantalla de errores
-        //Iniciar Sesión
-        <string name="error_usuario_contra">Email o contraseña incorrectos</string>
+    //Iniciar Sesión
+    <string name="error_usuario_contra">Email o contraseña incorrectos</string>
 
-        //Admin add user
-        <string name="error_admin_addUser">Error al intentar crear el usuario, rellene todos los campos</string>
+    //Admin add user
+    <string name="error_admin_addUser">Error al intentar crear el usuario, rellene todos los campos</string>
 
-        //Admin delete user
-        <string name="error_delete_user">No se ha podido eliminar el usuario. </string>
-        <string name="ok_delete_user">Usuario eliminado correctamente. </string>
-        <string name="error_contra_delete_user">contraseña incorrecta. </string>
-        <string name="error_registro">Error al registrarse</string>
-        <string name="error_corrreo_no_valido">Error, introduzca un correo válido</string>
+    //Admin delete user
+    <string name="error_delete_user">No se ha podido eliminar el usuario. </string>
+    <string name="ok_delete_user">Usuario eliminado correctamente. </string>
+    <string name="error_contra_delete_user">contraseña incorrecta. </string>
+    <string name="error_registro">Error al registrarse</string>
+    <string name="error_corrreo_no_valido">Error, introduzca un correo válido</string>
 
-        // Error reservar
-        <string name="error_fecha_calendario"> Seleccione una fecha a partir de mañana </string>
-        <string name="error_add_Reserva">Error al intentar crear la reserva, rellene todos los campos</string>
+    // Error reservar
+    <string name="error_fecha_calendario"> Seleccione una fecha a partir de mañana </string>
+    <string name="error_add_Reserva">Error al intentar crear la reserva, rellene todos los campos</string>
     <string name="error_hora_ya_reservada">Esa hora ya contiene una reserva</string>
     <string name="aceptar">Aceptar</string>
+    <string name="modificar_reservas">Modificar reservas</string>
+    <string name="n_mero_m_ximo_de_comensales">Número máximo de comensales</string>
+    <string name="hola_de_inicio">Hola de inicio</string>
+    <string name="ltima_hora">Última hora</string>
+    <string name="_1">1</string>
+    <string name="_13_00">13:00</string>
+    <string name="_23_00">23:00</string>
 
 
 </resources>

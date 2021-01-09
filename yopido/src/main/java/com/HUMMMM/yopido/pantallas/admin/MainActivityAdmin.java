@@ -19,15 +19,13 @@ public class MainActivityAdmin extends BaseActivity {
         setContentView(R.layout.activity_admin_main);
         String correo = getIntent().getStringExtra("correo");
         String telefono = getIntent().getStringExtra("telefono");
-        Button btnAddUsuario;
-        Button btnEliminarUsuario;
-        Button btnAddReserva;
-        Button btnEliminarReserva;
 
-        btnAddUsuario = (Button) findViewById(R.id.btnAñadirUsuarios);
-        btnEliminarUsuario = (Button) findViewById(R.id.btnEliminarUsuarios);
-        btnAddReserva = (Button) findViewById(R.id.btnAñadirReservas);
-        btnEliminarReserva = (Button) findViewById(R.id.btnEliminarReservas);
+
+        Button btnAddUsuario = (Button) findViewById(R.id.btnAñadirUsuarios);
+        Button btnEliminarUsuario = (Button) findViewById(R.id.btnEliminarUsuarios);
+        Button btnAddReserva = (Button) findViewById(R.id.btnAñadirReservas);
+        Button btnEliminarReserva = (Button) findViewById(R.id.btnEliminarReservas);
+        Button btnModificar = (Button) findViewById((R.id.btnModificar));
 
         btnAddUsuario.setOnClickListener((new View.OnClickListener() {
             @Override
@@ -58,6 +56,14 @@ public class MainActivityAdmin extends BaseActivity {
             public void onClick(View v) {
                 // Ir a pantalla para eliminar reservas
                 cambiarDeClase.MoverA(v.getContext(), MainAdminDeleteReserva.class);
+            }
+        }));
+
+        btnModificar.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Ir a pantalla para eliminar reservas
+                cambiarDeClase.MoverA(v.getContext(), MainAdminModificar.class);
             }
         }));
 

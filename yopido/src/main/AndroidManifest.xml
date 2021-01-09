@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
@@ -15,30 +14,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
         <!-- Aqui ponemos la actividad principal -->
         <activity android:name=".pantallas.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <!--        Aqui las demas actividades-->
-        <activity android:name="com.HUMMMM.yopido.pantallas.admin.MainActivityAdmin" />
-        <activity android:name="com.HUMMMM.yopido.pantallas.admin.MainAdminAddReserva" />
-        <activity android:name="com.HUMMMM.yopido.pantallas.admin.MainAdminDeleteReserva" />
-        <activity android:name="com.HUMMMM.yopido.pantallas.admin.MainAdminDeleteUser" />
-        <activity android:name="com.HUMMMM.yopido.pantallas.admin.MainAdminAddUser" />
-
-        <activity android:name="com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLoggeado" />
-        <activity android:name="com.HUMMMM.yopido.pantallas.loguedUser.ReservarLogueado" />
-        <activity android:name="com.HUMMMM.yopido.pantallas.loguedUser.UserViewReserva" />
-        <activity android:name="com.HUMMMM.yopido.pantallas.loguedUser.UserDeleteReserva" />
-
-        <activity android:name="com.HUMMMM.yopido.pantallas.MainIniciarSesion" />
-        <activity android:name="com.HUMMMM.yopido.pantallas.MainRegistro" />
-        <activity android:name="com.HUMMMM.yopido.pantallas.MainReservaDirecta" />
-        <activity android:name="com.HUMMMM.yopido.pantallas.FinalizarPedido" />
+        </activity> <!-- Aqui las demas actividades -->
+        <activity android:name=".pantallas.admin.MainActivityAdmin" />
+        <activity android:name=".pantallas.admin.MainAdminAddReserva" />
+        <activity android:name=".pantallas.admin.MainAdminDeleteReserva" />
+        <activity android:name=".pantallas.admin.MainAdminDeleteUser" />
+        <activity android:name=".pantallas.admin.MainAdminAddUser" />
+        <activity android:name=".pantallas.admin.MainAdminModificar" />
+        <activity android:name=".pantallas.loguedUser.MainMenuLoggeado" />
+        <activity android:name=".pantallas.loguedUser.ReservarLogueado" />
+        <activity android:name=".pantallas.loguedUser.UserViewReserva" />
+        <activity android:name=".pantallas.loguedUser.UserDeleteReserva" />
+        <activity android:name=".pantallas.MainIniciarSesion" />
+        <activity android:name=".pantallas.MainRegistro" />
+        <activity android:name=".pantallas.MainReservaDirecta" />
+        <activity android:name=".pantallas.FinalizarPedido" />
     </application>
 
 </manifest>
