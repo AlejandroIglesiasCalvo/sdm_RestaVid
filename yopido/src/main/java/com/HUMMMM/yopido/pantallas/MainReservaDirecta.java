@@ -144,13 +144,11 @@ public class MainReservaDirecta extends BaseActivity {
         String[] fin = horaFin.split(":");
         int hf = Integer.valueOf(fin[0]);
         List<String> horario = new ArrayList<>();
-        horario.add(horaInicio);
         for(int i = hi; i<=hf; i++){
             horario.add(String.valueOf(i) + ":00");
         }
         SpinnerAdapter comboAdapterSql = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, horario);
         for(int i = 0; i<horario.size(); i++){
-            System.out.println(horario.get(i) + "---------------------------------------------------------------------------------------------------------");
         }
         sp.setAdapter(comboAdapterSql);
 
