@@ -2,10 +2,12 @@ package com.HUMMMM.yopido.pantallas;
 
 import android.icu.util.Calendar;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 
 import androidx.annotation.Nullable;
 
@@ -30,15 +32,24 @@ public class MainReservaDirecta extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reserva_directa);
+        String horaInicio = getIntent().getStringExtra("correo");
+        String horaFin = getIntent().getStringExtra("telefono");
+        //Rellenamos el spinner con el rango de horas proporcionado por la BDD
 
+
+        setContentView(R.layout.activity_reserva_directa);
+        Spinner spnHoras = (Spinner) findViewById(R.id.spHora);
+        llenarSpinner(spnHoras, horaInicio, horaFin);
 
         EditText nombre = (EditText) findViewById(R.id.editTextTextNombre);
         EditText telefono = (EditText) findViewById(R.id.editTextPhone);
         Button btnReservar = (Button) findViewById(R.id.btnAceptar);
         CalendarView calendar = (CalendarView) findViewById(R.id.calendarReserva);
         Spinner spnPersonas = (Spinner) findViewById(R.id.spPersonas);
-        Spinner spnHoras = (Spinner) findViewById(R.id.spHora);
+
+
+
+
         inicializarFechaDefecto();
 
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -125,6 +136,25 @@ public class MainReservaDirecta extends BaseActivity {
             }
         }
         return true;
+    }
+
+    private void llenarSpinner(Spinner sp, String horaInicio, String horaFin){
+        String[] inicio = horaInicio.split(":");
+        int hi = Integer.valueOf(inicio[0]);
+        String[] fin = horaFin.split(":");
+        int hf = Integer.valueOf(fin[0]);
+        List<String> horario = new ArrayList<>();
+        horario.add(horaInicio);
+        for(int i = hi; i<=hf; i++){
+            horario.add(String.valueOf(i) + ":00");
+        }
+        SpinnerAdapter comboAdapterSql = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, horario);
+        for(int i = 0; i<horario.size(); i++){
+            System.out.println(horario.get(i) + "---------------------------------------------------------------------------------------------------------");
+        }
+        sp.setAdapter(comboAdapterSql);
+
+
     }
 
 }
