@@ -81,7 +81,6 @@ public class MainAdminDeleteReserva extends BaseActivity {
         }));
     }
 
-    //TODO este método No debería estar aquí pero lo pongo mientras no tenemos BBDD (:
     private void rellenarTabla(List<List> lista, String telefono) {
         TableLayout tabla;
         int fila, colu = 1;
