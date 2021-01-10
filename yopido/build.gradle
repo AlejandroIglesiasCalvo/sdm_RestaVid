@@ -2,7 +2,6 @@ plugins {
     id 'com.android.application'
 }
 
-apply plugin: 'realm-android'
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 android {
@@ -14,7 +13,7 @@ android {
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
-        versionName "Cacatua"
+        versionName "Ornitorrinco"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -25,19 +24,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    //enabling data binding
-    dataBinding {
-        enabled = true
-    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
-realm {
-    syncEnabled = true
-}
 
 dependencies {
     // Import the Firebase BoM (see: https://firebase.google.com/docs/android/learn-more#bom)

@@ -100,12 +100,12 @@ public class UserDeleteReserva extends BaseActivity {
 
             TextView col2 = new TextView(this);
             col2.setId(300 + i);
-            col2.setText(lista.get(i).get(1) + "     ");
+            col2.setText(lista.get(i).get(1) + "        ");
 
             TextView col3 = new TextView(this);
             col3.setId(400 + i);
             String fecha = lista.get(i).get(2).toString();
-            col3.setText(lista.get(i).get(2) + "    ");
+            col3.setText(lista.get(i).get(2) + "        ");
 
             Button col4 = new Button(this);
             col4.setId(600 + i);
