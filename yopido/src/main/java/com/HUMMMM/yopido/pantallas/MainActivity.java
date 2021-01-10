@@ -2,19 +2,14 @@ package com.HUMMMM.yopido.pantallas;
 
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.Nullable;
 
 import com.HUMMMM.yopido.R;
-import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.datos.FireBase;
-import com.HUMMMM.yopido.datos.FireBaseEjemplo;
-
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -22,7 +17,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends BaseActivity {
@@ -56,9 +50,9 @@ public class MainActivity extends BaseActivity {
                                 }
                                 List<DocumentSnapshot> docs = snapshots.getDocuments();
                                 for (DocumentSnapshot a : docs) {
-                                    String horaInicio=a.getString("horaInicio");
-                                    String horaFin=a.getString("horaFin");
-                                    String maxPersonas=a.getString("numeroMaxPersonas");
+                                    String horaInicio = a.getString("horaInicio");
+                                    String horaFin = a.getString("horaFin");
+                                    String maxPersonas = a.getString("numeroMaxPersonas");
                                     cambiarDeClase.MoverA(v.getContext(), MainIniciarSesion.class, horaInicio, horaFin, maxPersonas);
                                 }
                             }
@@ -82,9 +76,9 @@ public class MainActivity extends BaseActivity {
                                 }
                                 List<DocumentSnapshot> docs = snapshots.getDocuments();
                                 for (DocumentSnapshot a : docs) {
-                                    String horaInicio=a.getString("horaInicio");
-                                    String horaFin=a.getString("horaFin");
-                                    String maxPersonas=a.getString("numeroMaxPersonas");
+                                    String horaInicio = a.getString("horaInicio");
+                                    String horaFin = a.getString("horaFin");
+                                    String maxPersonas = a.getString("numeroMaxPersonas");
                                     cambiarDeClase.MoverA(v.getContext(), MainRegistro.class, horaInicio, horaFin, maxPersonas);
                                 }
                             }
@@ -107,14 +101,13 @@ public class MainActivity extends BaseActivity {
                                 }
                                 List<DocumentSnapshot> docs = snapshots.getDocuments();
                                 for (DocumentSnapshot a : docs) {
-                                    String horaInicio=a.getString("horaInicio");
-                                    String horaFin=a.getString("horaFin");
-                                    String maxPersonas=a.getString("numeroMaxPersonas");
+                                    String horaInicio = a.getString("horaInicio");
+                                    String horaFin = a.getString("horaFin");
+                                    String maxPersonas = a.getString("numeroMaxPersonas");
                                     cambiarDeClase.MoverA(v.getContext(), MainReservaDirecta.class, horaInicio, horaFin, maxPersonas);
                                 }
                             }
                         });
-
             }
         }));
         //Inicializo el objeto firebase

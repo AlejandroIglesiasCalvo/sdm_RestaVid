@@ -105,15 +105,17 @@ public class MainAdminDeleteReserva extends BaseActivity {
 
             TextView col1 = new TextView(this);
             col1.setId(200 + i);
+            String hora=lista.get(i).get(0).toString();
             col1.setText(lista.get(i).get(0) + "  ");
 
 
             TextView col2 = new TextView(this);
             col2.setId(300 + i);
-            col2.setText(lista.get(i).get(1) + "  ");
+            col2.setText(lista.get(i).get(1) + " ");
 
             TextView col3 = new TextView(this);
             col3.setId(400 + i);
+            String fecha=lista.get(i).get(2).toString();
             col3.setText(lista.get(i).get(2) + "  ");
 
             Button col4 = new Button(this);
@@ -121,8 +123,8 @@ public class MainAdminDeleteReserva extends BaseActivity {
             col4.setText("Eliminar");
             col4.setOnClickListener((v -> {
                 FirebaseFirestore.getInstance().collection("reservas")
-                        .whereEqualTo("telefono", telefono).whereEqualTo("hora", col1.getText().toString())
-                        .whereEqualTo("fecha", col3.getText().toString())
+                        .whereEqualTo("telefono", telefono).whereEqualTo("hora", hora)
+                        .whereEqualTo("fecha", fecha)
                         .addSnapshotListener(new EventListener<QuerySnapshot>() {
                             @Override
                             public void onEvent(@Nullable QuerySnapshot snapshots,
@@ -133,6 +135,7 @@ public class MainAdminDeleteReserva extends BaseActivity {
                                 }
                                 //TODO: la lista de documentos sale vacía y debería encontrar mínimo 1
                                 List<DocumentSnapshot> docs = snapshots.getDocuments();
+                                System.out.println(telefono+ col1.getText().toString()+ col3.getText().toString());
                                 for (DocumentSnapshot a : docs) {
                                     DocumentReference df = a.getReference();
                                     System.out.println("ID: " + a.getId() + "Reference: " + df);
