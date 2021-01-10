@@ -89,6 +89,8 @@
     <string name="_13_00">13:00</string>
     <string name="_23_00">23:00</string>
     <string name="politica_datos">Debes aceptar el tratamiento de tus datos</string>
+    <string name="mis_reservas">Mis Reservas</string>
+    <string name="gente">Gente</string>
 
 
 </resources>

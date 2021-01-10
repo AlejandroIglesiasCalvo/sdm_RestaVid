@@ -2,18 +2,12 @@ package com.HUMMMM.yopido.controlador.control;
 
 import android.content.Context;
 import android.icu.util.Calendar;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
-import android.widget.TextView;
 
 import com.HUMMMM.yopido.datos.FireBase;
-
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
