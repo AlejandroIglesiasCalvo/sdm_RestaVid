@@ -43,6 +43,7 @@ public class MainMenuLoggeado extends BaseActivity {
         btnReservar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 getTelefono(correo,v, horaInicio, horaFin, maxPersonas);
             }
         }));
@@ -52,7 +53,8 @@ public class MainMenuLoggeado extends BaseActivity {
             @Override
             public void onClick(View v) {
                 // Click para ir a pantalla de anular reservas
-                cambiarDeClase.MoverA(v.getContext(), UserDeleteReserva.class, telefono);
+                getTelefonoverReservas(correo,v, horaInicio, horaFin, maxPersonas);
+
             }
         }));
 
@@ -86,6 +88,29 @@ public class MainMenuLoggeado extends BaseActivity {
                         }
                         System.out.println("TELEFONO  "+ telefono);
                         cambiarDeClase.MoverA(v.getContext(), ReservarLogueado.class, correo, telefono, horaInicio, horaFin, maxReservas);
+                    }
+                });
+    }
+    public void getTelefonoverReservas(String correo,View v, String horaInicio, String horaFin, String maxReservas) {
+        // [START get_all_users]
+        FirebaseFirestore.getInstance().collection("usuarios")
+                .whereEqualTo("correo",correo)
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot snapshots,
+                                        @Nullable FirebaseFirestoreException e) {
+                        if (e != null) {
+                            System.out.println("Listen failed. "+e);
+                            return;
+                        }
+                        //System.out.println( "Usuarios obtenidos: " + snapshots);
+
+                        List<DocumentSnapshot> docs=snapshots.getDocuments();
+                        for(DocumentSnapshot a: docs){
+                            telefono=a.getString("telefono");
+                        }
+                        System.out.println("TELEFONO  "+ telefono);
+                        cambiarDeClase.MoverA(v.getContext(), UserDeleteReserva.class, telefono);
                     }
                 });
     }
