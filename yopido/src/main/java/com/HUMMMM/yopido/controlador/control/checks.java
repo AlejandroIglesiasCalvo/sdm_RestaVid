@@ -1,6 +1,7 @@
 package com.HUMMMM.yopido.controlador.control;
 
 import android.content.Context;
+import android.icu.util.Calendar;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -144,5 +145,36 @@ public class checks {
         }
         SpinnerAdapter comboAdapterSql2 = new ArrayAdapter<>(c, android.R.layout.simple_spinner_dropdown_item, personas);
         sp.setAdapter(comboAdapterSql2);
+    }
+
+    public static boolean comprobarReservaActual(String fechaseleccionada) {
+        final Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH)+1;
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        String[] fechaAComprobar = fechaseleccionada.split("/");
+        int compDia = Integer.parseInt(fechaAComprobar[0]);
+        int compMes = Integer.parseInt(fechaAComprobar[1]);
+        int compAnio = Integer.parseInt(fechaAComprobar[2]);
+
+        if (compAnio < mYear) {
+            return false;
+        } else if (compAnio > mYear) {
+            return true;
+        } else {
+            if (compMes < mMonth) {
+                return false;
+            } else if (compMes > mMonth) {
+                return true;
+            } else {
+                if (compDia < mDay) {
+                    return false;
+                } else if (compDia >= mDay) {
+                    return true;
+                }
+            }
+        }
+        return true;
     }
 }
