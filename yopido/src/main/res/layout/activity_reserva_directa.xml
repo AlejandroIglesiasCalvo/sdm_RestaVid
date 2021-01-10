@@ -112,6 +112,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/editTextPhone"
                 app:layout_constraintVertical_bias="0.444" />
 
+            <CheckBox
+                android:id="@+id/checkBoxDatosDirecta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Politica de proteccion de datos" />
+
             <CalendarView
                 android:id="@+id/calendarReserva"
                 android:layout_width="match_parent"

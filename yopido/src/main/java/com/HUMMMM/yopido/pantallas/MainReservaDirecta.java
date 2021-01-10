@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
@@ -48,7 +49,7 @@ public class MainReservaDirecta extends BaseActivity {
         EditText telefono = (EditText) findViewById(R.id.editTextPhone);
         Button btnReservar = (Button) findViewById(R.id.btnAceptar);
         CalendarView calendar = (CalendarView) findViewById(R.id.calendarReserva);
-
+         CheckBox pDatos = findViewById(R.id.checkBoxDatosDirecta);
 
 
 
@@ -83,7 +84,7 @@ public class MainReservaDirecta extends BaseActivity {
                             if (ocupadas.contains(spnHoras.getSelectedItem().toString())) {
                                 Snackbar.make(findViewById(R.id.btnAceptar), R.string.error_hora_ya_reservada, Snackbar.LENGTH_SHORT).show();
                             } else {
-                                if (checks.camposRellenos()) {
+                                if (checks.camposRellenos()&& pDatos.isChecked()) {
                                     if (comprobarFechaCalendario(fechaseleccionada)) {
                                         fb = new FireBase();
                                         fb.guardarReserva("SINCORREO@SINCORREO.COM", nombre, telefono.getText().toString(), spnPersonas, fechaseleccionada, spnHoras);

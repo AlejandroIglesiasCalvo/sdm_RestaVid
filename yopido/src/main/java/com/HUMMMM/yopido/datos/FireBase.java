@@ -69,7 +69,7 @@ public class FireBase {
         datos.put("numeroPersonas", numeroPersonas.getSelectedItem().toString());
         datos.put("fecha", fecha);
         datos.put("hora", hora.getSelectedItem().toString());
-
+        datos.put("proteccionDeDatos", true);
         db.collection("reservas").add(
                 datos
         );
