@@ -152,6 +152,12 @@
             app:layout_constraintVertical_bias="0.0" />
 
 
+        <CheckBox
+            android:id="@+id/checkBoxDatos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Politica de proteccion de datos" />
+
         <Button
             android:id="@+id/buttonRegistroAceptar"
             android:layout_width="match_parent"

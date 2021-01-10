@@ -1,8 +1,6 @@
 package com.HUMMMM.yopido.datos;
 
-import android.icu.util.Calendar;
 import android.util.Log;
-import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -11,7 +9,6 @@ import androidx.annotation.Nullable;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -48,7 +45,7 @@ public class FireBase {
         datos.put("contraseña", contraseña.getText().toString());
         datos.put("nombre", nombre.getText().toString());
         datos.put("telefono", telefono.getText().toString());
-
+        datos.put("proteccionDeDatos", true);
         db.collection("usuarios").add(
                 datos
         );
@@ -56,6 +53,7 @@ public class FireBase {
 
     /**
      * Metodo que guarda una reserva
+     *
      * @param correo
      * @param nombre
      * @param telefono
