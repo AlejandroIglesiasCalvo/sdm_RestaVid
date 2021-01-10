@@ -10,7 +10,7 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import com.HUMMMM.yopido.datos.FireBase;
-import com.HUMMMM.yopido.datos.UsuariosDataSource;
+
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jetbrains.annotations.NotNull;
@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
 
 public class checks {
 
-    private static UsuariosDataSource uds;
+
 
     private final static String CORREO_ADMIN = "admin@restavid.es";
     private final static String CONTRA_ADMIN = "adminrestavid";

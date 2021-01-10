@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.control.checks;
-import com.HUMMMM.yopido.modelo.Reserva;
+
 import com.HUMMMM.yopido.pantallas.BaseActivity;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;

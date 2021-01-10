@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
-import com.HUMMMM.yopido.datos.UsuariosDataSource;
+
 import com.HUMMMM.yopido.pantallas.BaseActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,7 +30,7 @@ import java.util.List;
 
 public class MainAdminDeleteUser extends BaseActivity {
 
-    private static UsuariosDataSource uds;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
