@@ -47,7 +47,7 @@ public class MainAdminAddUser extends BaseActivity {
                                 if (task.isSuccessful()) {
                                     fb.guardardatos(correo, pass, nombre, telefono);
 
-                                    cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class, correo.getText().toString(),telefono.getText().toString());
+                                    cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class, correo.getText().toString(),telefono.getText().toString());
                                 } else {
                                     System.out.println("NO VA");
                                     Snackbar.make(findViewById(R.id.buttonAceptar_AñadirUser_Admin), R.string.error_registro, Snackbar.LENGTH_SHORT).show();
