@@ -147,6 +147,11 @@ public class checks {
         sp.setAdapter(comboAdapterSql2);
     }
 
+    /**
+     * Comprueba si la fecha es posterior a hoy
+     * @param fechaseleccionada
+     * @return true si es posterior, false si es anterior
+     */
     public static boolean comprobarReservaActual(String fechaseleccionada) {
         final Calendar c = Calendar.getInstance();
         int mYear = c.get(Calendar.YEAR);

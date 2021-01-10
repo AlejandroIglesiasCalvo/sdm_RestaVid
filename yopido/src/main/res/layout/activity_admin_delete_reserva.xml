@@ -26,10 +26,17 @@
                 android:layout_height="wrap_content"
                 android:text="@string/FechaCalendario" />
 
+            <EditText
+                android:id="@+id/editTextTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberSigned" />
+
             <CalendarView
                 android:id="@+id/calendarioAdminEliminarReserva"
                 android:layout_width="match_parent"
-                android:layout_height="225dp"
+                android:layout_height="match_parent"
                 android:layout_marginTop="28dp" />
 
             <Button
@@ -63,7 +70,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="2"
                             android:padding="10dp"
-                            android:text="@string/tablaNombre" />
+                            android:text="@string/tablaHora" />
 
                         <TextView
                             android:id="@+id/txHora"
@@ -71,7 +78,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="2"
                             android:padding="10dp"
-                            android:text="@string/tablaHora" />
+                            android:text="@string/tablaNombre" />
 
                         <TextView
                             android:id="@+id/txDia"
@@ -80,14 +87,6 @@
                             android:layout_weight="2"
                             android:padding="10dp"
                             android:text="@string/tablaFecha" />
-
-                        <TextView
-                            android:id="@+id/txTelefono"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:padding="10dp"
-                            android:text="@string/tablaTelefono" />
 
                         <TextView
                             android:id="@+id/txEliminar"

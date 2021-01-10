@@ -1,17 +1,34 @@
 package com.HUMMMM.yopido.pantallas.admin;
 
+import android.annotation.SuppressLint;
 import android.icu.util.LocaleData;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CalendarView;
+import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.HUMMMM.yopido.R;
+import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.modelo.Reserva;
 import com.HUMMMM.yopido.pantallas.BaseActivity;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -21,6 +38,7 @@ public class MainAdminDeleteReserva extends BaseActivity {
 
     private TableLayout tabla;
     private int fila, colu = 1;
+    private String fecha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,64 +48,121 @@ public class MainAdminDeleteReserva extends BaseActivity {
         // --- activity_admin_delete_reserva
         Button btnBuscar;
         btnBuscar = (Button) findViewById(R.id.btnBuscar);
+        EditText telefono = (EditText) findViewById((R.id.editTextTelefono));
+        CalendarView calendar = (CalendarView) findViewById(R.id.calendarioAdminEliminarReserva);
+        calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                fecha = dayOfMonth + "/" + (month+1) + "/" + year + "";
+            }
+        });
+
 
         btnBuscar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                rellenarTabla(null, null);
-
-                // Se elimina la reserva al usuario si existe el usuario en la BDD.
+                //Vaciamos la tabla
+                vaciarTabla();
+                FirebaseFirestore.getInstance().collection("reservas")
+                        .whereEqualTo("telefono", telefono.getText().toString()).whereEqualTo("fecha", fecha)
+                        .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                            @Override
+                            public void onEvent(@Nullable QuerySnapshot snapshots,
+                                                @Nullable FirebaseFirestoreException e) {
+                                if (e != null) {
+                                    System.out.println("Listen failed. " + e);
+                                    return;
+                                }
+                                List<DocumentSnapshot> docs = snapshots.getDocuments();
+                                List<List> reservas = new ArrayList<List>();
+                                for (DocumentSnapshot a : docs) {
+                                    List r =new ArrayList<String>();
+                                    if(checks.comprobarReservaActual(a.getString("fecha"))) {
+                                        r.add(a.getString("hora"));
+                                        r.add(a.getString("nombre"));
+                                        r.add(a.getString("fecha").toString());
+                                        r.add(a.getString("telefono"));
+                                        r.add(Integer.parseInt(a.getString("numeroPersonas")));
+                                        reservas.add(r);
+                                    }
+                                }
+                                rellenarTabla(reservas, telefono.getText().toString());
+                            }
+                        });
             }
         }));
+
+
     }
 
     //TODO este método No debería estar aquí pero lo pongo mientras no tenemos BBDD (:
-    private void rellenarTabla(LocalDate fecha, String hora){
-        tabla = (TableLayout)findViewById(R.id.tablaAdmDelRev);
-        List<Reserva> lista = new ArrayList();
-        Reserva r1 = new Reserva("Pablo Suarez", "13:00", "9/11/2020", "676452158");
-        Reserva r2 = new Reserva("Pedro Lopez", "14:00", "9/11/2020", "676454155");
-        Reserva r3 = new Reserva("Juan García", "21:00", "9/11/2020", "618452151");
-        Reserva r4 = new Reserva("Luis Brasas", "22:00", "9/11/2020", "677499157");
-
-        lista.add(r1);
-        lista.add(r2);
-        lista.add(r3);
-        lista.add(r4);
-
-        for(int i = 0; i<lista.size(); i++){
+    private void rellenarTabla(List<List> lista, String telefono){
+        TableLayout tabla;
+        int fila, colu = 1;
+        tabla = (TableLayout) findViewById(R.id.tablaAdmDelRev);
+        for (int i = 0; i < lista.size(); i++) {
             TableRow f = new TableRow(this);
-            f.setId(i+100);
+            f.setId(i + 100);
 
             TextView col1 = new TextView(this);
-            col1.setId(200+i);
-            col1.setText(lista.get(i).getNombreUsuario() + "  ");
+            col1.setId(200 + i);
+            col1.setText(lista.get(i).get(0) + "  ");
 
 
             TextView col2 = new TextView(this);
-            col2.setId(300+i);
-            col2.setText(lista.get(i).getHora() + "  ");
+            col2.setId(300 + i);
+            col2.setText(lista.get(i).get(1) + "  ");
 
             TextView col3 = new TextView(this);
-            col3.setId(400+i);
-            col3.setText(lista.get(i).getFecha() + "  ");
+            col3.setId(400 + i);
+            col3.setText(lista.get(i).get(2) + "  ");
 
-            TextView col4 = new TextView(this);
-            col4.setId(500+i);
-            col4.setText(lista.get(i).getTelef() + "  ");
-
-            Button button = new Button(this);
-            button.setId(600+i);
-            button.setText("Borrar");
+            Button col4 = new Button(this);
+            col4.setId(600 + i);
+            col4.setText("Eliminar");
+            col4.setOnClickListener((v -> {
+                FirebaseFirestore.getInstance().collection("reservas")
+                        .whereEqualTo("telefono", telefono).whereEqualTo("hora", col1.getText().toString())
+                        .whereEqualTo("fecha", col3.getText().toString())
+                        .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                            @Override
+                            public void onEvent(@Nullable QuerySnapshot snapshots,
+                                                @Nullable FirebaseFirestoreException e) {
+                                if (e != null) {
+                                    System.out.println("Listen failed. " + e);
+                                    return;
+                                }
+                                //TODO: la lista de documentos sale vacía y debería encontrar mínimo 1
+                                List<DocumentSnapshot> docs = snapshots.getDocuments();
+                                for (DocumentSnapshot a : docs) {
+                                    DocumentReference df = a.getReference();
+                                    System.out.println("ID: " + a.getId() + "Reference: " + df);
+                                    FirebaseFirestore.getInstance().collection("reservas").document(a.getId()).delete();
+                                }
+                                //actualizarTabla(lista, telefono);
+                            }
+                        });
+            }));
 
             f.addView(col1);
             f.addView(col2);
             f.addView(col3);
             f.addView(col4);
-            f.addView(button);
+
             tabla.addView(f);
             colu = colu + 4;
         }
 
+    }
+
+    private void vaciarTabla(){
+        TableLayout tabla = (TableLayout) findViewById(R.id.tablaAdmDelRev);
+        //TODO: Hacer que se quede la primera fila
+        tabla.removeAllViews();
+
+    }
+
+    private void actualizarTabla(List<List> lista, String telefono){
+        vaciarTabla();
+        rellenarTabla(lista, telefono);
     }
 }
