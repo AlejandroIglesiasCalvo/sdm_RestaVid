@@ -28,7 +28,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReservarLogueado extends BaseActivity {
+public class UserReservarLogueado extends BaseActivity {
     private FireBase fb;
     private String fechaseleccionada;
 

@@ -7,7 +7,7 @@ import android.widget.Button;
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.pantallas.admin.MainActivityAdmin;
-import com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLoggeado;
+import com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLogueado;
 
 public class FinalizarPedido extends BaseActivity {
 
@@ -32,7 +32,7 @@ public class FinalizarPedido extends BaseActivity {
                     cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
                 }
                 else {
-                    cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class, correo, horaInicio, horaFin, maxPersonas);
+                    cambiarDeClase.MoverA(v.getContext(), MainMenuLogueado.class, correo, horaInicio, horaFin, maxPersonas);
                 }
             }
         }));

@@ -1,31 +1,23 @@
 package com.HUMMMM.yopido.pantallas.loguedUser;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.pantallas.BaseActivity;
-import com.HUMMMM.yopido.pantallas.MainReservaDirecta;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
-import org.w3c.dom.Document;
 
 import java.util.List;
 
-public class MainMenuLoggeado extends BaseActivity {
+public class MainMenuLogueado extends BaseActivity {
     String telefono;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +55,7 @@ public class MainMenuLoggeado extends BaseActivity {
             @Override
             public void onClick(View v) {
                 // Click para ir a pantalla de ver reservas
-                cambiarDeClase.MoverA(v.getContext(), UserViewReserva.class, correo, telefono);
+                cambiarDeClase.MoverA(v.getContext(), UserVerReservas.class, correo, telefono);
             }
         }));
     }
@@ -87,7 +79,7 @@ public class MainMenuLoggeado extends BaseActivity {
                             telefono=a.getString("telefono");
                         }
                         System.out.println("TELEFONO  "+ telefono);
-                        cambiarDeClase.MoverA(v.getContext(), ReservarLogueado.class, correo, telefono, horaInicio, horaFin, maxReservas);
+                        cambiarDeClase.MoverA(v.getContext(), UserReservarLogueado.class, correo, telefono, horaInicio, horaFin, maxReservas);
                     }
                 });
     }

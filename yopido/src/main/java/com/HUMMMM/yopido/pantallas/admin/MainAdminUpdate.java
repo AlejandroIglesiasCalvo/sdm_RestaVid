@@ -26,7 +26,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.List;
 
-public class MainAdminModificar extends AppCompatActivity {
+public class MainAdminUpdate extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

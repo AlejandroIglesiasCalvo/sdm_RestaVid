@@ -11,7 +11,7 @@ import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.datos.FireBase;
-import com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLoggeado;
+import com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLogueado;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
@@ -55,7 +55,7 @@ public class MainRegistro extends BaseActivity {
                                 if (task.isSuccessful()) {
                                     fb.guardardatos(correo, pass, nombre, telefono);
 
-                                    cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class, correo.getText().toString(), horaInicio, horaFin, maxPersonas);
+                                    cambiarDeClase.MoverA(v.getContext(), MainMenuLogueado.class, correo.getText().toString(), horaInicio, horaFin, maxPersonas);
                                 } else {
                                     System.out.println("NO VA");
                                     Snackbar.make(findViewById(R.id.buttonRegistroAceptar), R.string.error_registro, Snackbar.LENGTH_SHORT).show();

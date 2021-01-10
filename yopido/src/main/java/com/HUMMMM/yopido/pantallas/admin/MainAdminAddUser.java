@@ -1,19 +1,16 @@
 package com.HUMMMM.yopido.pantallas.admin;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.datos.FireBase;
 import com.HUMMMM.yopido.pantallas.BaseActivity;
-import com.HUMMMM.yopido.pantallas.loguedUser.MainMenuLoggeado;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;

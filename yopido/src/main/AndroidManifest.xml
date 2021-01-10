@@ -27,10 +27,10 @@
         <activity android:name=".pantallas.admin.MainAdminDeleteReserva" />
         <activity android:name=".pantallas.admin.MainAdminDeleteUser" />
         <activity android:name=".pantallas.admin.MainAdminAddUser" />
-        <activity android:name=".pantallas.admin.MainAdminModificar" />
-        <activity android:name=".pantallas.loguedUser.MainMenuLoggeado" />
-        <activity android:name=".pantallas.loguedUser.ReservarLogueado" />
-        <activity android:name=".pantallas.loguedUser.UserViewReserva" />
+        <activity android:name=".pantallas.admin.MainAdminUpdate" />
+        <activity android:name=".pantallas.loguedUser.MainMenuLogueado" />
+        <activity android:name=".pantallas.loguedUser.UserReservarLogueado" />
+        <activity android:name=".pantallas.loguedUser.UserVerReservas" />
         <activity android:name=".pantallas.loguedUser.UserDeleteReserva" />
         <activity android:name=".pantallas.MainIniciarSesion" />
         <activity android:name=".pantallas.MainRegistro" />

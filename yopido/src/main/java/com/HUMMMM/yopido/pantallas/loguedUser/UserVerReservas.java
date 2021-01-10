@@ -21,7 +21,7 @@ import com.google.type.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserViewReserva extends BaseActivity {
+public class UserVerReservas extends BaseActivity {
 
 
     @Override
