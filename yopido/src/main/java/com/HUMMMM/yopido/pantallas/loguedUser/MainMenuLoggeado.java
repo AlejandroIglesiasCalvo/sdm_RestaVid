@@ -52,7 +52,7 @@ public class MainMenuLoggeado extends BaseActivity {
             @Override
             public void onClick(View v) {
                 // Click para ir a pantalla de anular reservas
-                cambiarDeClase.MoverA(v.getContext(), UserDeleteReserva.class);
+                cambiarDeClase.MoverA(v.getContext(), UserDeleteReserva.class, telefono);
             }
         }));
 

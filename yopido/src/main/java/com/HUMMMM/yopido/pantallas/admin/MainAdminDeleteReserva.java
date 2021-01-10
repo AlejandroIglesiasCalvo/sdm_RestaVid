@@ -86,7 +86,9 @@ public class MainAdminDeleteReserva extends BaseActivity {
         TableLayout tabla;
         int fila, colu = 1;
         tabla = (TableLayout) findViewById(R.id.tablaAdmDelRev);
-
+        if (lista.size() == 0) {
+            tabla.removeAllViews();
+        }
         for (int i = 0; i < lista.size(); i++) {
             TableRow f = new TableRow(this);
             f.setId(i + 100);
