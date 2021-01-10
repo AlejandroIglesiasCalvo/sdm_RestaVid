@@ -1,11 +1,7 @@
 package com.HUMMMM.yopido.pantallas.admin;
 
-import android.annotation.SuppressLint;
-import android.icu.util.LocaleData;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
@@ -13,16 +9,11 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.control.checks;
-import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
-import com.HUMMMM.yopido.modelo.Reserva;
 import com.HUMMMM.yopido.pantallas.BaseActivity;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -30,7 +21,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +42,7 @@ public class MainAdminDeleteReserva extends BaseActivity {
         CalendarView calendar = (CalendarView) findViewById(R.id.calendarioAdminEliminarReserva);
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                fecha = dayOfMonth + "/" + (month+1) + "/" + year + "";
+                fecha = dayOfMonth + "/" + (month + 1) + "/" + year + "";
             }
         });
 
@@ -61,7 +51,6 @@ public class MainAdminDeleteReserva extends BaseActivity {
             @Override
             public void onClick(View v) {
                 //Vaciamos la tabla
-                vaciarTabla();
                 FirebaseFirestore.getInstance().collection("reservas")
                         .whereEqualTo("telefono", telefono.getText().toString()).whereEqualTo("fecha", fecha)
                         .addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -75,8 +64,8 @@ public class MainAdminDeleteReserva extends BaseActivity {
                                 List<DocumentSnapshot> docs = snapshots.getDocuments();
                                 List<List> reservas = new ArrayList<List>();
                                 for (DocumentSnapshot a : docs) {
-                                    List r =new ArrayList<String>();
-                                    if(checks.comprobarReservaActual(a.getString("fecha"))) {
+                                    List r = new ArrayList<String>();
+                                    if (checks.comprobarReservaActual(a.getString("fecha"))) {
                                         r.add(a.getString("hora"));
                                         r.add(a.getString("nombre"));
                                         r.add(a.getString("fecha").toString());
@@ -90,33 +79,32 @@ public class MainAdminDeleteReserva extends BaseActivity {
                         });
             }
         }));
-
-
     }
 
     //TODO este método No debería estar aquí pero lo pongo mientras no tenemos BBDD (:
-    private void rellenarTabla(List<List> lista, String telefono){
+    private void rellenarTabla(List<List> lista, String telefono) {
         TableLayout tabla;
         int fila, colu = 1;
         tabla = (TableLayout) findViewById(R.id.tablaAdmDelRev);
+
         for (int i = 0; i < lista.size(); i++) {
             TableRow f = new TableRow(this);
             f.setId(i + 100);
 
             TextView col1 = new TextView(this);
             col1.setId(200 + i);
-            String hora=lista.get(i).get(0).toString();
-            col1.setText(lista.get(i).get(0) + "  ");
+            String hora = lista.get(i).get(0).toString();
+            col1.setText(lista.get(i).get(0) + "        ");
 
 
             TextView col2 = new TextView(this);
             col2.setId(300 + i);
-            col2.setText(lista.get(i).get(1) + " ");
+            col2.setText(lista.get(i).get(1) + "     ");
 
             TextView col3 = new TextView(this);
             col3.setId(400 + i);
-            String fecha=lista.get(i).get(2).toString();
-            col3.setText(lista.get(i).get(2) + "  ");
+            String fecha = lista.get(i).get(2).toString();
+            col3.setText(lista.get(i).get(2) + "    ");
 
             Button col4 = new Button(this);
             col4.setId(600 + i);
@@ -135,13 +123,14 @@ public class MainAdminDeleteReserva extends BaseActivity {
                                 }
                                 //TODO: la lista de documentos sale vacía y debería encontrar mínimo 1
                                 List<DocumentSnapshot> docs = snapshots.getDocuments();
-                                System.out.println(telefono+ col1.getText().toString()+ col3.getText().toString());
+                                System.out.println(telefono + col1.getText().toString() + col3.getText().toString());
                                 for (DocumentSnapshot a : docs) {
                                     DocumentReference df = a.getReference();
                                     System.out.println("ID: " + a.getId() + "Reference: " + df);
                                     FirebaseFirestore.getInstance().collection("reservas").document(a.getId()).delete();
                                 }
-                                //actualizarTabla(lista, telefono);
+                                TableLayout tabla = (TableLayout) findViewById(R.id.tablaAdmDelRev);
+                                tabla.removeAllViews();
                             }
                         });
             }));
@@ -155,17 +144,5 @@ public class MainAdminDeleteReserva extends BaseActivity {
             colu = colu + 4;
         }
 
-    }
-
-    private void vaciarTabla(){
-        TableLayout tabla = (TableLayout) findViewById(R.id.tablaAdmDelRev);
-        //TODO: Hacer que se quede la primera fila
-        tabla.removeAllViews();
-
-    }
-
-    private void actualizarTabla(List<List> lista, String telefono){
-        vaciarTabla();
-        rellenarTabla(lista, telefono);
     }
 }
