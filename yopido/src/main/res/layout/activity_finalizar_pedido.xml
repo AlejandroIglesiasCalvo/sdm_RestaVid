@@ -24,10 +24,12 @@
             android:layout_marginStart="10dp"
             android:text="@string/Gracias"
             android:textAlignment="center"
+            android:textColor="@color/teal_700"
             android:textSize="60sp" />
 
         <Button
             android:id="@+id/btnBuscar"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"

@@ -25,6 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/FechaCalendario"
+                android:textColor="@color/teal_700"
                 android:textSize="24sp" />
 
             <CalendarView
@@ -35,6 +36,7 @@
 
             <Button
                 android:id="@+id/btnBuscar"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/btnBuscar" />

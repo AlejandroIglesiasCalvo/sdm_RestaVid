@@ -25,6 +25,7 @@
 
             <Button
                 android:id="@+id/btnAñadirUsuarios"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:layout_marginTop="40dp"
@@ -35,6 +36,7 @@
 
             <Button
                 android:id="@+id/btnEliminarUsuarios"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:layout_marginTop="10dp"
@@ -45,6 +47,7 @@
 
             <Button
                 android:id="@+id/btnAñadirReservas"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:layout_marginTop="40dp"
@@ -56,6 +59,7 @@
 
             <Button
                 android:id="@+id/btnEliminarReservas"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:layout_marginTop="10dp"
@@ -67,6 +71,7 @@
 
             <Button
                 android:id="@+id/btnModificar"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:layout_marginTop="40dp"

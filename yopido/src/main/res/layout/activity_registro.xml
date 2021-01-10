@@ -29,6 +29,7 @@
             android:layout_height="35dp"
             android:text="@string/registroUsuario"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/teal_700"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.052"
@@ -156,10 +157,12 @@
             android:id="@+id/checkBoxDatos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Politica de proteccion de datos" />
+            android:text="Politica de proteccion de datos"
+            android:textColor="@color/design_default_color_error" />
 
         <Button
             android:id="@+id/buttonRegistroAceptar"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

@@ -8,10 +8,12 @@
 
     <Button
         android:id="@+id/btnAnularReserva"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="310dp"
         android:layout_height="107dp"
         android:layout_marginTop="36dp"
         android:text="@string/AnularReserva"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,10 +21,12 @@
 
     <Button
         android:id="@+id/btnVerReservas"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="310dp"
         android:layout_height="107dp"
         android:layout_marginTop="68dp"
         android:text="@string/VerRservas"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,10 +34,12 @@
 
     <Button
         android:id="@+id/btnReservar"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="310dp"
         android:layout_height="107dp"
         android:layout_marginTop="44dp"
         android:text="@string/Reservar"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
