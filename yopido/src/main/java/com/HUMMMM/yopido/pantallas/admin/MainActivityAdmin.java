@@ -65,7 +65,7 @@ public class MainActivityAdmin extends BaseActivity {
             @Override
             public void onClick(View v) {
                 // Ir a pantalla para eliminar reservas
-                cambiarDeClase.MoverA(v.getContext(), MainAdminModificar.class);
+                cambiarDeClase.MoverA(v.getContext(), MainAdminModificar.class, correo, horaInicio, horaFin, maxPersonas);
             }
         }));
 

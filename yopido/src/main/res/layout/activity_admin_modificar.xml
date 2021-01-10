@@ -96,11 +96,10 @@
                 android:autofillHints="" />
 
             <Button
-                android:id="@+id/button_Modificar_Admin"
+                android:id="@+id/btnModificarAdmon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/btnAceptar" />
+                android:text="Modificar" />
 
         </LinearLayout>
     </ScrollView>

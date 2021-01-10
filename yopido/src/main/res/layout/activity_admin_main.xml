@@ -8,56 +8,74 @@
     tools:context=".pantallas.admin.MainActivityAdmin">
 
 
-    <Button
-        android:id="@+id/btnEliminarUsuarios"
-        android:layout_width="303dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/EliminarUsuarios"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAñadirUsuarios" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/btnAñadirReservas"
-        android:layout_width="306dp"
-        android:layout_height="69dp"
-        android:layout_marginTop="72dp"
-        android:text="@string/AñadirReserva"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnEliminarReservas"
-        android:layout_width="302dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/EliminarReserva"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAñadirReservas" />
+            <Button
+                android:id="@+id/btnAñadirUsuarios"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginTop="40dp"
+                android:text="@string/AñadirUsuarios"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnEliminarReservas" />
 
-    <Button
-        android:id="@+id/btnAñadirUsuarios"
-        android:layout_width="303dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="40dp"
-        android:text="@string/AñadirUsuarios"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEliminarReservas" />
+            <Button
+                android:id="@+id/btnEliminarUsuarios"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/EliminarUsuarios"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnAñadirUsuarios" />
 
-    <Button
-        android:id="@+id/btnModificar"
-        android:layout_width="301dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="48dp"
-        android:text="Modificar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEliminarUsuarios" />
+            <Button
+                android:id="@+id/btnAñadirReservas"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginTop="40dp"
+                android:text="@string/AñadirReserva"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnEliminarReservas"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/EliminarReserva"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnAñadirReservas" />
+
+            <Button
+                android:id="@+id/btnModificar"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginTop="40dp"
+                android:text="Modificar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnEliminarUsuarios" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

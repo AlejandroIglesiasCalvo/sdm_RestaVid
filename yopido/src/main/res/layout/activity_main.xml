@@ -12,7 +12,7 @@
         android:id="@+id/btnPideYa"
         android:layout_width="310dp"
         android:layout_height="107dp"
-        android:layout_marginTop="144dp"
+        android:layout_marginTop="68dp"
         android:text="@string/PideYa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
