@@ -35,4 +35,31 @@ public class cambiarDeClase extends AppCompatActivity {
         mContext.startActivity(intent);
     }
 
+    public static void MoverA(Context mContext, Class clase, String correo, String telefono, String h1) {
+        Intent intent = new Intent(mContext, clase);
+        intent.putExtra("correo",correo);
+        intent.putExtra("telefono",telefono);
+        intent.putExtra("h1",h1);
+        mContext.startActivity(intent);
+    }
+
+    public static void MoverA(Context mContext, Class clase, String correo, String telefono, String h1, String h2) {
+        Intent intent = new Intent(mContext, clase);
+        intent.putExtra("correo",correo);
+        intent.putExtra("telefono",telefono);
+        intent.putExtra("h1", h1);
+        intent.putExtra("h2", h2);
+        mContext.startActivity(intent);
+    }
+
+    public static void MoverA(Context mContext, Class clase, String correo, String telefono, String h1, String h2, String mxp) {
+        Intent intent = new Intent(mContext, clase);
+        intent.putExtra("correo",correo);
+        intent.putExtra("telefono",telefono);
+        intent.putExtra("h1", h1);
+        intent.putExtra("h2", h2);
+        intent.putExtra("mxp", mxp);
+        mContext.startActivity(intent);
+    }
+
 }

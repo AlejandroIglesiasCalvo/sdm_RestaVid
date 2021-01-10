@@ -3,10 +3,12 @@ package com.HUMMMM.yopido.pantallas.admin;
 import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 
 import androidx.annotation.Nullable;
 
@@ -35,12 +37,19 @@ public class MainAdminAddReserva extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_add_reserva);
 
+        String horaInicio = getIntent().getStringExtra("correo");
+        String horaFin = getIntent().getStringExtra("telefono");
+        String maxPersonas = getIntent().getStringExtra("h1");
+
+
         EditText nombre = (EditText) findViewById(R.id.editTextTextNombre);
         EditText telefono = (EditText) findViewById(R.id.editTextPhone);
         CalendarView calendar = (CalendarView) findViewById(R.id.calendarReserva);
         Button btnAddReserva = (Button) findViewById(R.id.button_Aceptar_Reserva_Admin);
         Spinner spnPersonas= (Spinner) findViewById(R.id.spPersonas);
+        checks.llenarSpinnerMaxPersonas(spnPersonas, maxPersonas, this);
         Spinner spnHoras= (Spinner) findViewById(R.id.spHora);
+        checks.llenarSpinnerHoras(spnHoras, horaInicio, horaFin, this);
 
 
         inicializarFechaDefecto();
@@ -76,7 +85,7 @@ public class MainAdminAddReserva extends BaseActivity {
                                 if (checks.camposRellenos(nombre, telefono)) {
                                     if (comprobarFechaCalendario(fechaseleccionada)) {
                                         fb.guardarReserva("SINCORREO@SINCORREO.COM", nombre, telefono.getText().toString(), spnPersonas, fechaseleccionada, spnHoras);
-                                        cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class, "admin@restavid.es");
+                                        cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class, "admin@restavid.es", horaInicio, horaFin, maxPersonas);
                                     } else
                                         Snackbar.make(findViewById(R.id.button_Aceptar_Reserva_Admin), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
                                 } else {
@@ -130,4 +139,7 @@ public class MainAdminAddReserva extends BaseActivity {
         }
         return true;
     }
+
+
+
 }

@@ -18,7 +18,9 @@ public class MainActivityAdmin extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_main);
         String correo = getIntent().getStringExtra("correo");
-        String telefono = getIntent().getStringExtra("telefono");
+        String horaInicio = getIntent().getStringExtra("telefono");
+        String horaFin = getIntent().getStringExtra("h1");
+        String maxPersonas = getIntent().getStringExtra("h2");
 
 
         Button btnAddUsuario = (Button) findViewById(R.id.btnAñadirUsuarios);
@@ -47,7 +49,7 @@ public class MainActivityAdmin extends BaseActivity {
             @Override
             public void onClick(View v) {
                 // Ir a pantalla para añadir reservas
-                cambiarDeClase.MoverA(v.getContext(), MainAdminAddReserva.class);
+                cambiarDeClase.MoverA(v.getContext(), MainAdminAddReserva.class, horaInicio, horaFin, maxPersonas);
             }
         }));
 

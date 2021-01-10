@@ -45,14 +45,50 @@ public class MainActivity extends BaseActivity {
         btnEntar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cambiarDeClase.MoverA(v.getContext(), MainIniciarSesion.class);
+                FirebaseFirestore.getInstance().collection("horas")
+                        .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                            @Override
+                            public void onEvent(@Nullable QuerySnapshot snapshots,
+                                                @Nullable FirebaseFirestoreException e) {
+                                if (e != null) {
+                                    System.out.println("Listen failed. " + e);
+                                    return;
+                                }
+                                List<DocumentSnapshot> docs = snapshots.getDocuments();
+                                for (DocumentSnapshot a : docs) {
+                                    String horaInicio=a.getString("horaInicio");
+                                    String horaFin=a.getString("horaFin");
+                                    String maxPersonas=a.getString("numeroMaxPersonas");
+                                    cambiarDeClase.MoverA(v.getContext(), MainIniciarSesion.class, horaInicio, horaFin, maxPersonas);
+                                }
+                            }
+                        });
             }
         }));
+
+
         btnRegistro = (Button) findViewById(R.id.btnRegistro);
         btnRegistro.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cambiarDeClase.MoverA(v.getContext(), MainRegistro.class);
+                FirebaseFirestore.getInstance().collection("horas")
+                        .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                            @Override
+                            public void onEvent(@Nullable QuerySnapshot snapshots,
+                                                @Nullable FirebaseFirestoreException e) {
+                                if (e != null) {
+                                    System.out.println("Listen failed. " + e);
+                                    return;
+                                }
+                                List<DocumentSnapshot> docs = snapshots.getDocuments();
+                                for (DocumentSnapshot a : docs) {
+                                    String horaInicio=a.getString("horaInicio");
+                                    String horaFin=a.getString("horaFin");
+                                    String maxPersonas=a.getString("numeroMaxPersonas");
+                                    cambiarDeClase.MoverA(v.getContext(), MainRegistro.class, horaInicio, horaFin, maxPersonas);
+                                }
+                            }
+                        });
             }
         }));
 
@@ -73,8 +109,8 @@ public class MainActivity extends BaseActivity {
                                 for (DocumentSnapshot a : docs) {
                                     String horaInicio=a.getString("horaInicio");
                                     String horaFin=a.getString("horaFin");
-                                    System.out.println(horaInicio + horaFin + "----------------------------------------------------------------------------------------------------------");
-                                    cambiarDeClase.MoverA(v.getContext(), MainReservaDirecta.class, horaInicio, horaFin);
+                                    String maxPersonas=a.getString("numeroMaxPersonas");
+                                    cambiarDeClase.MoverA(v.getContext(), MainReservaDirecta.class, horaInicio, horaFin, maxPersonas);
                                 }
                             }
                         });

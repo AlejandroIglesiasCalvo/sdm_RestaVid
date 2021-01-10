@@ -31,11 +31,13 @@ public class MainIniciarSesion extends BaseActivity {
         bundle.putString("InciarSesion", "Iniciar sesion");
         fa.logEvent("InciarSesion", bundle);
 
-        Button btnIniciarSesionAceptar;
+        String horaInicio = getIntent().getStringExtra("correo");
+        String horaFin = getIntent().getStringExtra("telefono");
+        String maxPersonas = getIntent().getStringExtra("h1");
 
         final EditText correo = (EditText) findViewById(R.id.editTextCorreo);
         final EditText contraseña = findViewById(R.id.editTextTextPassword);
-        btnIniciarSesionAceptar = (Button) findViewById(R.id.buttonIniciarSesionAceptar);
+        Button btnIniciarSesionAceptar = (Button) findViewById(R.id.buttonIniciarSesionAceptar);
 
         btnIniciarSesionAceptar.setOnClickListener(((v) -> {
             if (checks.camposRellenos(correo, contraseña)) {
@@ -47,9 +49,9 @@ public class MainIniciarSesion extends BaseActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     if (correo.getText().toString().equals("admin@restavid.es")) {
-                                        cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class, correo.getText().toString());
+                                        cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class, correo.getText().toString(), horaInicio, horaFin, maxPersonas);
                                     } else {
-                                        cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class, correo.getText().toString());
+                                        cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class, correo.getText().toString(), horaInicio, horaFin, maxPersonas);
                                     }
                                 } else {
                                     System.out.println("NO VA");

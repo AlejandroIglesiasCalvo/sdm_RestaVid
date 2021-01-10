@@ -1,4 +1,4 @@
-package com.HUMMMM.yopido.pantallas;
+ package com.HUMMMM.yopido.pantallas;
 
 import android.icu.util.Calendar;
 import android.os.Bundle;
@@ -34,18 +34,21 @@ public class MainReservaDirecta extends BaseActivity {
         super.onCreate(savedInstanceState);
         String horaInicio = getIntent().getStringExtra("correo");
         String horaFin = getIntent().getStringExtra("telefono");
+        String maxPersonas = getIntent().getStringExtra("h1");
         //Rellenamos el spinner con el rango de horas proporcionado por la BDD
 
 
         setContentView(R.layout.activity_reserva_directa);
+        Spinner spnPersonas = (Spinner) findViewById(R.id.spPersonas);
+        checks.llenarSpinnerMaxPersonas(spnPersonas, maxPersonas, this);
         Spinner spnHoras = (Spinner) findViewById(R.id.spHora);
-        llenarSpinner(spnHoras, horaInicio, horaFin);
+        checks.llenarSpinnerHoras(spnHoras, horaInicio, horaFin, this);
 
         EditText nombre = (EditText) findViewById(R.id.editTextTextNombre);
         EditText telefono = (EditText) findViewById(R.id.editTextPhone);
         Button btnReservar = (Button) findViewById(R.id.btnAceptar);
         CalendarView calendar = (CalendarView) findViewById(R.id.calendarReserva);
-        Spinner spnPersonas = (Spinner) findViewById(R.id.spPersonas);
+
 
 
 
@@ -148,8 +151,6 @@ public class MainReservaDirecta extends BaseActivity {
             horario.add(String.valueOf(i) + ":00");
         }
         SpinnerAdapter comboAdapterSql = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, horario);
-        for(int i = 0; i<horario.size(); i++){
-        }
         sp.setAdapter(comboAdapterSql);
 
 

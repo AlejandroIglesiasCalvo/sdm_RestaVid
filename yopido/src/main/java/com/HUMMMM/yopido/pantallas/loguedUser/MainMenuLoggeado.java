@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.pantallas.BaseActivity;
+import com.HUMMMM.yopido.pantallas.MainReservaDirecta;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -34,14 +35,18 @@ public class MainMenuLoggeado extends BaseActivity {
         Button btnAnularReserva;
         Button btnVerMisReservas;
         String correo = getIntent().getStringExtra("correo");
-        telefono = getIntent().getStringExtra("telefono");
+        String horaInicio = getIntent().getStringExtra("telefono");
+        String horaFin = getIntent().getStringExtra("h1");
+        String maxPersonas = getIntent().getStringExtra("h2");
+
         btnReservar = (Button) findViewById(R.id.btnReservar);
         btnReservar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getTelefono(correo,v);
+                getTelefono(correo,v, horaInicio, horaFin, maxPersonas);
             }
         }));
+
         btnAnularReserva = (Button) findViewById(R.id.btnAnularReserva);
         btnAnularReserva.setOnClickListener((new View.OnClickListener() {
             @Override
@@ -50,6 +55,7 @@ public class MainMenuLoggeado extends BaseActivity {
                 cambiarDeClase.MoverA(v.getContext(), UserDeleteReserva.class);
             }
         }));
+
         btnVerMisReservas = (Button) findViewById(R.id.btnVerReservas);
         btnVerMisReservas.setOnClickListener((new View.OnClickListener() {
             @Override
@@ -60,7 +66,7 @@ public class MainMenuLoggeado extends BaseActivity {
         }));
     }
 
-    public void getTelefono(String correo,View v) {
+    public void getTelefono(String correo,View v, String horaInicio, String horaFin, String maxReservas) {
         // [START get_all_users]
         FirebaseFirestore.getInstance().collection("usuarios")
                 .whereEqualTo("correo",correo)
@@ -79,9 +85,8 @@ public class MainMenuLoggeado extends BaseActivity {
                             telefono=a.getString("telefono");
                         }
                         System.out.println("TELEFONO  "+ telefono);
-                        cambiarDeClase.MoverA(v.getContext(), ReservarLogueado.class, correo, telefono);
+                        cambiarDeClase.MoverA(v.getContext(), ReservarLogueado.class, correo, telefono, horaInicio, horaFin, maxReservas);
                     }
                 });
-        // [END get_all_users]
     }
 }

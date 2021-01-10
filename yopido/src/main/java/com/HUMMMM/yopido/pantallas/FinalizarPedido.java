@@ -16,6 +16,9 @@ public class FinalizarPedido extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finalizar_pedido);
         String correo = getIntent().getStringExtra("correo");
+        String horaInicio = getIntent().getStringExtra("telefono");
+        String horaFin = getIntent().getStringExtra("h1");
+        String maxPersonas = getIntent().getStringExtra("h2");
         Button btnAceptar;
 
         btnAceptar = (Button) findViewById(R.id.btnBuscar);
@@ -29,7 +32,7 @@ public class FinalizarPedido extends BaseActivity {
                     cambiarDeClase.MoverA(v.getContext(), MainActivityAdmin.class);
                 }
                 else {
-                    cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class, correo);
+                    cambiarDeClase.MoverA(v.getContext(), MainMenuLoggeado.class, correo, horaInicio, horaFin, maxPersonas);
                 }
             }
         }));

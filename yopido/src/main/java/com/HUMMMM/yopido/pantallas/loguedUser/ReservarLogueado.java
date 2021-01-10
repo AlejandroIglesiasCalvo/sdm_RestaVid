@@ -2,10 +2,12 @@ package com.HUMMMM.yopido.pantallas.loguedUser;
 
 import android.icu.util.Calendar;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 
 import androidx.annotation.Nullable;
 
@@ -37,6 +39,9 @@ public class ReservarLogueado extends BaseActivity {
         setContentView(R.layout.activity_reservar_logueado);
         String correo = getIntent().getStringExtra("correo");
         String telefono = getIntent().getStringExtra("telefono");
+        String horaInicio = getIntent().getStringExtra("h1");
+        String horaFin = getIntent().getStringExtra("h2");
+        String maxPersonas = getIntent().getStringExtra("mxp");
         //Analytics
         FirebaseAnalytics fa = FirebaseAnalytics.getInstance(this);
         Bundle bundle = new Bundle();
@@ -49,7 +54,9 @@ public class ReservarLogueado extends BaseActivity {
         EditText nombre = findViewById(R.id.editTextTextNombre);
         btnAceptar = (Button) findViewById(R.id.buttonAceptar);
         Spinner spnPersonas = (Spinner) findViewById(R.id.spPersonas);
+        checks.llenarSpinnerMaxPersonas(spnPersonas, maxPersonas, this);
         Spinner spnHoras = (Spinner) findViewById(R.id.spHora);
+        checks.llenarSpinnerHoras(spnHoras, horaInicio, horaFin, this);
         CalendarView calendar = (CalendarView) findViewById(R.id.calendarReserva);
 
         inicializarFechaDefecto();
@@ -85,7 +92,7 @@ public class ReservarLogueado extends BaseActivity {
                                 if (checks.camposRellenos(nombre)) {
                                     if (comprobarFechaCalendario(fechaseleccionada)) {
                                         fb.guardarReserva(correo, nombre, telefono, spnPersonas, fechaseleccionada, spnHoras);
-                                        cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class);
+                                        cambiarDeClase.MoverA(v.getContext(), FinalizarPedido.class, correo, horaInicio, horaFin, maxPersonas);
                                     } else
                                         Snackbar.make(findViewById(R.id.buttonAceptar), R.string.error_fecha_calendario, Snackbar.LENGTH_SHORT).show();
                                 } else {
@@ -137,5 +144,7 @@ public class ReservarLogueado extends BaseActivity {
         }
         return true;
     }
+
+
 
 }

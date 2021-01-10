@@ -1,7 +1,11 @@
 package com.HUMMMM.yopido.controlador.control;
 
+import android.content.Context;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import com.HUMMMM.yopido.datos.FireBase;
@@ -10,6 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -116,5 +121,28 @@ public class checks {
             return true;
         else
             return false;
+    }
+
+    public static void llenarSpinnerHoras(Spinner sp, String horaInicio, String horaFin, Context c){
+        String[] inicio = horaInicio.split(":");
+        int hi = Integer.valueOf(inicio[0]);
+        String[] fin = horaFin.split(":");
+        int hf = Integer.valueOf(fin[0]);
+        List<String> horario = new ArrayList<>();
+        for(int i = hi; i<=hf; i++){
+            horario.add(String.valueOf(i) + ":00");
+        }
+        SpinnerAdapter comboAdapterSql = new ArrayAdapter<>(c, android.R.layout.simple_spinner_dropdown_item, horario);
+        sp.setAdapter(comboAdapterSql);
+    }
+
+    public static void llenarSpinnerMaxPersonas(Spinner sp, String maxPersonas, Context c){
+        int mxp = Integer.valueOf(maxPersonas);
+        List<String> personas = new ArrayList<>();
+        for(int i = 1; i <= mxp; i++){
+           personas.add(String.valueOf(i));
+        }
+        SpinnerAdapter comboAdapterSql2 = new ArrayAdapter<>(c, android.R.layout.simple_spinner_dropdown_item, personas);
+        sp.setAdapter(comboAdapterSql2);
     }
 }
