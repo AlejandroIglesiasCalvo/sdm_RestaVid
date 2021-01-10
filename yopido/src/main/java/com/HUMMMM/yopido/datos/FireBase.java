@@ -100,8 +100,6 @@ public class FireBase {
 
                         semaforo = true;
                         setEstado(true);
-
-
                     }
                 });
     }
