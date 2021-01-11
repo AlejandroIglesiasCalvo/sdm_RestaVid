@@ -25,7 +25,7 @@
                 android:id="@+id/loging"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:text="@string/modificar_reservas"
+                android:text="Modificar datos"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/teal_700"
                 app:layout_constraintBottom_toBottomOf="parent"
