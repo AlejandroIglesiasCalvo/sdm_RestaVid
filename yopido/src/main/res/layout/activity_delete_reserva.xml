@@ -85,7 +85,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TableLayout
-                    android:id="@+id/tablaAdmDelRev"
+                    android:id="@+id/tablaDelRev"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent">
 

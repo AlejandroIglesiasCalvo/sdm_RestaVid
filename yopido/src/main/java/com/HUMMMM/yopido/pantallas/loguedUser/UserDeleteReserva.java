@@ -83,7 +83,7 @@ public class UserDeleteReserva extends BaseActivity {
     private void rellenarTabla(List<List> lista, String telefono) {
         TableLayout tabla;
         int fila, colu = 1;
-        tabla = (TableLayout) findViewById(R.id.tablaAdmDelRev);
+        tabla = (TableLayout) findViewById(R.id.tablaDelRev);
         if (lista.size() == 0) {
             tabla.removeAllViews();
         }
@@ -130,7 +130,7 @@ public class UserDeleteReserva extends BaseActivity {
                                     System.out.println("ID: " + a.getId() + "Reference: " + df);
                                     FirebaseFirestore.getInstance().collection("reservas").document(a.getId()).delete();
                                 }
-                                TableLayout tabla = (TableLayout) findViewById(R.id.tablaAdmDelRev);
+                                TableLayout tabla = (TableLayout) findViewById(R.id.tablaDelRev);
                                 tabla.removeAllViews();
                             }
                         });
