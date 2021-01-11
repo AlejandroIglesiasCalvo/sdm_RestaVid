@@ -13,7 +13,6 @@ import androidx.annotation.Nullable;
 import com.HUMMMM.yopido.R;
 import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.pantallas.BaseActivity;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -79,7 +78,7 @@ public class UserDeleteReserva extends BaseActivity {
         }));
     }
 
-    //TODO este método No debería estar aquí pero lo pongo mientras no tenemos BBDD (:
+
     private void rellenarTabla(List<List> lista, String telefono) {
         TableLayout tabla;
         int fila, colu = 1;
@@ -122,12 +121,10 @@ public class UserDeleteReserva extends BaseActivity {
                                     System.out.println("Listen failed. " + e);
                                     return;
                                 }
-                                //TODO: la lista de documentos sale vacía y debería encontrar mínimo 1
                                 List<DocumentSnapshot> docs = snapshots.getDocuments();
                                 System.out.println(telefono + col1.getText().toString() + col3.getText().toString());
-                                for (DocumentSnapshot a : docs) {
-                                    DocumentReference df = a.getReference();
-                                    System.out.println("ID: " + a.getId() + "Reference: " + df);
+                                for (int x = 0; x < 1; x++) {
+                                    DocumentSnapshot a = docs.get(x);
                                     FirebaseFirestore.getInstance().collection("reservas").document(a.getId()).delete();
                                 }
                                 TableLayout tabla = (TableLayout) findViewById(R.id.tablaDelRev);
