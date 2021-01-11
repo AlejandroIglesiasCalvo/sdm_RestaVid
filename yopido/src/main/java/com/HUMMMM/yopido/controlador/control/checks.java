@@ -176,4 +176,14 @@ public class checks {
         }
         return true;
     }
+
+    public static boolean esPositivo(int numero){
+        return (numero >= 0);
+
+    }
+
+    public static void horaCorrecta(String hora){
+        char[] h = hora.toCharArray();
+        if()
+    }
 }

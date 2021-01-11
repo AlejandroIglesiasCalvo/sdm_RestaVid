@@ -11,12 +11,14 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.HUMMMM.yopido.R;
+import com.HUMMMM.yopido.controlador.control.checks;
 import com.HUMMMM.yopido.controlador.navegacion.cambiarDeClase;
 import com.HUMMMM.yopido.datos.FireBase;
 import com.HUMMMM.yopido.pantallas.MainActivity;
 import com.HUMMMM.yopido.pantallas.MainIniciarSesion;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -46,7 +48,8 @@ public class MainAdminUpdate extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DocumentReference horario = FirebaseFirestore.getInstance().collection("horas").document("horario");
-                if (numPersonas.length() != 0 && hI.length() != 0 && hF.length() != 0) {
+                if (numPersonas.length() != 0 && hI.length() != 0 && hF.length() != 0
+                    && checks.esPositivo(Integer.valueOf(numPersonas.getText().toString()))) {
                     // Cambiamos la hora de apertura
                     horario
                             .update("horaInicio", hI.getText().toString())
@@ -94,6 +97,9 @@ public class MainAdminUpdate extends AppCompatActivity {
                             });
                     cambiarDeClase.MoverA(v.getContext(), MainIniciarSesion.class, correo,
                             hI.getText().toString(), hF.getText().toString(), numPersonas.getText().toString());
+                }
+                else{
+                    Snackbar.make(findViewById(R.id.btnModificarAdmon), "Numero de personas u horario incorrecto", Snackbar.LENGTH_SHORT).show();
                 }
             }
         }));
