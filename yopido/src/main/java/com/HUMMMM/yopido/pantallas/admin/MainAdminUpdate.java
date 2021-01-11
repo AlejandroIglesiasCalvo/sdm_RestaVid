@@ -49,7 +49,8 @@ public class MainAdminUpdate extends AppCompatActivity {
             public void onClick(View v) {
                 DocumentReference horario = FirebaseFirestore.getInstance().collection("horas").document("horario");
                 if (numPersonas.length() != 0 && hI.length() != 0 && hF.length() != 0
-                    && checks.esPositivo(Integer.valueOf(numPersonas.getText().toString()))) {
+                    && checks.esPositivo(Integer.valueOf(numPersonas.getText().toString()))
+                        && checks.horaCorrecta(hI.getText().toString()) && checks.horaCorrecta(hF.getText().toString())) {
                     // Cambiamos la hora de apertura
                     horario
                             .update("horaInicio", hI.getText().toString())

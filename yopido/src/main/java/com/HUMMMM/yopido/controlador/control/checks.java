@@ -182,8 +182,24 @@ public class checks {
 
     }
 
-    public static void horaCorrecta(String hora){
-        char[] h = hora.toCharArray();
-        if()
+    public static boolean horaCorrecta(String hora){
+        System.out.println("hora: " + hora + " Contiene: "+ hora.contains(":"));
+        if(hora.length() <= 5 && hora.contains(":")){
+            System.out.println("hora si lo contiene: " );
+            String[] h = hora.split(":");
+            System.out.println("h1 == " + h[1] );
+            if(h[1].equals("00")){
+                System.out.println("retorna trueeeee: " );
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+
+
     }
 }
